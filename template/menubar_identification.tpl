@@ -7,30 +7,32 @@
         <li class="divider"></li>
 	{/if}
     {if isset($U_LOGIN)}
-        <div id="quickconnect">
-            <form class="navbar-form" method="post" action="{$U_LOGIN}">
-                <input class="form-control" type="text" name="username" id="username" value="" placeholder="{'Username'|@translate}">
-                <input class="form-control" type="password" name="password" id="password" placeholder="{'Password'|@translate}">
-                {if $AUTHORIZE_REMEMBERING}
-                <label for="remember_me">
-                    <input type="checkbox" name="remember_me" id="remember_me" value="1"> {'Auto login'|@translate}
-                </label>
-                <br />
-                {/if}
-                <input type="hidden" name="redirect" value="{$smarty.server.REQUEST_URI|@urlencode}">
-                <input class="btn" type="submit" name="login" value="{'Login'|@translate}">
-                <!--
-                <span class="categoryActions">
-            {if isset($U_REGISTER)}
-                    <a href="{$U_REGISTER}" title="{'Create a new account'|@translate}" class="pwg-state-default pwg-button" rel="nofollow">
-                        <span class="pwg-icon pwg-icon-register"> </span>
-                    </a>
-            {/if}
-                    <a href="{$U_LOST_PASSWORD}" title="{'Forgot your password?'|@translate}" class="pwg-state-default pwg-button">
-                        <span class="pwg-icon pwg-icon-lost-password"> </span>
-                    </a>
-                </span>
-                -->
+        <div class="navbar-form-desktop">
+            <form class="navbar-form" method="post" action="{$U_LOGIN}" id="quickconnect">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" id="username" value="" placeholder="{'Username'|@translate}">
+                    <input class="form-control" type="password" name="password" id="password" placeholder="{'Password'|@translate}">
+                    {if $AUTHORIZE_REMEMBERING}
+                    <label for="remember_me">
+                        <input type="checkbox" name="remember_me" id="remember_me" value="1"> {'Auto login'|@translate}
+                    </label>
+                    <br />
+                    {/if}
+                    <input type="hidden" name="redirect" value="{$smarty.server.REQUEST_URI|@urlencode}">
+                    <input class="btn" type="submit" name="login" value="{'Login'|@translate}">
+                    <!--
+                    <span class="categoryActions">
+                    {if isset($U_REGISTER)}
+                        <a href="{$U_REGISTER}" title="{'Create a new account'|@translate}" class="pwg-state-default pwg-button" rel="nofollow">
+                            <span class="pwg-icon pwg-icon-register"> </span>
+                        </a>
+                    {/if}
+                        <a href="{$U_LOST_PASSWORD}" title="{'Forgot your password?'|@translate}" class="pwg-state-default pwg-button">
+                            <span class="pwg-icon pwg-icon-lost-password"> </span>
+                        </a>
+                    </span>
+                    -->
+                </div>
             </form>
             <li class="divider"></li>
         </div>
