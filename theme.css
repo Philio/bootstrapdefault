@@ -8,4 +8,9 @@
   .navbar-form-desktop {
     display: block;
   }
+  .dropdown-menu-scrollable {
+    height: auto;
+    max-height: 50%;
+    overflow-x: hidden;
+  }
 }
