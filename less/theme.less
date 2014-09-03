@@ -1,0 +1,21 @@
+@import "../bootstrap/less/variables.less";
+
+// Dimensions
+@navbar-dropdown-vertical-padding: 3px;
+@navbar-dropdown-horizontal-padding: 20px;
+
+#quickconnect {
+  display: none;
+  form {
+    padding: @navbar-dropdown-vertical-padding @navbar-dropdown-horizontal-padding;
+    .form-control {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media (min-width: @screen-md-min) {
+  #quickconnect {
+    display: block;
+  }
+}

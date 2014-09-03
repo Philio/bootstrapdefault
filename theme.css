@@ -1,0 +1,14 @@
+#quickconnect {
+  display: none;
+}
+#quickconnect form {
+  padding: 3px 20px;
+}
+#quickconnect form .form-control {
+  margin-bottom: 10px;
+}
+@media (min-width: 992px) {
+  #quickconnect {
+    display: block;
+  }
+}
