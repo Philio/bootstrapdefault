@@ -11,6 +11,16 @@
   display: none;
 }
 
+// Make Jumbotron h1 a bit smaller
+.jumbotron {
+  @media screen and (min-width: @screen-sm-min) {
+    h1,
+    .h1 {
+      font-size: (@font-size-base * 3.5);
+    }
+  }
+}
+
 @media (min-width: @screen-md-min) {
   // Display forms on drop down menus when on desktop
   .navbar-form-desktop {

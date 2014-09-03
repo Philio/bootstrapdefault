@@ -4,6 +4,12 @@
 .navbar-form-desktop {
   display: none;
 }
+@media screen and (min-width: 768px) {
+  .jumbotron h1,
+  .jumbotron .h1 {
+    font-size: 49px;
+  }
+}
 @media (min-width: 992px) {
   .navbar-form-desktop {
     display: block;
