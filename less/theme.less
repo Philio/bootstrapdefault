@@ -6,29 +6,35 @@
   }
 }
 
+// Prevent long gallery titles from wrapping
+.navbar-brand {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// Hide drop down menu forms
 .navbar-form-desktop {
   display: none;
 }
 
 @media (min-width: @screen-md-min) {
+  // Display forms on drop down menus when on desktop
   .navbar-form-desktop {
     display: block;
   }
 
+  // Make dropdown menu scrollable with scrollbar
   .dropdown-menu-scrollable {
     height: auto;
     max-height: 300px;
     overflow-x: hidden;
   }
-
   .dropdown-menu-scrollable::-webkit-scrollbar {
     width: 1em;
   }
-
   .dropdown-menu-scrollable::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   }
-
   .dropdown-menu-scrollable::-webkit-scrollbar-thumb {
     background-color: @gray-light;
     outline: 1px solid @gray-light;
