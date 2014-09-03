@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset={$CONTENT_ENCODING}">
     <meta name="generator" content="Piwigo (aka PWG), see piwigo.org">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 {if isset($meta_ref) }
 {if isset($INFO_AUTHOR)}
     <meta name="author" content="{$INFO_AUTHOR|@strip_tags:false|@replace:'"':' '}">
