@@ -1,10 +1,6 @@
 #quickconnect .form-control {
   margin-bottom: 10px;
 }
-.navbar-brand {
-  overflow: hidden;
-  white-space: nowrap;
-}
 .navbar-form-desktop {
   display: none;
 }
