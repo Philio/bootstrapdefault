@@ -75,4 +75,10 @@
         </div>
     </div>
 </nav>
+
+<div class="jumbotron">
+    <div class="container">
+        {$PAGE_BANNER}
+    </div>
+</div>
 <!-- End of header.tpl -->
