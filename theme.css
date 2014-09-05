@@ -7,6 +7,9 @@
 .navbar:first-of-type {
   margin-bottom: 0px;
 }
+.copyright {
+  padding: 30px;
+}
 .jumbotron {
   margin-bottom: 0px;
 }
