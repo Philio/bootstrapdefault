@@ -12,10 +12,10 @@
         {'Powered by'|@translate}	<a href="{$PHPWG_URL}" class="Piwigo">Piwigo</a> | Bootstrap Default {'theme by'|@translate} <a href="https://philio.me/">Philio</a>
         {$VERSION}
         {if isset($CONTACT_MAIL)}
-            - <a href="mailto:{$CONTACT_MAIL}?subject={'A comment on your site'|@translate|@escape:url}">{'Contact webmaster'|@translate}</a>
+            | <a href="mailto:{$CONTACT_MAIL}?subject={'A comment on your site'|@translate|@escape:url}">{'Contact webmaster'|@translate}</a>
         {/if}
         {if isset($TOGGLE_MOBILE_THEME_URL)}
-            - {'View in'|@translate} : <a href="{$TOGGLE_MOBILE_THEME_URL}">{'Mobile'|@translate}</a> | <b>{'Desktop'|@translate}</b>
+            | {'View in'|@translate} : <a href="{$TOGGLE_MOBILE_THEME_URL}">{'Mobile'|@translate}</a> | <b>{'Desktop'|@translate}</b>
         {/if}
 
         {get_combined_scripts load='footer'}
