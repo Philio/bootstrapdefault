@@ -1,10 +1,14 @@
 {define_derivative name='derivative_params' width=260 height=180 crop=true}
 {foreach from=$category_thumbnails item=cat name=cat_loop}
 {assign var=derivative value=$pwg->derivative($derivative_params, $cat.representative.src_image)}
-<div class="col-outer col-lg-3 col-md-4 col-sm-6 col-xs-12">
+<div class="col-outer col-lg-3">
     <div class="col-inner">
-        <a href="{$cat.URL}">
-            <img {if $smarty.foreach.cat_loop.last}class="last" {/if}{if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png" data-src="{$derivative->get_url()}"{/if} alt="{$cat.TN_ALT}" title="{$cat.NAME|@replace:'"':' '|@strip_tags:false} - {'display this album'|@translate}">
+        <a class="col-thumbnail" href="{$cat.URL}">
+            <img {strip}{if $smarty.foreach.cat_loop.last}class="last" {/if}
+                {if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png"
+                data-src="{$derivative->get_url()}"{/if}
+                alt="{$cat.TN_ALT}"
+                title="{$cat.NAME|@replace:'"':' '|@strip_tags:false} - {'display this album'|@translate}">{/strip}
         </a>
         <div class="caption">
             <h3>
@@ -14,11 +18,11 @@
 {/if}
             </h3>
 {if isset($cat.INFO_DATES) }
-            <p style="clear: both">{$cat.INFO_DATES}</p>
+            <p>{$cat.INFO_DATES}</p>
 {/if}
-            <p style="clear: both">{$cat.CAPTION_NB_IMAGES}</p>
+            <p>{$cat.CAPTION_NB_IMAGES}</p>
 {if not empty($cat.DESCRIPTION)}
-            <p style="clear: both">{$cat.DESCRIPTION}</p>
+            <p>{$cat.DESCRIPTION}</p>
 {/if}
         </div>
     </div>

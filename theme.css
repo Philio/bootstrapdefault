@@ -17,26 +17,17 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.content-grid .col-inner {
-  margin-bottom: 0px;
-}
-.content-grid .col-inner a {
+.content-grid .col-inner .col-thumbnail {
   float: none;
-}
-.content-grid .col-inner .caption {
-  float: none;
-  padding-left: 0px;
+  margin-right: 0px;
 }
 .content-list .col-outer {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.content-list .col-inner a {
+.content-list .col-inner .col-thumbnail {
   float: left;
-}
-.content-list .col-inner .caption {
-  float: left;
-  padding-left: 20px;
+  margin-right: 20px;
 }
 .copyright {
   padding: 30px;
