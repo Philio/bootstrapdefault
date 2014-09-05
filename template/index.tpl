@@ -42,7 +42,7 @@
 {if !empty($CATEGORIES)}
             <!-- Start of categories -->
 {$CATEGORIES}
-{footer_script}{literal}$(document).ready(function(){$('#content .last').load(function(){$('#content .col-inner').equalHeights()})});{/literal}{/footer_script}
+{footer_script}{literal}$(document).ready(function(){$('#content img').load(function(){$('#content .col-inner').equalHeights()})});{/literal}{/footer_script}
             <!-- End of categories -->
 {/if}
     </div>

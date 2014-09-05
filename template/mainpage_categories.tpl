@@ -4,8 +4,7 @@
 <div class="col-outer col-lg-3">
     <div class="col-inner">
         <a class="col-thumbnail" href="{$cat.URL}">
-            <img {strip}{if $smarty.foreach.cat_loop.last}class="last" {/if}
-                {if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png"
+            <img {strip}{if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png"
                 data-src="{$derivative->get_url()}"{/if}
                 alt="{$cat.TN_ALT}"
                 title="{$cat.NAME|@replace:'"':' '|@strip_tags:false} - {'display this album'|@translate}">{/strip}
