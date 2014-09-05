@@ -59,7 +59,7 @@
 
 <body id="{$BODY_ID}">
 <!-- Bootstrap navbar, moved to the header as variables are missing in menubar.tpl, actual menus remain in menubar.tpl -->
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menubar-navbar-collapse">
@@ -81,4 +81,23 @@
         {$PAGE_BANNER}
     </div>
 </div>
+
+{if not empty($header_msgs)}
+    <div class="header_msgs">
+        <p>This is the header_msgs section that needs styling!</p>
+        {foreach from=$header_msgs item=elt}
+            {$elt}<br>
+        {/foreach}
+    </div>
+{/if}
+
+{if isset($theSwiftHeader)}<p>This is the theSwiftHeader section that needs styling!</p>{$theSwiftHeader}{/if}
+{if not empty($header_notes)}
+    <div class="header_notes">
+        <p>This is the header_notes section that needs styling!</p>
+        {foreach from=$header_notes item=elt}
+            <p>{$elt}</p>
+        {/foreach}
+    </div>
+{/if}
 <!-- End of header.tpl -->

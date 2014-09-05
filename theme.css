@@ -4,6 +4,12 @@
 .navbar-form-desktop {
   display: none;
 }
+.navbar {
+  margin-bottom: 0px;
+}
+.jumbotron {
+  margin-bottom: 0px;
+}
 @media screen and (min-width: 768px) {
   .jumbotron h1,
   .jumbotron .h1 {
