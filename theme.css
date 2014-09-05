@@ -7,6 +7,12 @@
 .navbar:first-of-type {
   margin-bottom: 0px;
 }
+#content .col-outer {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
 .content-grid .col-outer {
   margin-top: 10px;
   margin-bottom: 10px;
