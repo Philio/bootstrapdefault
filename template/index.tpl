@@ -37,8 +37,8 @@
 </nav>
 {include file='infos_errors.tpl'}
 
-<div class="container container-equal-height">
-    <div id="content" class="row row-equal-height">
+<div class="container">
+    <div id="content" class="row">
 {if !empty($CATEGORIES)}
             <!-- Start of categories -->
 {$CATEGORIES}
@@ -47,7 +47,7 @@
 {/if}
     </div>
 </div>
-<div>
+<div class="container">
     <div class="titrePage{if isset($chronology.TITLE)} calendarTitleBar{/if}">
         <!--
         <ul class="categoryActions">
