@@ -1,4 +1,5 @@
 <!-- Start of index.tpl -->
+{combine_script id='equalheights' require='jquery' path='themes/bootstrapdefault/js/jquery.equalheights.js'}
 {if !empty($PLUGIN_INDEX_CONTENT_BEFORE)}{$PLUGIN_INDEX_CONTENT_BEFORE}{/if}
 
 <nav class="navbar navbar-default" role="navigation">
@@ -41,6 +42,7 @@
 {if !empty($CATEGORIES)}
             <!-- Start of categories -->
 {$CATEGORIES}
+{footer_script}{literal}$(document).ready(function(){$('#content .last').load(function(){$('#content .thumbnail').equalHeights()})});{/literal}{/footer_script}
             <!-- End of categories -->
 {/if}
     </div>

@@ -4,7 +4,7 @@
 <div class="col-xs-6 col-sm-4 col-md-3 col-equal-height">
     <div class="thumbnail">
         <a href="{$cat.URL}">
-            <img {if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png" data-src="{$derivative->get_url()}"{/if} alt="{$cat.TN_ALT}" title="{$cat.NAME|@replace:'"':' '|@strip_tags:false} - {'display this album'|@translate}">
+            <img {if $smarty.foreach.cat_loop.last}class="last" {/if}{if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png" data-src="{$derivative->get_url()}"{/if} alt="{$cat.TN_ALT}" title="{$cat.NAME|@replace:'"':' '|@strip_tags:false} - {'display this album'|@translate}">
         </a>
         <div class="caption">
             <h3>
