@@ -4,7 +4,7 @@
 .navbar-form-desktop {
   display: none;
 }
-.navbar {
+.navbar:first-of-type {
   margin-bottom: 0px;
 }
 .jumbotron {

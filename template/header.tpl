@@ -45,6 +45,7 @@
 
 {combine_script id='jquery'}
 {combine_script id='bootstrap' require='jquery' path='themes/bootstrapdefault/bootstrap/js/bootstrap.min.js'}
+{combine_script id='bootstrapdefault' require='bootstrap' path='themes/bootstrapdefault/js/theme.js'}
     {get_combined_scripts load='header'}
 
     <!--[if lt IE 7]>

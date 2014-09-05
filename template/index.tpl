@@ -6,7 +6,7 @@
         <div class="navbar-header">
             <div class="navbar-brand">{$TITLE}</div>
         </div>
-        <div class="navbar-collapse navbar-right">
+        <div class="navbar-right">
             <ul class="nav navbar-nav">
 {if !empty($image_orders)}
                 <li class="dropdown">
@@ -28,15 +28,24 @@
                     </ul>
                 </li>
 {/if}
+                <li id="btn-grid" class="active"><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
+                <li id="btn-list"><a href="#"><span class="glyphicon glyphicon-th-list"></span></a></li>
             </ul>
         </div>
     </div>
 </nav>
 {include file='infos_errors.tpl'}
 
-
-
-<div class="container">
+<div class="container container-equal-height">
+    <div id="content" class="row row-equal-height">
+{if !empty($CATEGORIES)}
+            <!-- Start of categories -->
+{$CATEGORIES}
+            <!-- End of categories -->
+{/if}
+    </div>
+</div>
+<div>
     <div class="titrePage{if isset($chronology.TITLE)} calendarTitleBar{/if}">
         <!--
         <ul class="categoryActions">
@@ -143,9 +152,7 @@
         </div>
     {/if}
 
-    {if !empty($CONTENT)}{$CONTENT}{/if}
-
-    {if !empty($CATEGORIES)}{$CATEGORIES}{/if}
+    {if !empty($CONTENT)}<!-- Content -->{$CONTENT}<!-- Content -->{/if}
 
     {if !empty($cats_navbar)}
         {include file='navigation_bar.tpl'|@get_extent:'navbar' navbar=$cats_navbar}
