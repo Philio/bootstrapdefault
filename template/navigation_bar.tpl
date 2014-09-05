@@ -1,3 +1,4 @@
+<ul class="pagination-centered">
 {if isset($navbar.URL_FIRST)}
     <li><a href="{$navbar.URL_FIRST}" rel="first">{'First'|@translate}</a></li>
     <li><a href="{$navbar.URL_PREV}" rel="prev">{'Previous'|@translate}</a></li>
