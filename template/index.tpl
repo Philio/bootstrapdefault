@@ -38,11 +38,11 @@
 {include file='infos_errors.tpl'}
 
 <div class="container">
-    <div id="content" class="row">
+    <div id="content" class="row content-grid">
 {if !empty($CATEGORIES)}
             <!-- Start of categories -->
 {$CATEGORIES}
-{footer_script}{literal}$(document).ready(function(){$('#content .last').load(function(){$('#content .thumbnail').equalHeights()})});{/literal}{/footer_script}
+{footer_script}{literal}$(document).ready(function(){$('#content .last').load(function(){$('#content .col-inner').equalHeights()})});{/literal}{/footer_script}
             <!-- End of categories -->
 {/if}
     </div>

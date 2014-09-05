@@ -7,6 +7,23 @@
 .navbar:first-of-type {
   margin-bottom: 0px;
 }
+.content-grid .col-inner {
+  margin-bottom: 0px;
+}
+.content-grid .col-inner a {
+  float: none;
+}
+.content-grid .col-inner .caption {
+  float: none;
+  padding-left: 0px;
+}
+.content-list .col-inner a {
+  float: left;
+}
+.content-list .col-inner .caption {
+  float: left;
+  padding-left: 20px;
+}
 .copyright {
   padding: 30px;
 }
