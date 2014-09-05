@@ -7,8 +7,8 @@ $(document).ready(function(){
         $('#content').height('auto');
         $('#content').find('.col-inner').height('auto').addEventListener(
             'webkitTransitionEnd',
-            function(event) {
-                $('#content').find('.col-inner').equalHeights();
+            function() {
+                $('#content').find('.col-inner').height('auto').equalHeights();
             }, false );
     });
     $('#btn-list').click(function() {
@@ -19,8 +19,8 @@ $(document).ready(function(){
         $('#content').height('auto');
         $('#content').find('.col-inner').height('auto').addEventListener(
             'webkitTransitionEnd',
-            function(event) {
-                $('#content').find('.col-inner').equalHeights();
+            function() {
+                $('#content').find('.col-inner').height('auto').equalHeights();
             }, false );
 
     });
