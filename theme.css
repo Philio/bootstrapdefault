@@ -7,6 +7,9 @@
 .navbar:first-of-type {
   margin-bottom: 0px;
 }
+.content-grid .col-outer {
+  margin-bottom: 20px;
+}
 .content-grid .col-inner {
   margin-bottom: 0px;
 }
@@ -16,6 +19,9 @@
 .content-grid .col-inner .caption {
   float: none;
   padding-left: 0px;
+}
+.content-list .col-outer {
+  margin-bottom: 40px;
 }
 .content-list .col-inner a {
   float: left;
