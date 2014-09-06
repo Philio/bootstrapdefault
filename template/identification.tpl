@@ -1,12 +1,14 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-brand"><a href="{$U_HOME}">{'Home'|@translate}</a>{$LEVEL_SEPARATOR}{'Identification'|@translate}</div>
+        </div>
+    </div>
+</nav>
+
 {include file='infos_errors.tpl'}
 
 <div class="container">
-
-<div class="titrePage">
-	<ul class="categoryActions">
-	</ul>
-	<h2><a href="{$U_HOME}">{'Home'|@translate}</a>{$LEVEL_SEPARATOR}{'Identification'|@translate}</h2>
-</div>
 
 
 <form action="{$F_LOGIN_ACTION}" method="post" name="login_form" class="properties">

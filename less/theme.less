@@ -11,9 +11,25 @@
   display: none;
 }
 
-// Remove the bottom margin from the navbar
+// Remove the bottom margin from the first navbar
 .navbar:first-of-type {
   margin-bottom: 0px;
+}
+
+// Make Jumbotron h1 a bit smaller and remove the bottom margin
+.jumbotron {
+  margin-bottom: 0px;
+  @media screen and (min-width: @screen-sm-min) {
+    h1,
+    .h1 {
+      font-size: (@font-size-base * 3.5);
+    }
+  }
+}
+
+// Hide text next to an icon (Piwigo default template provides the text, it's probably not needed)
+.glyphicon-text {
+  display: none;
 }
 
 // Grid and list view styles
@@ -53,17 +69,6 @@
 // Pad out the copyright
 .copyright {
   padding: 30px;
-}
-
-// Make Jumbotron h1 a bit smaller and remove the bottom margin
-.jumbotron {
-  margin-bottom: 0px;
-  @media screen and (min-width: @screen-sm-min) {
-    h1,
-    .h1 {
-      font-size: (@font-size-base * 3.5);
-    }
-  }
 }
 
 @media (min-width: @screen-md-min) {

@@ -44,6 +44,8 @@
 {if not empty($page_refresh)}   <meta http-equiv="refresh" content="{$page_refresh.TIME};url={$page_refresh.U_REFRESH}">{/if}
 
 {combine_script id='jquery'}
+{combine_script id='jquery-ajaxmanager' require='jquery' path='themes/default/js/plugins/jquery.ajaxmanager.js'}
+{combine_script id='thumbnails-loader' require='jquery-ajaxmanager' path='themes/default/js/thumbnails.loader.js'}
 {combine_script id='bootstrap' require='jquery' path='themes/bootstrapdefault/bootstrap/js/bootstrap.min.js'}
 {combine_script id='bootstrapdefault' require='bootstrap' path='themes/bootstrapdefault/js/theme.js'}
     {get_combined_scripts load='header'}
@@ -84,21 +86,12 @@
 </div>
 
 {if not empty($header_msgs)}
-    <div class="header_msgs">
-        <p>This is the header_msgs section that needs styling!</p>
-        {foreach from=$header_msgs item=elt}
-            {$elt}<br>
-        {/foreach}
-    </div>
+{foreach from=$header_msgs item=msg}
+{/foreach}
 {/if}
 
-{if isset($theSwiftHeader)}<p>This is the theSwiftHeader section that needs styling!</p>{$theSwiftHeader}{/if}
 {if not empty($header_notes)}
-    <div class="header_notes">
-        <p>This is the header_notes section that needs styling!</p>
-        {foreach from=$header_notes item=elt}
-            <p>{$elt}</p>
-        {/foreach}
-    </div>
+{foreach from=$header_notes item=note}
+{/foreach}
 {/if}
 <!-- End of header.tpl -->

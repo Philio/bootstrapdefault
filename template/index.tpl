@@ -11,7 +11,9 @@
             <ul class="nav navbar-nav">
 {if !empty($image_orders)}
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-sort"></span> {'Sort order'|@translate} <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-sort"></span><span class="glyphicon-text">{'Sort order'|@translate}</span><span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu" role="menu">
 {foreach from=$image_orders item=image_order name=loop}
                         <li{if $image_order.SELECTED} class="active"{/if}><a href="{$image_order.URL}" rel="nofollow">{$image_order.DISPLAY}</a></li>
@@ -21,7 +23,9 @@
 {/if}
 {if !empty($image_derivatives)}
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-picture"></span> {'Photo sizes'|@translate} <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-picture"></span><span class="glyphicon-text">{'Photo sizes'|@translate}</span><span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu" role="menu">
 {foreach from=$image_derivatives item=image_derivative name=loop}
                         <li{if $image_derivative.SELECTED} class="active"{/if}><a href="{$image_derivative.URL}" rel="nofollow">{$image_derivative.DISPLAY}</a></li>
@@ -29,15 +33,83 @@
                     </ul>
                 </li>
 {/if}
+{if isset($favorite)}
+                <li>
+                    <a href="{$favorite.U_FAVORITE}" title="{'delete all photos from your favorites'|@translate}" rel="nofollow">
+                        <span class="glyphicon glyphicon-remove"></span><span class="glyphicon-text">{'delete all photos from your favorites'|@translate}</span>
+                    </a>
+                </li>
+{/if}
+{if isset($U_CADDIE)}
+                <li>
+                    <a href="{$U_CADDIE}" title="{'Add to caddie'|@translate}">
+                        <span class="glyphicon glyphicon-flag"></span><span class="glyphicon-text">{'Caddie'|@translate}</span>
+                    </a>
+                </li>
+{/if}
+{if isset($U_EDIT)}
+                <li>
+                    <a href="{$U_EDIT}" title="{'Edit album'|@translate}">
+                        <span class="glyphicon glyphicon-edit"></span><span class="glyphicon-text">{'Edit'|@translate}</span>
+                    </a>
+                </li>
+{/if}
+{if isset($U_SEARCH_RULES)}
+{combine_script id='core.scripts' load='async' path='themes/default/js/scripts.js'}
+                <li>
+                    <a href="{$U_SEARCH_RULES}" onclick="popuphelp(this.href); return false;" title="{'Search rules'|@translate}" rel="nofollow">
+                        <span class="glyphicon glyphicon-search"></span><span class="glyphicon-text">(?)</span>
+                    </a>
+                </li>
+{/if}
+{if isset($U_SLIDESHOW)}
+                <li>
+                    {strip}<a href="{$U_SLIDESHOW}" title="{'slideshow'|@translate}" rel="nofollow">
+                        <span class="glyphicon glyphicon-play"></span><span class="glyphicon-text">{'slideshow'|@translate}</span>
+                    </a>{/strip}
+                </li>
+{/if}
+{if isset($U_MODE_FLAT)}
+                <li>
+                    {strip}<a href="{$U_MODE_FLAT}" title="{'display all photos in all sub-albums'|@translate}" rel="nofollow">
+                        <span class="glyphicon glyphicon-th-large"></span><span class="glyphicon-text">{'display all photos in all sub-albums'|@translate}</span>
+                    </a>{/strip}
+                </li>
+{/if}
+{if isset($U_MODE_NORMAL)}
+                <li>
+                    {strip}<a href="{$U_MODE_NORMAL}" title="{'return to normal view mode'|@translate}">
+                        <span class="glyphicon glyphicon-tree-conifer"></span><span class="glyphicon-text">{'return to normal view mode'|@translate}</span>
+                    </a>{/strip}
+                </li>
+{/if}
+{if isset($U_MODE_POSTED)}
+                <li>
+                    {strip}<a href="{$U_MODE_POSTED}" title="{'display a calendar by posted date'|@translate}" rel="nofollow">
+                        <span class="glyphicon glyphicon-calendar"></span><span class="glyphicon-text">{'Calendar'|@translate}</span>
+                    </a>{/strip}
+                </li>
+{/if}
+{if isset($U_MODE_CREATED)}
+                <li>
+                    {strip}<a href="{$U_MODE_CREATED}" title="{'display a calendar by creation date'|@translate}" rel="nofollow">
+                        <span class="glyphicon glyphicon-calendar"></span><span class="glyphicon-text">{'Calendar'|@translate}</span>
+                    </a>{/strip}
+                </li>
+{/if}
+{if !empty($PLUGIN_INDEX_BUTTONS)}{foreach from=$PLUGIN_INDEX_BUTTONS item=button}<li>{$button}</li>{/foreach}{/if}
+{if !empty($PLUGIN_INDEX_ACTIONS)}{$PLUGIN_INDEX_ACTIONS}{/if}
                 <li id="btn-grid" class="active"><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
                 <li id="btn-list"><a href="#"><span class="glyphicon glyphicon-th-list"></span></a></li>
             </ul>
         </div>
     </div>
 </nav>
+
 {include file='infos_errors.tpl'}
 
 <div class="container">
+    {if !empty($PLUGIN_INDEX_CONTENT_BEGIN)}{$PLUGIN_INDEX_CONTENT_BEGIN}{/if}
     <div id="content" class="row content-grid">
 {if !empty($CATEGORIES)}
             <!-- Start of categories -->
@@ -49,58 +121,6 @@
 </div>
 <div class="container">
     <div class="titrePage{if isset($chronology.TITLE)} calendarTitleBar{/if}">
-        <!--
-        <ul class="categoryActions">
-            {if isset($favorite)}
-                <li id="cmdFavorite"><a href="{$favorite.U_FAVORITE}" title="{'delete all photos from your favorites'|@translate}" class="pwg-state-default pwg-button" rel="nofollow">
-                        <span class="pwg-icon pwg-icon-favorite-del"></span><span class="pwg-button-text">{'delete all photos from your favorites'|@translate}</span>
-                    </a></li>
-            {/if}
-            {if isset($U_CADDIE)}
-                <li id="cmdCaddie"><a href="{$U_CADDIE}" title="{'Add to caddie'|@translate}" class="pwg-state-default pwg-button">
-                        <span class="pwg-icon pwg-icon-caddie-add"></span><span class="pwg-button-text">{'Caddie'|@translate}</span>
-                    </a></li>
-            {/if}
-            {if isset($U_EDIT)}
-                <li id="cmdEditAlbum"><a href="{$U_EDIT}" title="{'Edit album'|@translate}" class="pwg-state-default pwg-button">
-                        <span class="pwg-icon pwg-icon-category-edit"></span><span class="pwg-button-text">{'Edit'|@translate}</span>
-                    </a></li>
-            {/if}
-            {if isset($U_SEARCH_RULES)}
-                {combine_script id='core.scripts' load='async' path='themes/default/js/scripts.js'}
-                <li><a href="{$U_SEARCH_RULES}" onclick="popuphelp(this.href); return false;" title="{'Search rules'|@translate}" class="pwg-state-default pwg-button" rel="nofollow">
-                        <span class="pwg-icon pwg-icon-help"></span><span class="pwg-button-text">(?)</span>
-                    </a></li>
-            {/if}
-            {if isset($U_SLIDESHOW)}
-                <li id="cmdSlideshow">{strip}<a href="{$U_SLIDESHOW}" title="{'slideshow'|@translate}" class="pwg-state-default pwg-button" rel="nofollow">
-                        <span class="pwg-icon pwg-icon-slideshow"></span><span class="pwg-button-text">{'slideshow'|@translate}</span>
-                        </a>{/strip}</li>
-            {/if}
-            {if isset($U_MODE_FLAT)}
-                <li>{strip}<a href="{$U_MODE_FLAT}" title="{'display all photos in all sub-albums'|@translate}" class="pwg-state-default pwg-button" rel="nofollow">
-                        <span class="pwg-icon pwg-icon-category-view-flat"></span><span class="pwg-button-text">{'display all photos in all sub-albums'|@translate}</span>
-                        </a>{/strip}</li>
-            {/if}
-            {if isset($U_MODE_NORMAL)}
-                <li>{strip}<a href="{$U_MODE_NORMAL}" title="{'return to normal view mode'|@translate}" class="pwg-state-default pwg-button">
-                        <span class="pwg-icon pwg-icon-category-view-normal"></span><span class="pwg-button-text">{'return to normal view mode'|@translate}</span>
-                        </a>{/strip}</li>
-            {/if}
-            {if isset($U_MODE_POSTED)}
-                <li>{strip}<a href="{$U_MODE_POSTED}" title="{'display a calendar by posted date'|@translate}" class="pwg-state-default pwg-button" rel="nofollow">
-                        <span class="pwg-icon pwg-icon-calendar"></span><span class="pwg-button-text">{'Calendar'|@translate}</span>
-                        </a>{/strip}</li>
-            {/if}
-            {if isset($U_MODE_CREATED)}
-                <li>{strip}<a href="{$U_MODE_CREATED}" title="{'display a calendar by creation date'|@translate}" class="pwg-state-default pwg-button" rel="nofollow">
-                        <span class="pwg-icon pwg-icon-camera-calendar"></span><span class="pwg-button-text">{'Calendar'|@translate}</span>
-                        </a>{/strip}</li>
-            {/if}
-            {if !empty($PLUGIN_INDEX_BUTTONS)}{foreach from=$PLUGIN_INDEX_BUTTONS item=button}<li>{$button}</li>{/foreach}{/if}
-            {if !empty($PLUGIN_INDEX_ACTIONS)}{$PLUGIN_INDEX_ACTIONS}{/if}
-        </ul>
-        -->
         {if isset($chronology_views)}
             <div class="calendarViews">{'View'|@translate}:
                 <a id="calendarViewSwitchLink" href="#">
@@ -121,7 +141,6 @@
 
     </div>{* <!-- titrePage --> *}
 
-    {if !empty($PLUGIN_INDEX_CONTENT_BEGIN)}{$PLUGIN_INDEX_CONTENT_BEGIN}{/if}
 
     {if !empty($category_search_results)}
         <div class="category_search_results">{'Album results for'|@translate} <strong>{$QUERY_SEARCH}</strong> :

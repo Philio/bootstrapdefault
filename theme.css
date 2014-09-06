@@ -7,6 +7,18 @@
 .navbar:first-of-type {
   margin-bottom: 0px;
 }
+.jumbotron {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 768px) {
+  .jumbotron h1,
+  .jumbotron .h1 {
+    font-size: 49px;
+  }
+}
+.glyphicon-text {
+  display: none;
+}
 #content .col-outer {
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -31,15 +43,6 @@
 }
 .copyright {
   padding: 30px;
-}
-.jumbotron {
-  margin-bottom: 0px;
-}
-@media screen and (min-width: 768px) {
-  .jumbotron h1,
-  .jumbotron .h1 {
-    font-size: 49px;
-  }
 }
 @media (min-width: 992px) {
   .navbar-form-desktop {
