@@ -1,4 +1,5 @@
 <!-- Start of index.tpl -->
+{combine_script id='core.switchbox' require='jquery' path='themes/default/js/switchbox.js'}
 {combine_script id='equalheights' require='jquery' path='themes/bootstrapdefault/js/jquery.equalheights.js'}
 {if !empty($PLUGIN_INDEX_CONTENT_BEFORE)}{$PLUGIN_INDEX_CONTENT_BEFORE}{/if}
 

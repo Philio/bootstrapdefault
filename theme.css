@@ -16,7 +16,8 @@
     font-size: 49px;
   }
 }
-.glyphicon-text {
+.glyphicon-text,
+.pwg-button-text {
   display: none;
 }
 #content .col-outer {

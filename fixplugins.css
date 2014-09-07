@@ -1,0 +1,21 @@
+#languageSwitch {
+  display: none;
+}
+/*
+#languageSwitchLink {
+  span {
+    margin: 0;
+  }
+}
+#languageSwitchBox {
+  position: fixed;
+  width: 500px;
+  background-color: #fff;
+  a {
+    color: @link-color;
+  }
+  a:hover {
+    color: @link-hover-color;
+  }
+}
+*/

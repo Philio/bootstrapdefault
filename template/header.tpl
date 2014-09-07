@@ -36,6 +36,7 @@
 {/if}
 {if !empty($theme.local_head)}{include file=$theme.local_head load_css=$theme.load_css}{/if}
 {/foreach}
+{combine_css path="themes/`$theme.id`/fixplugins.css" order=1000000}
     {get_combined_css}
 
 {if isset($U_PREFETCH)}    <link rel="prefetch" href="{$U_PREFETCH}">{/if}

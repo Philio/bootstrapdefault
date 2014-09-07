@@ -1,4 +1,8 @@
-$(document).ready(function(){
+$(document).ready(function() {
+    // Any plugin buttons using pwg-icon class should also use glyphicon class for correct display
+    //$('.pwg-icon').addClass('glyphicon');
+
+    // Grid view button click
     $('#btn-grid').click(function() {
         $('#btn-grid').addClass('active');
         $('#btn-list').removeClass('active');
@@ -17,6 +21,8 @@ $(document).ready(function(){
             .find('.col-inner')
                 .height('auto');
     });
+
+    // List view button click
     $('#btn-list').click(function() {
         $('#btn-list').addClass('active');
         $('#btn-grid').removeClass('active');
