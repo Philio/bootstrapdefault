@@ -4,6 +4,7 @@ $(document).ready(function() {
 
     // Grid view button click
     $('#btn-grid').click(function() {
+        $.cookie('view', 'grid');
         $('#btn-grid').addClass('active');
         $('#btn-list').removeClass('active');
         $('#content')
@@ -24,6 +25,7 @@ $(document).ready(function() {
 
     // List view button click
     $('#btn-list').click(function() {
+        $.cookie('view', 'list');
         $('#btn-list').addClass('active');
         $('#btn-grid').removeClass('active');
         $('#content')
@@ -41,4 +43,5 @@ $(document).ready(function() {
             .find('.col-inner')
                 .height('auto');
     });
+
 });

@@ -1,5 +1,6 @@
 <!-- Start of index.tpl -->
 {combine_script id='core.switchbox' require='jquery' path='themes/default/js/switchbox.js'}
+{combine_script id='cookie' require='jquery' path='themes/bootstrapdefault/js/jquery.cookie.js'}
 {combine_script id='equalheights' require='jquery' path='themes/bootstrapdefault/js/jquery.equalheights.js'}
 {if !empty($PLUGIN_INDEX_CONTENT_BEFORE)}{$PLUGIN_INDEX_CONTENT_BEFORE}{/if}
 
@@ -100,8 +101,8 @@
 {/if}
 {if !empty($PLUGIN_INDEX_BUTTONS)}{foreach from=$PLUGIN_INDEX_BUTTONS item=button}<li>{$button}</li>{/foreach}{/if}
 {if !empty($PLUGIN_INDEX_ACTIONS)}{$PLUGIN_INDEX_ACTIONS}{/if}
-                <li id="btn-grid" class="active"><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
-                <li id="btn-list"><a href="#"><span class="glyphicon glyphicon-th-list"></span></a></li>
+                <li id="btn-grid"{if $smarty.cookies.view != 'list'} class="active"{/if}><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
+                <li id="btn-list"{if $smarty.cookies.view == 'list'} class="active"{/if}><a href="#"><span class="glyphicon glyphicon-th-list"></span></a></li>
             </ul>
         </div>
     </div>
@@ -111,7 +112,7 @@
 
 <div class="container">
     {if !empty($PLUGIN_INDEX_CONTENT_BEGIN)}{$PLUGIN_INDEX_CONTENT_BEGIN}{/if}
-    <div id="content" class="row content-grid">
+    <div id="content" class="row {if $smarty.cookies.view == 'list'}content-list{else}content-grid{/if}">
 {if !empty($CATEGORIES)}
             <!-- Start of categories -->
 {$CATEGORIES}

@@ -1,7 +1,7 @@
 {define_derivative name='derivative_params' width=260 height=180 crop=true}
 {foreach from=$category_thumbnails item=cat name=cat_loop}
 {assign var=derivative value=$pwg->derivative($derivative_params, $cat.representative.src_image)}
-<div class="col-outer col-lg-3 col-md-4 col-sm-6 col-xs-12">
+<div class="col-outer {if $smarty.cookies.view == 'list'}col-lg-12{else}col-lg-3 col-md-4 col-sm-6 col-xs-12{/if}">
     <div class="col-inner">
         <a class="col-thumbnail" href="{$cat.URL}">
             <img {strip}{if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png"
