@@ -26,6 +26,10 @@
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
+#content .col-inner .col-thumbnail .placeholder {
+  min-width: 260px;
+  min-height: 180px;
+}
 .content-grid .col-outer {
   margin-top: 10px;
   margin-bottom: 10px;
