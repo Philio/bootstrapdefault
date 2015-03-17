@@ -34,6 +34,9 @@
   float: none;
   margin-right: 0px;
 }
+.content-grid .col-inner .caption .description {
+  display: none;
+}
 .content-list .col-outer {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -41,6 +44,9 @@
 .content-list .col-inner .col-thumbnail {
   float: left;
   margin-right: 20px;
+}
+.content-list .col-inner .caption .description {
+  display: block;
 }
 .copyright {
   padding: 30px;
