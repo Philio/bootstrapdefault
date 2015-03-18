@@ -81,7 +81,7 @@
 {if isset($U_MODE_NORMAL)}
                 <li>
                     {strip}<a href="{$U_MODE_NORMAL}" title="{'return to normal view mode'|@translate}">
-                        <span class="glyphicon glyphicon-tree-conifer"></span><span class="glyphicon-text">{'return to normal view mode'|@translate}</span>
+                        <span class="glyphicon glyphicon-repeat"></span><span class="glyphicon-text">{'return to normal view mode'|@translate}</span>
                     </a>{/strip}
                 </li>
 {/if}
