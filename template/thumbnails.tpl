@@ -37,9 +37,9 @@
 {if $SHOW_THUMBNAIL_CAPTION }
         <div class="caption">
             <h3>
-                <span>{$thumbnail.NAME}</span>
+                <a href="{$thumbnail.URL}">{$thumbnail.NAME}</a>
 {if !empty($thumbnail.icon_ts)}
-                    <img title="{$thumbnail.icon_ts.TITLE}" src="{$ROOT_URL}{$themeconf.icon_dir}/recent.png" alt="(!)">
+                <img title="{$thumbnail.icon_ts.TITLE}" src="{$ROOT_URL}{$themeconf.icon_dir}/recent.png" alt="(!)">
 {/if}
             </h3>
 {if isset($thumbnail.NB_COMMENTS)}
