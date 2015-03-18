@@ -55,6 +55,11 @@
 .copyright {
   padding: 30px;
 }
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 @media (min-width: 992px) {
   .navbar-form-desktop {
     display: block;
