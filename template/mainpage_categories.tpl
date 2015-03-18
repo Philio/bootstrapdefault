@@ -8,7 +8,8 @@
     {combine_script id='jquery.ajaxmanager' path='themes/default/js/plugins/jquery.ajaxmanager.js' load='footer'}
     {combine_script id='thumbnails.loader' path='themes/default/js/thumbnails.loader.js' require='jquery.ajaxmanager' load='footer'}
 {/if}
-<div class="col-outer {if $smarty.cookies.view == 'list'}col-lg-12{else}col-lg-3 col-md-4 col-sm-6 col-xs-12{/if}">
+{include file="grid_classes.tpl" width=260 height=180}
+<div class="col-outer {if $smarty.cookies.view == 'list'}col-lg-12{else}{$col_class}{/if}" data-grid-classes="{$col_class}">
     <div class="col-inner">
         <a class="col-thumbnail" href="{$cat.URL}">
             <div class="placeholder" style="background: url({$ROOT_URL}{$themeconf.icon_dir}/img_small.png) no-repeat center">

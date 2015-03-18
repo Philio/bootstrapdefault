@@ -37,8 +37,8 @@
 {/if}
 {if isset($favorite)}
                 <li>
-                    <a href="{$favorite.U_FAVORITE}" title="{'delete all photos from your favorites'|@translate}" rel="nofollow">
-                        <span class="glyphicon glyphicon-remove"></span><span class="glyphicon-text">{'delete all photos from your favorites'|@translate}</span>
+                    <a href="{$favorite.U_FAVORITE}" title="{'Delete all photos from your favorites'|@translate}" rel="nofollow">
+                        <span class="glyphicon glyphicon-remove"></span><span class="glyphicon-text">{'Delete all photos from your favorites'|@translate}</span>
                     </a>
                 </li>
 {/if}
@@ -119,6 +119,12 @@
 {footer_script}{literal}$(document).ready(function(){$('#content img').load(function(){$('#content .col-inner').equalHeights()})});{/literal}{/footer_script}
             <!-- End of categories -->
 {/if}
+{if !empty($THUMBNAILS)}
+            <!-- Start of thumbnails -->
+{$THUMBNAILS}
+{footer_script}{literal}$(document).ready(function(){$('#content img').load(function(){$('#content .col-inner').equalHeights()})});{/literal}{/footer_script}
+            <!-- End of thumbnails -->
+{/if}
     </div>
 </div>
 <div class="container">
@@ -181,12 +187,6 @@
         {include file='navigation_bar.tpl'|@get_extent:'navbar' navbar=$cats_navbar}
     {/if}
 
-    {if !empty($THUMBNAILS)}
-        <!--<div class="loader"><img src="{$ROOT_URL}{$themeconf.img_dir}/ajax_loader.gif"></div>-->
-        <ul class="thumbnails" id="thumbnails">
-            {$THUMBNAILS}
-        </ul>
-    {/if}
     {if !empty($thumb_navbar)}
         {include file='navigation_bar.tpl'|@get_extent:'navbar' navbar=$thumb_navbar}
     {/if}

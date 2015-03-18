@@ -11,14 +11,15 @@ $(document).ready(function() {
             .removeClass('content-list')
             .addClass('content-grid')
             .height('auto')
-            .find('.col-outer')
-                .removeClass('col-lg-12')
-                .addClass('col-lg-3 col-md-4 col-sm-6 col-xs-12')
-                .one(
-                    'webkitTransitionEnd',
-                    function() {
-                        $('#content').find('.col-inner').equalHeights();
-                    })
+            .find('.col-outer').each(function() {
+                $(this).removeClass('col-lg-12')
+                    .addClass($(this).data('grid-classes'))
+                    .one(
+                        'webkitTransitionEnd',
+                        function () {
+                            $('#content').find('.col-inner').equalHeights();
+                        })
+            })
             .find('.col-inner')
                 .height('auto');
     });
@@ -32,14 +33,15 @@ $(document).ready(function() {
             .removeClass('content-grid')
             .addClass('content-list')
             .height('auto')
-            .find('.col-outer')
-                .removeClass('col-lg-3 col-md-4 col-sm-6 col-xs-12')
-                .addClass('col-lg-12')
-                .one(
+            .find('.col-outer').each(function() {
+                $(this).removeClass($(this).data('grid-classes'))
+                    .addClass('col-lg-12')
+                    .one(
                     'webkitTransitionEnd',
-                    function() {
+                    function () {
                         $('#content').find('.col-inner').equalHeights();
                     })
+            })
             .find('.col-inner')
                 .height('auto');
     });
