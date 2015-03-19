@@ -125,9 +125,6 @@
 {footer_script}{literal}$(document).ready(function(){$('#content img').load(function(){$('#content .col-inner').equalHeights()})});{/literal}{/footer_script}
     <!-- End of categories -->
 {/if}
-{if !empty($cats_navbar)}
-    {include file='navigation_bar.tpl'|@get_extent:'navbar' navbar=$cats_navbar}
-{/if}
 
 {if !empty($THUMBNAILS)}
     <!-- Start of thumbnails -->
@@ -135,11 +132,18 @@
 {footer_script}{literal}$(document).ready(function(){$('#content img').load(function(){$('#content .col-inner').equalHeights()})});{/literal}{/footer_script}
     <!-- End of thumbnails -->
 {/if}
+    </div>
+</div>
+{if !empty($cats_navbar) || !empty($thumb_navbar)}
+<div class="container">
+{if !empty($cats_navbar)}
+    {include file='navigation_bar.tpl'|@get_extent:'navbar' navbar=$cats_navbar}
+{/if}
 {if !empty($thumb_navbar)}
     {include file='navigation_bar.tpl'|@get_extent:'navbar' navbar=$thumb_navbar}
 {/if}
-    </div>
 </div>
+{/if}
 <div class="container" style="display: none">
     <div class="titrePage{if isset($chronology.TITLE)} calendarTitleBar{/if}">
         {if isset($chronology_views)}
