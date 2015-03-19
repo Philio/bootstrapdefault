@@ -97,6 +97,26 @@
   text-overflow: ellipsis;
 }
 
+#theImage {
+  text-align: center;
+}
+
+img.gravatar {
+  width: 80px;
+  height: 80px;
+}
+
+@media (min-width: @screen-sm-min) {
+  // Remove the double padding on small/medium/large screens
+  .navbar-collapse {
+    padding-right: 0;
+  }
+  .nav-pills {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+
 @media (min-width: @screen-md-min) {
   // Display forms on drop down menus when on desktop
   .navbar-form-desktop {

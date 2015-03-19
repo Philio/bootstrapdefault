@@ -11,25 +11,27 @@
 {footer_script}var error_icon = "{$ROOT_URL}{$themeconf.icon_dir}/errors_small.png";{/footer_script}
 <!--<div class="loader"><img src="{$ROOT_URL}{$themeconf.img_dir}/ajax_loader.gif"></div>-->
 {/if}
-<ul class="commentsList">
+<div>
 {foreach from=$comments item=comment name=comment_loop}
-<li class="commentElement {if $smarty.foreach.comment_loop.index is odd}odd{else}even{/if}">
-	{if isset($comment.src_image)}
-	{if isset($comment_derivative_params)}
-	{assign var=derivative value=$pwg->derivative($comment_derivative_params, $comment.src_image)}
-	{else}
-	{assign var=derivative value=$pwg->derivative($derivative_params, $comment.src_image)}
-	{/if}
-	{if !$derivative->is_cached()}
-	{combine_script id='jquery.ajaxmanager' path='themes/default/js/plugins/jquery.ajaxmanager.js' load='footer'}
-  {combine_script id='thumbnails.loader' path='themes/default/js/thumbnails.loader.js' require='jquery.ajaxmanager' load='footer'}
-  {/if}
-	<div class="illustration">
-		<a href="{$comment.U_PICTURE}">
-		<img {if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png" data-src="{$derivative->get_url()}"{/if} alt="{$comment.ALT}">
-		</a>
-	</div>
-	{/if}
+    <div>
+        <div>
+{if isset($comment.src_image)}
+{if isset($comment_derivative_params)}
+{assign var=derivative value=$pwg->derivative($comment_derivative_params, $comment.src_image)}
+{else}
+{assign var=derivative value=$pwg->derivative($derivative_params, $comment.src_image)}
+{/if}
+{if !$derivative->is_cached()}
+{combine_script id='jquery.ajaxmanager' path='themes/default/js/plugins/jquery.ajaxmanager.js' load='footer'}
+{combine_script id='thumbnails.loader' path='themes/default/js/thumbnails.loader.js' require='jquery.ajaxmanager' load='footer'}
+{/if}
+            <a href="{$comment.U_PICTURE}">
+                <img {if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png" data-src="{$derivative->get_url()}"{/if} alt="{$comment.ALT}">
+            </a>
+{else}
+            <img class="gravatar" src="//www.gravatar.com/avatar/{$comment.EMAIL|trim|strtolower|md5}?d=//{$smarty.server.HTTP_HOST}/{$ROOT_URL}{$themeconf.img_dir}/user.png" />
+{/if}
+        </div>
 	<div class="description">
 		{if isset($comment.U_DELETE) or isset($comment.U_VALIDATE) or isset($comment.U_EDIT)}
 		<div class="actions" style="float:right;font-size:90%">
@@ -76,6 +78,6 @@
 		<blockquote><div>{$comment.CONTENT}</div></blockquote>
 		{/if}
 	</div>
-</li>
+</div>
 {/foreach}
-</ul>
+</div>

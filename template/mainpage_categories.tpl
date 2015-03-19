@@ -9,7 +9,7 @@
     {combine_script id='thumbnails.loader' path='themes/default/js/thumbnails.loader.js' require='jquery.ajaxmanager' load='footer'}
 {/if}
 {include file="grid_classes.tpl" width=260 height=180}
-<div class="col-outer {if $smarty.cookies.view == 'list'}col-lg-12{else}{$col_class}{/if}" data-grid-classes="{$col_class}">
+<div class="col-outer {if $smarty.cookies.view == 'list'}col-lg-12 col-md-12 col-sm-12 col-xs-12{else}{$col_class}{/if}" data-grid-classes="{$col_class}">
     <div class="col-inner">
         <a class="col-thumbnail" href="{$cat.URL}">
             <div class="placeholder" style="background: url({$ROOT_URL}{$themeconf.icon_dir}/img_small.png) no-repeat center">

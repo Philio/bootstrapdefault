@@ -113,21 +113,34 @@
 <div class="container">
     {if !empty($PLUGIN_INDEX_CONTENT_BEGIN)}{$PLUGIN_INDEX_CONTENT_BEGIN}{/if}
     <div id="content" class="row {if $smarty.cookies.view == 'list'}content-list{else}content-grid{/if}">
+{if !empty($CONTENT)}
+    <!-- Start of content -->
+    {$CONTENT}
+    <!-- End of content -->
+{/if}
+
 {if !empty($CATEGORIES)}
-            <!-- Start of categories -->
+    <!-- Start of categories -->
 {$CATEGORIES}
 {footer_script}{literal}$(document).ready(function(){$('#content img').load(function(){$('#content .col-inner').equalHeights()})});{/literal}{/footer_script}
-            <!-- End of categories -->
+    <!-- End of categories -->
 {/if}
+{if !empty($cats_navbar)}
+    {include file='navigation_bar.tpl'|@get_extent:'navbar' navbar=$cats_navbar}
+{/if}
+
 {if !empty($THUMBNAILS)}
-            <!-- Start of thumbnails -->
+    <!-- Start of thumbnails -->
 {$THUMBNAILS}
 {footer_script}{literal}$(document).ready(function(){$('#content img').load(function(){$('#content .col-inner').equalHeights()})});{/literal}{/footer_script}
-            <!-- End of thumbnails -->
+    <!-- End of thumbnails -->
+{/if}
+{if !empty($thumb_navbar)}
+    {include file='navigation_bar.tpl'|@get_extent:'navbar' navbar=$thumb_navbar}
 {/if}
     </div>
 </div>
-<div class="container">
+<div class="container" style="display: none">
     <div class="titrePage{if isset($chronology.TITLE)} calendarTitleBar{/if}">
         {if isset($chronology_views)}
             <div class="calendarViews">{'View'|@translate}:
@@ -179,16 +192,6 @@
         <div class="additional_info">
             {$CONTENT_DESCRIPTION}
         </div>
-    {/if}
-
-    {if !empty($CONTENT)}<!-- Content -->{$CONTENT}<!-- Content -->{/if}
-
-    {if !empty($cats_navbar)}
-        {include file='navigation_bar.tpl'|@get_extent:'navbar' navbar=$cats_navbar}
-    {/if}
-
-    {if !empty($thumb_navbar)}
-        {include file='navigation_bar.tpl'|@get_extent:'navbar' navbar=$thumb_navbar}
     {/if}
 
     {if !empty($PLUGIN_INDEX_CONTENT_END)}{$PLUGIN_INDEX_CONTENT_END}{/if}

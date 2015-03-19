@@ -61,6 +61,22 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+#theImage {
+  text-align: center;
+}
+img.gravatar {
+  width: 80px;
+  height: 80px;
+}
+@media (min-width: 768px) {
+  .navbar-collapse {
+    padding-right: 0;
+  }
+  .nav-pills {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
 @media (min-width: 992px) {
   .navbar-form-desktop {
     display: block;

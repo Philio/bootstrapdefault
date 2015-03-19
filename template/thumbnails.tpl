@@ -24,7 +24,7 @@
 {combine_script id='thumbnails.loader' path='themes/default/js/thumbnails.loader.js' require='jquery.ajaxmanager' load='footer'}
 {/if}
 {include file="grid_classes.tpl" width=$width height=$height}
-<div class="col-outer {if $smarty.cookies.view == 'list'}col-lg-12{else}{$col_class}{/if}" data-grid-classes="{$col_class}">
+<div class="col-outer {if $smarty.cookies.view == 'list'}col-lg-12 col-md-12 col-sm-12 col-xs-12{else}{$col_class}{/if}" data-grid-classes="{$col_class}">
     <div class="col-inner">
 		<a class="col-thumbnail" href="{$thumbnail.URL}">
             <div class="placeholder-{$width}">
