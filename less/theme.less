@@ -99,21 +99,41 @@
 
 #theImage {
   text-align: center;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
-img.gravatar {
-  width: 80px;
-  height: 80px;
+#commentList {
+  .comment {
+    clear: both;
+    .image {
+      img {
+        float: left;
+        width: 80px;
+        height: 80px;
+      }
+    }
+    .description {
+      margin-left: 100px;
+      form {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.nav-pills {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 @media (min-width: @screen-sm-min) {
   // Remove the double padding on small/medium/large screens
   .navbar-collapse {
     padding-right: 0;
-  }
-  .nav-pills {
-    margin-top: 25px;
-    margin-bottom: 25px;
   }
 }
 

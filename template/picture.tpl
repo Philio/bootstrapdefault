@@ -58,6 +58,7 @@
 </div>
 
 {if isset($comment_add) || $COMMENT_COUNT > 0}
+<a name="comments"></a>
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-12 col-sm-12 col-xs-12">
@@ -111,35 +112,14 @@
     </div>
 </div>
 {/if}
-<div>
-    {if isset($COMMENT_COUNT)}
-        <div id="comments" {if (!isset($comment_add) && ($COMMENT_COUNT == 0))}class="noCommentContent"{else}class="commentContent"{/if}><div id="commentsSwitcher"></div>
-            <div id="pictureComments">
 
-                    <div id="commentAdd">
-                        <h4>{'Add a comment'|@translate}</h4>
-
-                    </div>
-                {if isset($comments)}
-                    <div id="pictureCommentList">
-                        {if (($COMMENT_COUNT > 2) || !empty($navbar))}
-                            <div id="pictureCommentNavBar">
-                                {if $COMMENT_COUNT > 2}
-                                    <a href="{$COMMENTS_ORDER_URL}#comments" rel="nofollow" class="commentsOrder">{$COMMENTS_ORDER_TITLE}</a>
-                                {/if}
-                                {if !empty($navbar) }{include file='navigation_bar.tpl'|@get_extent:'navbar'}{/if}
-                            </div>
-                        {/if}
-
-                    </div>
-                {/if}
-                <div style="clear:both"></div>
-            </div>
-
-        </div>
-    {/if}{*comments*}
+{if !empty($navbar) }
+<div class="container">
+{include file='navigation_bar.tpl' fragment='comments'|@get_extent:'navbar'}
 </div>
+{/if}
 
+<!--
 <div id="imageToolBar">
 {include file='picture_nav_buttons.tpl'|@get_extent:'picture_nav_buttons'}
 
@@ -412,5 +392,5 @@ function setPrivacyLevel(id, level){
 {/if}
 </div>
 </div>
-
+-->
 {if !empty($PLUGIN_PICTURE_AFTER)}{$PLUGIN_PICTURE_AFTER}{/if}

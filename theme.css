@@ -64,17 +64,32 @@
 #theImage {
   text-align: center;
 }
-img.gravatar {
+#theImage img {
+  max-width: 100%;
+  height: auto;
+}
+#commentList .comment {
+  clear: both;
+}
+#commentList .comment .image img {
+  float: left;
   width: 80px;
   height: 80px;
+}
+#commentList .comment .description {
+  margin-left: 100px;
+}
+#commentList .comment .description form {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.nav-pills {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 @media (min-width: 768px) {
   .navbar-collapse {
     padding-right: 0;
-  }
-  .nav-pills {
-    margin-top: 25px;
-    margin-bottom: 25px;
   }
 }
 @media (min-width: 992px) {
