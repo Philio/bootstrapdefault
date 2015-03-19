@@ -50,7 +50,7 @@
 
 {if isset($thumbnail.NB_HITS)}
             <p class="{if 0==$thumbnail.NB_HITS}zero {/if}nb-hits">
-                {$pwg->l10n_dec('%d hit', '%d hits',$thumbnail.NB_HITS)}
+                {$pwg->l10n_dec('%d view', '%d views',$thumbnail.NB_HITS)}
             </p>
 {/if}
         </div>

@@ -110,6 +110,7 @@
 
 {include file='infos_errors.tpl'}
 
+<a name=""content"></a>
 <div class="container">
     {if !empty($PLUGIN_INDEX_CONTENT_BEGIN)}{$PLUGIN_INDEX_CONTENT_BEGIN}{/if}
     <div id="content" class="row {if $smarty.cookies.view == 'list'}content-list{else}content-grid{/if}">
@@ -137,14 +138,15 @@
 {if !empty($cats_navbar) || !empty($thumb_navbar)}
 <div class="container">
 {if !empty($cats_navbar)}
-    {include file='navigation_bar.tpl'|@get_extent:'navbar' navbar=$cats_navbar}
+    {include file='navigation_bar.tpl' fragment="content"|@get_extent:'navbar' navbar=$cats_navbar}
 {/if}
 {if !empty($thumb_navbar)}
-    {include file='navigation_bar.tpl'|@get_extent:'navbar' navbar=$thumb_navbar}
+    {include file='navigation_bar.tpl' fragment="content"|@get_extent:'navbar' navbar=$thumb_navbar}
 {/if}
 </div>
 {/if}
-<div class="container" style="display: none">
+<!--
+<div class="container">
     <div class="titrePage{if isset($chronology.TITLE)} calendarTitleBar{/if}">
         {if isset($chronology_views)}
             <div class="calendarViews">{'View'|@translate}:
@@ -201,4 +203,5 @@
     {if !empty($PLUGIN_INDEX_CONTENT_END)}{$PLUGIN_INDEX_CONTENT_END}{/if}
 </div>{* <!-- content --> *}
 {if !empty($PLUGIN_INDEX_CONTENT_AFTER)}{$PLUGIN_INDEX_CONTENT_AFTER}{/if}
+-->
 <!-- End of index.tpl -->
