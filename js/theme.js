@@ -46,4 +46,15 @@ $(document).ready(function() {
                 .height('auto');
     });
 
+    // Side bar
+    $('#info-link').click(function () {
+        var sidebar = $('#sidebar');
+        if (parseInt(sidebar.css('right')) < 0) {
+            sidebar.animate({right: "+=250"}, 500);
+        } else {
+            sidebar.animate({right: "-=250"}, 500);
+        }
+        return false;
+    });
+
 });

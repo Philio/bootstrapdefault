@@ -22,6 +22,7 @@
     }
     jQuery('.derivative-li').removeClass('active');
     jQuery('#derivative'+typeMap).addClass('active');
+    jQuery('#theMainImagePlaceholder').removeClass().addClass('placeholder-'+typeMap);
     document.cookie = 'picture_deriv='+typeSave+';path={/literal}{$COOKIE_PATH}{literal}';
     }
 {/literal}{/footer_script}
@@ -55,6 +56,91 @@
 
 <div id="theImage">
     {$ELEMENT_CONTENT}
+    <div id="sidebar">
+        <div id="info-content" class="info">
+            <dl>
+{if $display_info.author and isset($INFO_AUTHOR)}
+                <dt>{'Author'|@translate}</dt>
+                <dd>{$INFO_AUTHOR}</dd>
+{/if}
+{if $display_info.created_on and isset($INFO_CREATION_DATE)}
+                <dt>{'Created on'|@translate}</dt>
+                <dd>{$INFO_CREATION_DATE}</dd>
+{/if}
+{if $display_info.posted_on}
+                <dt>{'Posted on'|@translate}</dt>
+                <dd>{$INFO_POSTED_DATE}</dd>
+{/if}
+{if $display_info.dimensions and isset($INFO_DIMENSIONS)}
+                <dt>{'Dimensions'|@translate}</dt>
+                <dd>{$INFO_DIMENSIONS}</dd>
+{/if}
+{if $display_info.file}
+                <dt>{'File'|@translate}</dt>
+                <dd>{$INFO_FILE}</dd>
+{/if}
+{if $display_info.filesize and isset($INFO_FILESIZE)}
+                <dt>{'Filesize'|@translate}</dt>
+                <dd>{$INFO_FILESIZE}</dd>
+{/if}
+{if $display_info.tags and isset($related_tags)}
+                <dt>{'Tags'|@translate}</dt>
+                <dd>
+                    {foreach from=$related_tags item=tag name=tag_loop}{if !$smarty.foreach.tag_loop.first}, {/if}<a href="{$tag.URL}">{$tag.name}</a>{/foreach}
+                </dd>
+{/if}
+{if $display_info.categories and isset($related_categories)}
+                <dt>{'Albums'|@translate}</dt>
+                <dd>
+{foreach from=$related_categories item=cat name=cat_loop}
+                    {if !$smarty.foreach.cat_loop.first}<br />{/if}{$cat}
+{/foreach}
+                </dd>
+{/if}
+{if $display_info.visits}
+                <dt>{'Visits'|@translate}</dt>
+                <dd>{$INFO_VISITS}</dd>
+{/if}
+{if $display_info.privacy_level and isset($available_permission_levels)}
+                <dt>{'Who can see this photo?'|@translate}</dt>
+                <dd>
+                    <div>
+                        <a id="privacyLevelLink" href>{$available_permission_levels[$current.level]}</a>
+                    </div>
+                    {combine_script id='core.scripts' load='async' path='themes/default/js/scripts.js'}
+                    {footer_script require='jquery'}{strip}
+                        function setPrivacyLevel(id, level){
+                        (new PwgWS('{$ROOT_URL}')).callService(
+                        "pwg.images.setPrivacyLevel", { image_id:id, level:level},
+                        {
+                        method: "POST",
+                        onFailure: function(num, text) { alert(num + " " + text); },
+                        onSuccess: function(result) {
+                        jQuery('#privacyLevelBox .switchCheck').css('visibility','hidden');
+                        jQuery('#switchLevel'+level).prev('.switchCheck').css('visibility','visible');
+                        jQuery('#privacyLevelLink').text(jQuery('#switchLevel'+level).text());
+                        }
+                        }
+                        );
+                        }
+                        (SwitchBox=window.SwitchBox||[]).push("#privacyLevelLink", "#privacyLevelBox");
+                    {/strip}{/footer_script}
+                    <div id="privacyLevelBox" class="switchBox" style="display:none">
+                        {foreach from=$available_permission_levels item=label key=level}
+                            <span class="switchCheck"{if $level != $current.level} style="visibility:hidden"{/if}>&#x2714; </span>
+                            <a id="switchLevel{$level}" href="javascript:setPrivacyLevel({$current.id},{$level})">{$label}</a><br>
+                        {/foreach}
+                    </div>
+                </dd>
+{/if}
+            </dl>
+        </div>
+        <div class="handle">
+            <a id="info-link" href="#">
+                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
 </div>
 
 {if isset($comment_add) || $COMMENT_COUNT > 0}
@@ -222,69 +308,6 @@ y.callService(
 
 <dl id="standard" class="imageInfoTable">
 {strip}
-	{if $display_info.author and isset($INFO_AUTHOR)}
-	<div id="Author" class="imageInfo">
-		<dt>{'Author'|@translate}</dt>
-		<dd>{$INFO_AUTHOR}</dd>
-	</div>
-	{/if}
-	{if $display_info.created_on and isset($INFO_CREATION_DATE)}
-	<div id="datecreate" class="imageInfo">
-		<dt>{'Created on'|@translate}</dt>
-		<dd>{$INFO_CREATION_DATE}</dd>
-	</div>
-	{/if}
-	{if $display_info.posted_on}
-	<div id="datepost" class="imageInfo">
-		<dt>{'Posted on'|@translate}</dt>
-		<dd>{$INFO_POSTED_DATE}</dd>
-	</div>
-	{/if}
-	{if $display_info.dimensions and isset($INFO_DIMENSIONS)}
-	<div id="Dimensions" class="imageInfo">
-		<dt>{'Dimensions'|@translate}</dt>
-		<dd>{$INFO_DIMENSIONS}</dd>
-	</div>
-	{/if}
-	{if $display_info.file}
-	<div id="File" class="imageInfo">
-		<dt>{'File'|@translate}</dt>
-		<dd>{$INFO_FILE}</dd>
-	</div>
-	{/if}
-	{if $display_info.filesize and isset($INFO_FILESIZE)}
-	<div id="Filesize" class="imageInfo">
-		<dt>{'Filesize'|@translate}</dt>
-		<dd>{$INFO_FILESIZE}</dd>
-	</div>
-	{/if}
-	{if $display_info.tags and isset($related_tags)}
-	<div id="Tags" class="imageInfo">
-		<dt>{'Tags'|@translate}</dt>
-		<dd>
-		{foreach from=$related_tags item=tag name=tag_loop}{if !$smarty.foreach.tag_loop.first}, {/if}<a href="{$tag.URL}">{$tag.name}</a>{/foreach}
-		</dd>
-	</div>
-	{/if}
-	{if $display_info.categories and isset($related_categories)}
-	<div id="Categories" class="imageInfo">
-		<dt>{'Albums'|@translate}</dt>
-		<dd>
-			<ul>
-				{foreach from=$related_categories item=cat}
-				<li>{$cat}</li>
-				{/foreach}
-			</ul>
-		</dd>
-	</div>
-	{/if}
-	{if $display_info.visits}
-	<div id="Visits" class="imageInfo">
-		<dt>{'Visits'|@translate}</dt>
-		<dd>{$INFO_VISITS}</dd>
-	</div>
-	{/if}
-
 {if $display_info.rating_score and isset($rate_summary)}
 	<div id="Average" class="imageInfo">
 		<dt>{'Rating score'|@translate}</dt>
@@ -336,41 +359,6 @@ y.callService(
 			{/strip}
 			</div>
 			</form>
-		</dd>
-	</div>
-{/if}
-
-{if $display_info.privacy_level and isset($available_permission_levels)}
-	<div id="Privacy" class="imageInfo">
-		<dt>{'Who can see this photo?'|@translate}</dt>
-		<dd>
-			<div>
-				<a id="privacyLevelLink" href>{$available_permission_levels[$current.level]}</a>
-			</div>
-{combine_script id='core.scripts' load='async' path='themes/default/js/scripts.js'}
-{footer_script require='jquery'}{strip}
-function setPrivacyLevel(id, level){
-(new PwgWS('{$ROOT_URL}')).callService(
-	"pwg.images.setPrivacyLevel", { image_id:id, level:level},
-	{
-		method: "POST",
-		onFailure: function(num, text) { alert(num + " " + text); },
-		onSuccess: function(result) {
-			  jQuery('#privacyLevelBox .switchCheck').css('visibility','hidden');
-				jQuery('#switchLevel'+level).prev('.switchCheck').css('visibility','visible');
-				jQuery('#privacyLevelLink').text(jQuery('#switchLevel'+level).text());
-		}
-	}
-	);
-}
-(SwitchBox=window.SwitchBox||[]).push("#privacyLevelLink", "#privacyLevelBox");
-{/strip}{/footer_script}
-			<div id="privacyLevelBox" class="switchBox" style="display:none">
-				{foreach from=$available_permission_levels item=label key=level}
-					<span class="switchCheck"{if $level != $current.level} style="visibility:hidden"{/if}>&#x2714; </span>
-					<a id="switchLevel{$level}" href="javascript:setPrivacyLevel({$current.id},{$level})">{$label}</a><br>
-				{/foreach}
-			</div>
 		</dd>
 	</div>
 {/if}
