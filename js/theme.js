@@ -47,6 +47,7 @@ $(document).ready(function() {
     });
 
     // Side bar
+    $('#sidebar').css('top', $('#theImage').offset().top + 'px');
     $('#info-link').click(function () {
         var sidebar = $('#sidebar');
         if (parseInt(sidebar.css('right')) < 0) {
