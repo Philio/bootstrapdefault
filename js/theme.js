@@ -47,15 +47,19 @@ $(document).ready(function() {
     });
 
     // Side bar
-    $('#sidebar').css('top', $('#theImage').offset().top + 'px');
-    $('#info-link').click(function () {
-        var sidebar = $('#sidebar');
-        if (parseInt(sidebar.css('right')) < 0) {
-            sidebar.animate({right: "+=250"}, 500);
-        } else {
-            sidebar.animate({right: "-=250"}, 500);
-        }
-        return false;
-    });
+    var sidebar = $("#sidebar");
+    var theImage = $('#theImage')
+    if (sidebar.length && theImage.length) {
+        sidebar.css('top', theImage.offset().top + 'px');
+        $('#info-link').click(function () {
+            var sidebar = $('#sidebar');
+            if (parseInt(sidebar.css('right')) < 0) {
+                sidebar.animate({right: "+=250"}, 500);
+            } else {
+                sidebar.animate({right: "-=250"}, 500);
+            }
+            return false;
+        });
+    }
 
 });
