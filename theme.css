@@ -112,6 +112,22 @@ body {
   padding: 20px;
   box-shadow: -5px 0 10px 0px #dddddd;
 }
+#sidebar .info dl {
+  margin-bottom: 0;
+}
+#sidebar .info button {
+  max-width: 210px;
+}
+#share {
+  margin-top: 20px;
+  font-size: 2.5em;
+  text-align: center;
+}
+#share a {
+  padding-left: 20px;
+  padding-right: 20px;
+  text-decoration: none;
+}
 #commentList .comment {
   clear: both;
 }

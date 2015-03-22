@@ -1,5 +1,7 @@
 <!-- Start of picture.tpl -->
 {combine_script id='core.switchbox' load='async' require='jquery' path='themes/default/js/switchbox.js'}
+{combine_css path="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"}
+
 {if !empty($PLUGIN_PICTURE_BEFORE)}{$PLUGIN_PICTURE_BEFORE}{/if}
 
 <nav class="navbar navbar-default" role="navigation">
@@ -22,7 +24,6 @@
     }
     jQuery('.derivative-li').removeClass('active');
     jQuery('#derivative'+typeMap).addClass('active');
-    jQuery('#theMainImagePlaceholder').removeClass().addClass('placeholder-'+typeMap);
     document.cookie = 'picture_deriv='+typeSave+';path={/literal}{$COOKIE_PATH}{literal}';
     }
 {/literal}{/footer_script}
@@ -60,6 +61,7 @@
 <div id="sidebar">
     <div id="info-content" class="info">
         <dl>
+            <h4>{'Information'|@translate}</h4>
 {if $display_info.author and isset($INFO_AUTHOR)}
             <dt>{'Author'|@translate}</dt>
             <dd>{$INFO_AUTHOR}</dd>
@@ -103,36 +105,48 @@
             <dd>{$INFO_VISITS}</dd>
 {/if}
 {if $display_info.privacy_level and isset($available_permission_levels)}
+{combine_script id='core.scripts' load='async' path='themes/default/js/scripts.js'}
+{footer_script require='jquery'}{strip}
+    function setPrivacyLevel(id, level, label){
+    (new PwgWS('{$ROOT_URL}')).callService(
+    "pwg.images.setPrivacyLevel", { image_id:id, level:level},
+    {
+    method: "POST",
+    onFailure: function(num, text) { alert(num + " " + text); },
+    onSuccess: function(result) {
+    jQuery('#dropdownPermissions').html(label + ' <span class="caret"></span>');
+    jQuery('.permission-li').removeClass('active');
+    jQuery('#permission-' + level).addClass('active');
+    }
+    }
+    );
+    }
+    (SwitchBox=window.SwitchBox||[]).push("#privacyLevelLink", "#privacyLevelBox");
+{/strip}{/footer_script}
             <dt>{'Who can see this photo?'|@translate}</dt>
             <dd>
-                <div>
-                    <a id="privacyLevelLink" href>{$available_permission_levels[$current.level]}</a>
-                </div>
-                {combine_script id='core.scripts' load='async' path='themes/default/js/scripts.js'}
-                {footer_script require='jquery'}{strip}
-                    function setPrivacyLevel(id, level){
-                    (new PwgWS('{$ROOT_URL}')).callService(
-                    "pwg.images.setPrivacyLevel", { image_id:id, level:level},
-                    {
-                    method: "POST",
-                    onFailure: function(num, text) { alert(num + " " + text); },
-                    onSuccess: function(result) {
-                    jQuery('#privacyLevelBox .switchCheck').css('visibility','hidden');
-                    jQuery('#switchLevel'+level).prev('.switchCheck').css('visibility','visible');
-                    jQuery('#privacyLevelLink').text(jQuery('#switchLevel'+level).text());
-                    }
-                    }
-                    );
-                    }
-                    (SwitchBox=window.SwitchBox||[]).push("#privacyLevelLink", "#privacyLevelBox");
-                {/strip}{/footer_script}
-                <div id="privacyLevelBox" class="switchBox" style="display:none">
-                    {foreach from=$available_permission_levels item=label key=level}
-                        <span class="switchCheck"{if $level != $current.level} style="visibility:hidden"{/if}>&#x2714; </span>
-                        <a id="switchLevel{$level}" href="javascript:setPrivacyLevel({$current.id},{$level})">{$label}</a><br>
-                    {/foreach}
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle ellipsis" type="button" id="dropdownPermissions" data-toggle="dropdown" aria-expanded="true">
+                        {$available_permission_levels[$current.level]}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownPermissions">
+{foreach from=$available_permission_levels item=label key=level}
+                        <li id="permission-{$level}" role="presentation" class="permission-li {if $current.level == $level} active{/if}"><a role="menuitem" tabindex="-1" href="javascript:setPrivacyLevel({$current.id},{$level},'{$label}')">{$label}</a></li>
+{/foreach}
+                    </ul>
                 </div>
             </dd>
+{/if}
+{if isset($metadata)}
+{foreach from=$metadata item=meta}
+            <br />
+            <h4>{$meta.TITLE}</h4>
+{foreach from=$meta.lines item=value key=label}
+            <dt>{$label}</dt>
+            <dd>{$value}</dd>
+{/foreach}
+{/foreach}
 {/if}
         </dl>
     </div>
@@ -143,6 +157,23 @@
     </div>
 </div>
 
+{include file="http_scheme.tpl"}
+<div class="container">
+    <section id="share">
+        <a href="http://twitter.com/share?text={$current.TITLE}&amp;url={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+            <i class="fa fa-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+            <i class="fa fa-facebook"></i>
+        </a>
+        <a href="https://plus.google.com/share?url={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+            <i class="fa fa-google-plus"></i>
+        </a>
+    </section>
+</div>
 
 {if isset($comment_add) || $COMMENT_COUNT > 0}
 <a name="comments"></a>
@@ -366,19 +397,6 @@ y.callService(
 {/strip}
 </dl>
 
-{if isset($metadata)}
-<dl id="Metadata" class="imageInfoTable">
-{foreach from=$metadata item=meta}
-	<h3>{$meta.TITLE}</h3>
-	{foreach from=$meta.lines item=value key=label}
-		<div class="imageInfo">
-			<dt>{$label}</dt>
-			<dd>{$value}</dd>
-		</div>
-	{/foreach}
-{/foreach}
-</dl>
-{/if}
 </div>
 </div>
 -->

@@ -29,7 +29,8 @@
                 <img {if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png" data-src="{$derivative->get_url()}"{/if} alt="{$comment.ALT}">
             </a>
 {else}
-            <img class="gravatar" src="//www.gravatar.com/avatar/{$comment.EMAIL|trim|strtolower|md5}?d=//{$smarty.server.HTTP_HOST}/{$ROOT_URL}{$themeconf.img_dir}/user.png" />
+{include file="http_scheme.tpl"}
+            <img class="gravatar" src="//www.gravatar.com/avatar/{$comment.EMAIL|trim|strtolower|md5}?d={$http_scheme}://{$smarty.server.HTTP_HOST}/{$ROOT_URL}{$themeconf.img_dir}/user.png" />
 {/if}
         </div>
         <div class="description">
