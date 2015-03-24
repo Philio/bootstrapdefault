@@ -212,30 +212,31 @@
 
 <div class="container">
     <section id="important-info">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
-    {if $display_info.visits}
-                <div id="visits">
-                    <b>{'Visits'|@translate}</b>
-                    <span class="count">{$INFO_VISITS}</span>
-                </div>
-    {/if}
-                <div id="rating">
-                    <dl class="dl-horizontal">
-                        <dt>{'Average rating'|@translate} <span id="ratingCount">{if $rate_summary.count}({$rate_summary.count|@translate_dec:'%d rate':'%d rates'}){/if}</span></dt>
-                        <dd id="averageRate">
+{if isset($COMMENT_IMG)}
+        <p class="imageComment">{$COMMENT_IMG}</p>
+{/if}
+{if $display_info.visits}
+        <div id="visits">
+            <b>{'Visits'|@translate}</b>
+            <span class="count">{$INFO_VISITS}</span>
+        </div>
+{/if}
+        <div id="rating">
+            <dl class="dl-horizontal">
+                <dt>{'Average rating'|@translate} <span id="ratingCount">{if $rate_summary.count}({$rate_summary.count|@translate_dec:'%d rate':'%d rates'}){/if}</span></dt>
+                <dd id="averageRate">
 {foreach from=$rating.marks item=mark name=rate_loop}
-                            <span class="{if $rate_summary.count && $rate_summary.average > $mark - 0.5}rateButtonStarFull{else}rateButtonStarEmpty{/if}" data-value="{$mark}"></span>
+                    <span class="{if $rate_summary.count && $rate_summary.average > $mark - 0.5}rateButtonStarFull{else}rateButtonStarEmpty{/if}" data-value="{$mark}"></span>
 {/foreach}
-                        </dd>
-                        <dt id="updateRate">{if isset($rating.USER_RATE)}{'Update your rating'|@translate}{else}{'Rate this photo'|@translate}{/if}</dt>
-                        <dd>
-                            <form action="{$rating.F_ACTION}" method="post" id="rateForm" style="margin:0;">
+                </dd>
+                <dt id="updateRate">{if isset($rating.USER_RATE)}{'Update your rating'|@translate}{else}{'Rate this photo'|@translate}{/if}</dt>
+                <dd>
+                    <form action="{$rating.F_ACTION}" method="post" id="rateForm" style="margin:0;">
 {foreach from=$rating.marks item=mark name=rate_loop}
 {if isset($rating.USER_RATE) && $mark==$rating.USER_RATE}
-                                <span class="rateButtonStarFull" data-value="{$mark}"></span>
+                        <span class="rateButtonStarFull" data-value="{$mark}"></span>
 {else}
-                                <span class="rateButtonStarEmpty" data-value="{$mark}"></span>
+                        <span class="rateButtonStarEmpty" data-value="{$mark}"></span>
 {/if}
 {/foreach}
 {strip}{combine_script id='core.scripts' load='async' path='themes/default/js/scripts.js'}
@@ -264,11 +265,9 @@
 {rdelim} );
 {/footer_script}
 {/strip}
-                            </form>
-                        </dd>
-                    </dl>
-                </div>
-            </div>
+                    </form>
+                </dd>
+            </dl>
         </div>
     </section>
 </div>
@@ -357,22 +356,10 @@
 <div id="imageToolBar">
 {include file='picture_nav_buttons.tpl'|@get_extent:'picture_nav_buttons'}
 
-<div class="actionButtons">
-{if isset($COMMENT_IMG)}
-<p class="imageComment">{$COMMENT_IMG}</p>
-{/if}
 {if isset($U_SLIDESHOW_STOP)}
 <p>
 	[ <a href="{$U_SLIDESHOW_STOP}">{'stop the slideshow'|@translate}</a> ]
 </p>
 {/if}
-
-</div>{*<!-- no significant white space for elegant-->
-*}<div id="infoSwitcher"></div>{*<!-- no significant white space for elegant-->
-*}<div id="imageInfos">
-
-
-</div>
-</div>
 -->
 {if !empty($PLUGIN_PICTURE_AFTER)}{$PLUGIN_PICTURE_AFTER}{/if}
