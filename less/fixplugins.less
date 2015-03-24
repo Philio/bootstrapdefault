@@ -1,5 +1,6 @@
 // Some of the styles used by plugins are inconsistent, this css is loaded last and resolves common known issues
 @import "../bootstrap/less/variables.less";
+@import "../bootstrap/less/glyphicons.less";
 
 // Hide language switch as it doesn't work properly
 #languageSwitch {
@@ -25,3 +26,11 @@
   }
 }
 */
+
+// Add glyphicon styles to any custom menu buttons
+.pwg-icon {
+  .glyphicon;
+}
+.pwg-button-text {
+  .glyphicon-text;
+}

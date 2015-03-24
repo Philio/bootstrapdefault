@@ -1,4 +1,5 @@
 @import "../bootstrap/less/variables.less";
+@import "../bootstrap/less/glyphicons.less";
 
 body {
   overflow-x: hidden;
@@ -157,8 +158,35 @@ body {
   }
 }
 
-#share {
+#important-info {
   margin-top: 20px;
+  #visits {
+    float: left;
+    span.count {
+      margin-left: 15px;
+    }
+  }
+
+  #rating {
+    float: right;
+    .rateButton {
+      &:extend(.glyphicon);
+      &:extend(.glyphicon-star);
+    }
+    .rateButtonStarFull {
+      .glyphicon;
+      .glyphicon-star;
+      cursor:pointer;
+    }
+    .rateButtonStarEmpty {
+      .glyphicon;
+      .glyphicon-star-empty;
+      cursor:pointer;
+    }
+  }
+}
+
+#share {
   font-size: 2.5em;
   text-align: center;
   a {
