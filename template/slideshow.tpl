@@ -1,4 +1,8 @@
 <div id="slideshow">
+    <div class="container">
+        <h3>{$current.TITLE}</h3>
+    </div>
+
     {include file='picture_nav_buttons.tpl'|@get_extent:'picture_nav_buttons'}
 
     <div id="theImage">
