@@ -38,14 +38,14 @@
 {if isset($favorite)}
                 <li>
                     <a href="{$favorite.U_FAVORITE}" title="{'Delete all photos from your favorites'|@translate}" rel="nofollow">
-                        <span class="glyphicon glyphicon-remove"></span><span class="glyphicon-text">{'Delete all photos from your favorites'|@translate}</span>
+                        <span class="glyphicon glyphicon-heart"></span><span class="glyphicon-text">{'Delete all photos from your favorites'|@translate}</span>
                     </a>
                 </li>
 {/if}
 {if isset($U_CADDIE)}
                 <li>
                     <a href="{$U_CADDIE}" title="{'Add to caddie'|@translate}">
-                        <span class="glyphicon glyphicon-flag"></span><span class="glyphicon-text">{'Caddie'|@translate}</span>
+                        <span class="glyphicon glyphicon-plus-sign"></span><span class="glyphicon-text">{'Caddie'|@translate}</span>
                     </a>
                 </li>
 {/if}
@@ -81,7 +81,7 @@
 {if isset($U_MODE_NORMAL)}
                 <li>
                     {strip}<a href="{$U_MODE_NORMAL}" title="{'return to normal view mode'|@translate}">
-                        <span class="glyphicon glyphicon-repeat"></span><span class="glyphicon-text">{'return to normal view mode'|@translate}</span>
+                        <span class="glyphicon glyphicon-home"></span><span class="glyphicon-text">{'return to normal view mode'|@translate}</span>
                     </a>{/strip}
                 </li>
 {/if}

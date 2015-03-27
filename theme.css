@@ -681,6 +681,21 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+#navigationButtons {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.6em;
+}
+#navigationButtons a {
+  text-decoration: none;
+}
+#navigationButtons span.glyphicon {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+#slideshow #navigationButtons {
+  margin-top: 20px;
+}
 #theImage {
   position: relative;
   overflow-x: hidden;
@@ -784,7 +799,6 @@ body {
 #share a {
   padding-left: 20px;
   padding-right: 20px;
-  text-decoration: none;
 }
 #commentList .comment {
   clear: both;

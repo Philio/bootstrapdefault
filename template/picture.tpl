@@ -47,8 +47,8 @@
 {/if}
 {if isset($U_SLIDESHOW_START)}
                 <li>
-                    <a href="{$U_SLIDESHOW_START}" title="{'slideshow'|@translate}" rel="nofollow">
-                        <span class="glyphicon glyphicon-play"></span><span class="glyphicon-text">{'slideshow'|@translate}</span>
+                    <a href="{$U_SLIDESHOW_START}" title="{'Slideshow'|@translate}" rel="nofollow">
+                        <span class="glyphicon glyphicon-play"></span><span class="glyphicon-text">{'Slideshow'|@translate}</span>
                     </a>
                 </li>
 {/if}
@@ -68,14 +68,14 @@
 {/if}
 {if isset($favorite)}
                 <li>
-                    <a href="{$favorite.U_FAVORITE}" title="{if $favorite.IS_FAVORITE}{'delete this photo from your favorites'|@translate}{else}{'add this photo to your favorites'|@translate}{/if}" rel="nofollow">
+                    <a href="{$favorite.U_FAVORITE}" title="{if $favorite.IS_FAVORITE}{'Delete this photo from your favorites'|@translate}{else}{'Add this photo to your favorites'|@translate}{/if}" rel="nofollow">
                         <span class="glyphicon glyphicon-heart{if !$favorite.IS_FAVORITE}-empty{/if}"></span><span class="glyphicon-text">{'Favorites'|@translate}</span>
                     </a>
                 </li>
 {/if}
 {if isset($U_SET_AS_REPRESENTATIVE)}
                 <li>
-                    <a id="cmdSetRepresentative" href="{$U_SET_AS_REPRESENTATIVE}" title="{'set as album representative'|@translate}" rel="nofollow">
+                    <a id="cmdSetRepresentative" href="{$U_SET_AS_REPRESENTATIVE}" title="{'Set as album representative'|@translate}" rel="nofollow">
                         <span class="glyphicon glyphicon-link"></span><span class="glyphicon-text">{'representative'|@translate}</span>
                     </a>
                 </li>
@@ -111,6 +111,10 @@
 </nav>
 
 {include file='infos_errors.tpl'}
+
+<div class="container">
+    {include file='picture_nav_buttons.tpl'|@get_extent:'picture_nav_buttons'}
+</div>
 
 <div id="theImage">
     {$ELEMENT_CONTENT}

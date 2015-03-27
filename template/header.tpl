@@ -80,11 +80,13 @@
     </div>
 </nav>
 
+{if !isset($slideshow)}
 <div class="jumbotron">
     <div class="container">
         {$PAGE_BANNER}
     </div>
 </div>
+{/if}
 
 {if not empty($header_msgs)}
 {foreach from=$header_msgs item=msg}
