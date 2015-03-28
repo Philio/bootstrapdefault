@@ -28,8 +28,8 @@
 {if isset($last.U_IMG)    }    <link rel="last" title="{'Last'|@translate}" href="{$last.U_IMG}" >{/if}
 {if isset($U_UP)          }    <link rel="up" title="{'Thumbnails'|@translate}" href="{$U_UP}" >{/if}
 
-{combine_css path="themes/bootstrapdefault/bootstrap/css/bootstrap.min.css" order=-20}
-{combine_css path="themes/bootstrapdefault/bootstrap/css/bootstrap-theme.min.css" order=-20}
+{combine_css path="themes/bootstrapdefault/bootstrap/dist/css/bootstrap.min.css" order=-20}
+{combine_css path="themes/bootstrapdefault/bootstrap/dist/css/bootstrap-theme.min.css" order=-20}
 {foreach from=$themes item=theme}
 {if $theme.load_css}
     {combine_css path="themes/`$theme.id`/theme.css" order=-10}
@@ -47,7 +47,7 @@
 {combine_script id='jquery'}
 {combine_script id='jquery-ajaxmanager' require='jquery' path='themes/default/js/plugins/jquery.ajaxmanager.js'}
 {combine_script id='thumbnails-loader' require='jquery-ajaxmanager' path='themes/default/js/thumbnails.loader.js'}
-{combine_script id='bootstrap' require='jquery' path='themes/bootstrapdefault/bootstrap/js/bootstrap.min.js'}
+{combine_script id='bootstrap' require='jquery' path='themes/bootstrapdefault/bootstrap/dist/js/bootstrap.min.js'}
 {combine_script id='bootstrapdefault' require='bootstrap' path='themes/bootstrapdefault/js/theme.js'}
     {get_combined_scripts load='header'}
 
