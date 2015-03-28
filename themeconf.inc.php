@@ -10,6 +10,7 @@ Author URI: https://philio.me/
 $themeconf = array(
     'name' => 'bootstrapdefault',
     'parent' => 'default',
+    'colorscheme' => 'clear',
     'load_parent_css' => false,
     'load_parent_local_head' => false,
     'local_head' => 'local_head.tpl',

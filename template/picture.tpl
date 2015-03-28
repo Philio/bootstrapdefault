@@ -330,10 +330,12 @@
                                 <input class="form-control" type="text" name="email" id="email" value="{$comment_add.EMAIL}">
                             </div>
 {/if}
+{if $comment_add.SHOW_WEBSITE}
                             <div class="form-group">
                                 <label for="website_url">{'Website'|@translate} :</label>
                                 <input class="form-control" type="text" name="website_url" id="website_url" value="{$comment_add.WEBSITE_URL}">
                             </div>
+{/if}
                             <div class="form-group">
                                 <label for="contentid">{'Comment'|@translate} ({'mandatory'|@translate}) :</label>
                                 <textarea class="form-control" name="content" id="contentid" rows="5" cols="50">{$comment_add.CONTENT}</textarea>
