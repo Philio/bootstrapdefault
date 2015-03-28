@@ -28,7 +28,7 @@
 
 {if $display_mode == 'cloud' and isset($tags)}
 <div class="container">
-    <div id="fullTagCloud">
+    <div id="tagCloud">
 {foreach from=$tags item=tag}
         <span><a href="{$tag.URL}" class="tagLevel{$tag.level}" title="{$tag.counter|@translate_dec:'%d photo':'%d photos'}">{$tag.name}</a></span>
 {/foreach}
@@ -38,22 +38,17 @@
 
 {if $display_mode == 'letters' and isset($letters)}
 <div class="container">
-    <div class="row">
+    <div id="tagLetters">
+        <div class="menu row">
 {foreach from=$letters item=letter}
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <fieldset class="tagLetter">
-                <legend class="tagLetterLegend">{$letter.TITLE}</legend>
-                <table class="tagLetterContent">
-{foreach from=$letter.tags item=tag}
-                    <tr class="tagLine">
-                        <td><a href="{$tag.URL}" title="{$tag.name}">{$tag.name}</a></td>
-                        <td class="nbEntries">{$tag.counter|@translate_dec:'%d photo':'%d photos'}</td>
-                    </tr>
+            <div class="menu-category">
+                <div class="menu-category-name list-group-item active">{$letter.TITLE}</div>
+    {foreach from=$letter.tags item=tag}
+                <a href="{$tag.URL}" class="menu-item list-group-item" title="{$tag.name}">{$tag.name}<span class="badge">{$tag.counter|@translate_dec:'%d photo':'%d photos'}</span></a>
+    {/foreach}
+            </div>
 {/foreach}
-                </table>
-            </fieldset>
         </div>
-{/foreach}
     </div>
 </div>
 {/if}

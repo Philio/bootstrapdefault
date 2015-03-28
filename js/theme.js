@@ -50,7 +50,7 @@ $(document).ready(function() {
     var sidebar = $("#sidebar");
     var theImage = $('#theImage')
     if (sidebar.length && theImage.length) {
-        sidebar.css('top', theImage.offset().top + 'px');
+        sidebar.css('top', (theImage.offset().top + 20) + 'px');
         $('#info-link').click(function () {
             var sidebar = $('#sidebar');
             if (parseInt(sidebar.css('right')) < 0) {
