@@ -45,7 +45,6 @@
                     <label for="passwordConf" class="col-sm-2 control-label">{'Confirm Password'|@translate}</label>
                     <div class="col-sm-4">
                         <input type="password" name="passwordConf" id="passwordConf" class="form-control" value="" placeholder="{'Confirm Password'|@translate}">
-                        <input  maxlength="40"{if isset($username_or_email)} value="{$username_or_email}"{/if}>
                     </div>
                 </div>
             </div>
