@@ -43,9 +43,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="checkbox-inline col-sm-offset-2">
-                        <input type="checkbox" name="send_password_by_mail" value="1" checked="checked"> {'Send my connection settings by email'|@translate}
-                    </label>
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="send_password_by_mail" value="1" checked="checked"> {'Send my connection settings by email'|@translate}
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -27,24 +27,31 @@
                         <input tabindex="2" class="form-control" type="password" name="password" id="password" maxlength="25">
                     </div>
                 </div>
-                {if $authorize_remembering }
+{if $authorize_remembering }
                 <div class="form-group">
-                    <label class="checkbox-inline col-sm-offset-2">
-                        <input tabindex="3" type="checkbox" name="remember_me" id="remember_me" value="1"> {'Auto login'|@translate}
-                    </label>
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input tabindex="3" type="checkbox" name="remember_me" id="remember_me" value="1"> {'Auto login'|@translate}
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                {/if}
-                <div class="col-sm-offset-2">
-                    {if isset($U_REGISTER)}
+{/if}
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+{if isset($U_REGISTER)}
                         <a href="{$U_REGISTER}" title="{'Register'|@translate}" class="pwg-state-default pwg-button">
-                            {'Register'|@translate}
+                            <span class="glyphicon glyphicon-user"></span> {'Register'|@translate}
                         </a>
-                    {/if}
-                    {if isset($U_LOST_PASSWORD)}
+{/if}
+                        &nbsp;&nbsp;&nbsp;
+{if isset($U_LOST_PASSWORD)}
                         <a href="{$U_LOST_PASSWORD}" title="{'Forgot your password?'|@translate}" class="pwg-state-default pwg-button">
-                            {'Forgot your password?'|@translate}
+                            <span class="glyphicon glyphicon-lock"></span> {'Forgot your password?'|@translate}
                         </a>
-                    {/if}
+{/if}
+                    </div>
                 </div>
             </div>
         </div>
