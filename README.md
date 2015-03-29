@@ -1,10 +1,19 @@
 Bootstrap Default
 =================
 
-A minimalist version of the [Piwigo](http://piwigo.org/) default theme based on [Bootstrap](http://getbootstrap.com/). Intended as a parent theme for creating responsive themes for [Piwigo](http://piwigo.org/).
+A minimalist version of the [Piwigo](http://piwigo.org/) default theme based on [Bootstrap](http://getbootstrap.com/).
+Intended as a parent theme for creating responsive themes for [Piwigo](http://piwigo.org/).
 
-# \*\*\* This theme is work in progress \*\*\*
+## Installing
 
-Bootstrap is included as a combination of compiled code and the less files as the theme.less requires the Bootstrap variables. This is a quick hack and will later be replaced with a submodule of the Bootstrap source.
+The theme is currently a work in progress, but is probably around 90% complete and there are only a few simple pages
+left to style.
 
-Do not edit theme.css, this should be generated using [Less](http://lesscss.org/).
+If you would like to check out the theme in it's current state, please clone this repository with the included sub
+modules into your [Piwigo](http://piwigo.org/) themes directory.
+
+## Bundled libraries
+
+[Bootstrap](http://getbootstrap.com/) 3.3.4 - Included as submodule
+[Selectize.js](http://brianreavis.github.io/selectize.js/) 0.12.0 - Included as submodule. Note: The bundled version with
+Piwigo 2.7.x is ignored in favour of the latest build with Bootstrap styling.
