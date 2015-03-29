@@ -986,6 +986,7 @@ body {
 #share a {
   padding-left: 20px;
   padding-right: 20px;
+  text-decoration: none;
 }
 #commentList .comment {
   clear: both;

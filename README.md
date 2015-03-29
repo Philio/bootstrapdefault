@@ -4,6 +4,17 @@ Bootstrap Default for Piwigo
 A minimalist version of the [Piwigo](http://piwigo.org/) default theme based on [Bootstrap](http://getbootstrap.com/).
 Intended as a parent theme for creating responsive themes for [Piwigo](http://piwigo.org/).
 
+## Features
+
+* Fully responsive and fully featured theme based on Bootstrap's default theme
+* Browse albums as a grid or list with selectable thumbnail sizes
+* Image size selection enabled for better viewing of images and slide show on higher resolution monitors, with
+  responsive scaling of over sized images
+* Slide in side bar with image information
+* Share buttons for Twitter, Facebook and Google+
+* Gravatar support for comment avatars
+* Masonry style tag view
+
 ## Live demo
 
 A demo of the theme can be found here: http://bootstrapdefault.phil.si/
