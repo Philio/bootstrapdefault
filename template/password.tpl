@@ -29,9 +29,11 @@
                         <input type="text" id="username_or_email" name="username_or_email" class="form-control" maxlength="40"{if isset($username_or_email)} value="{$username_or_email}"{/if} placeholder="{'Username or email'|@translate}">
                     </div>
                 </div>
-            </div>
-        </div>
-        <input type="submit" name="submit" value="{'Change my password'|@translate}" class="btn btn-default">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" name="submit" value="{'Change my password'|@translate}" class="btn btn-default">
+                    </div>
+                </div>
 {elseif $action eq 'reset'}
                 <div>{'Hello'|@translate} <em>{$username}</em>. {'Enter your new password below.'|@translate}</div>
                 <br />
@@ -47,10 +49,14 @@
                         <input type="password" name="passwordConf" id="passwordConf" class="form-control" value="" placeholder="{'Confirm Password'|@translate}">
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" name="submit" value="{'Submit'|@translate}" class="btn btn-default">
+                    </div>
+                </div>
+{/if}
             </div>
         </div>
-        <input type="submit" name="submit" value="{'Submit'|@translate}" class="btn btn-default">
-{/if}
     </form>
 </div>
 {/if}

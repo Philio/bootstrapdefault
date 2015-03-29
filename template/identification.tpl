@@ -40,23 +40,27 @@
 {/if}
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-{if isset($U_REGISTER)}
-                        <a href="{$U_REGISTER}" title="{'Register'|@translate}" class="pwg-state-default pwg-button">
-                            <span class="glyphicon glyphicon-user"></span> {'Register'|@translate}
-                        </a>
-{/if}
+                        <input type="hidden" name="redirect" value="{$U_REDIRECT|@urlencode}">
+                        <input tabindex="4" type="submit" name="login" value="{'Submit'|@translate}" class="btn btn-default">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        {if isset($U_REGISTER)}
+                            <a href="{$U_REGISTER}" title="{'Register'|@translate}" class="pwg-state-default pwg-button">
+                                <span class="glyphicon glyphicon-user"></span> {'Register'|@translate}
+                            </a>
+                        {/if}
                         &nbsp;&nbsp;&nbsp;
-{if isset($U_LOST_PASSWORD)}
-                        <a href="{$U_LOST_PASSWORD}" title="{'Forgot your password?'|@translate}" class="pwg-state-default pwg-button">
-                            <span class="glyphicon glyphicon-lock"></span> {'Forgot your password?'|@translate}
-                        </a>
-{/if}
+                        {if isset($U_LOST_PASSWORD)}
+                            <a href="{$U_LOST_PASSWORD}" title="{'Forgot your password?'|@translate}" class="pwg-state-default pwg-button">
+                                <span class="glyphicon glyphicon-lock"></span> {'Forgot your password?'|@translate}
+                            </a>
+                        {/if}
                     </div>
                 </div>
             </div>
         </div>
-        <input type="hidden" name="redirect" value="{$U_REDIRECT|@urlencode}">
-        <input tabindex="4" type="submit" name="login" value="{'Submit'|@translate}" class="btn btn-default">
     </form>
 </div>
 

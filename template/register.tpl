@@ -51,11 +51,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="hidden" name="key" value="{$F_KEY}" >
+                        <input type="submit" name="submit" value="{'Register'|@translate}" class="btn btn-default">
+                        <input type="reset" value="{'Reset'|@translate}" class="btn btn-default">
+                    </div>
+                </div>
             </div>
         </div>
-		<input type="hidden" name="key" value="{$F_KEY}" >
-        <input type="submit" name="submit" value="{'Register'|@translate}" class="btn btn-default">
-        <input type="reset" value="{'Reset'|@translate}" class="btn btn-default">
     </form>
 </div>
 
