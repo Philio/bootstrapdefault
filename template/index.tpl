@@ -42,17 +42,17 @@
                     </a>
                 </li>
 {/if}
+{if isset($U_EDIT)}
+                <li>
+                    <a href="{$U_EDIT}" title="{'Edit album'|@translate}">
+                        <span class="glyphicon glyphicon-pencil"></span><span class="glyphicon-text">{'Edit'|@translate}</span>
+                    </a>
+                </li>
+{/if}
 {if isset($U_CADDIE)}
                 <li>
                     <a href="{$U_CADDIE}" title="{'Add to caddie'|@translate}">
                         <span class="glyphicon glyphicon-plus-sign"></span><span class="glyphicon-text">{'Caddie'|@translate}</span>
-                    </a>
-                </li>
-{/if}
-{if isset($U_EDIT)}
-                <li>
-                    <a href="{$U_EDIT}" title="{'Edit album'|@translate}">
-                        <span class="glyphicon glyphicon-edit"></span><span class="glyphicon-text">{'Edit'|@translate}</span>
                     </a>
                 </li>
 {/if}

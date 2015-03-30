@@ -101,8 +101,7 @@ body {
     font-size: 49px;
   }
 }
-.glyphicon-text,
-.pwg-button-text {
+.glyphicon-text {
   display: none;
 }
 .html-options select {
