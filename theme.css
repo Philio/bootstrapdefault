@@ -348,6 +348,9 @@ fieldset[disabled] .html-radios-inline label {
   float: right;
   font-size: 90%;
 }
+.comment-search {
+  margin-top: 20px;
+}
 .nav-pills {
   margin-top: 25px;
   margin-bottom: 25px;
