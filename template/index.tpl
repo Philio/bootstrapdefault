@@ -112,7 +112,12 @@
 
 <a name=""content"></a>
 <div class="container">
-    {if !empty($PLUGIN_INDEX_CONTENT_BEGIN)}{$PLUGIN_INDEX_CONTENT_BEGIN}{/if}
+{if !empty($PLUGIN_INDEX_CONTENT_BEGIN)}{$PLUGIN_INDEX_CONTENT_BEGIN}{/if}
+{if !empty($CONTENT_DESCRIPTION)}
+    <h4>
+        {$CONTENT_DESCRIPTION}
+    </h4>
+{/if}
     <div id="content" class="row {if $smarty.cookies.view == 'list'}content-list{else}content-grid{/if}">
 {if !empty($CONTENT)}
     <!-- Start of content -->
@@ -145,8 +150,36 @@
 {/if}
 </div>
 {/if}
-<!--
+
+{if !empty($category_search_results)}
 <div class="container">
+    <h3 class="category_search_results">{'Album results for'|@translate} <em><strong>{$QUERY_SEARCH}</strong></em></h3>
+    <p>
+        <em><strong>
+{foreach from=$category_search_results item=res name=res_loop}
+{if !$smarty.foreach.res_loop.first} &mdash; {/if}
+            {$res}
+{/foreach}
+        </strong></em>
+    </p>
+</div>
+{/if}
+
+{if !empty($tag_search_results)}
+<div class="container">
+    <h3 class="tag_search_results">{'Tag results for'|@translate} <em><strong>{$QUERY_SEARCH}</strong></em></h3>
+    <p>
+        <em><strong>
+{foreach from=$tag_search_results item=tag name=res_loop}
+{if !$smarty.foreach.res_loop.first} &mdash; {/if}
+            <a href="{$tag.URL}">{$tag.name}</a>
+{/foreach}
+        </strong></em>
+    </p>
+</div>
+{/if}
+
+{* Calendar code, needs adding
     <div class="titrePage{if isset($chronology.TITLE)} calendarTitleBar{/if}">
         {if isset($chronology_views)}
             <div class="calendarViews">{'View'|@translate}:
@@ -166,42 +199,18 @@
             <h2 class="calendarTitle">{$chronology.TITLE}</h2>
         {/if}
 
-    </div>{* <!-- titrePage --> *}
+    </div>
+*}
 
+{* Don't know what this does!
+{if isset($FILE_CHRONOLOGY_VIEW)}
+    {include file=$FILE_CHRONOLOGY_VIEW}
+{/if}
+*}
 
-    {if !empty($category_search_results)}
-        <div class="category_search_results">{'Album results for'|@translate} <strong>{$QUERY_SEARCH}</strong> :
-            <em><strong>
-                    {foreach from=$category_search_results item=res name=res_loop}
-                        {if !$smarty.foreach.res_loop.first} &mdash; {/if}
-                        {$res}
-                    {/foreach}
-                </strong></em>
-        </div>
-    {/if}
+<div class="container">
+{if !empty($PLUGIN_INDEX_CONTENT_END)}{$PLUGIN_INDEX_CONTENT_END}{/if}
+</div>
 
-    {if !empty($tag_search_results)}
-        <div class="tag_search_results">{'Tag results for'|@translate} <strong>{$QUERY_SEARCH}</strong> :
-            <em><strong>
-                    {foreach from=$tag_search_results item=tag name=res_loop}
-                        {if !$smarty.foreach.res_loop.first} &mdash; {/if} <a href="{$tag.URL}">{$tag.name}</a>
-                    {/foreach}
-                </strong></em>
-        </div>
-    {/if}
-
-    {if isset($FILE_CHRONOLOGY_VIEW)}
-        {include file=$FILE_CHRONOLOGY_VIEW}
-    {/if}
-
-    {if !empty($CONTENT_DESCRIPTION)}
-        <div class="additional_info">
-            {$CONTENT_DESCRIPTION}
-        </div>
-    {/if}
-
-    {if !empty($PLUGIN_INDEX_CONTENT_END)}{$PLUGIN_INDEX_CONTENT_END}{/if}
-</div>{* <!-- content --> *}
 {if !empty($PLUGIN_INDEX_CONTENT_AFTER)}{$PLUGIN_INDEX_CONTENT_AFTER}{/if}
--->
 <!-- End of index.tpl -->
