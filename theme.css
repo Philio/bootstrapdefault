@@ -92,6 +92,9 @@ body {
 .navbar:first-of-type {
   margin-bottom: 0px;
 }
+.navbar .navbar-right {
+  margin-right: 0;
+}
 .jumbotron {
   margin-bottom: 0px;
 }
