@@ -193,7 +193,7 @@ fieldset[disabled] .html-radios-inline label {
 }
 .content-grid .col-inner .caption h3.title img {
   position: absolute;
-  top: 0;
+  top: 4px;
   right: 0;
 }
 .content-grid .col-inner .caption .description {
