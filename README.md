@@ -1,8 +1,8 @@
 Bootstrap Default for Piwigo
 ============================
 
-A minimalist version of the [Piwigo](http://piwigo.org/) default theme based on [Bootstrap](http://getbootstrap.com/).
-Intended as a parent theme for creating responsive themes for [Piwigo](http://piwigo.org/).
+A modern and responsive theme for [Piwigo](http://piwigo.org/) built with standard [Bootstrap](http://getbootstrap.com/) components and using the default [Bootstrap](http://getbootstrap.com/) theme.
+Intended for easy customisation using [Bootstrap](http://getbootstrap.com/) styles or as a parent theme for creating responsive themes for [Piwigo](http://piwigo.org/).
 
 ## Features
 
@@ -17,19 +17,11 @@ Intended as a parent theme for creating responsive themes for [Piwigo](http://pi
 
 ## Live demo
 
-A demo of the theme can be found here: http://bootstrapdefault.phil.si/
-
-Note: The demo site is automatically cloned from my live site and automatically deployed from the Github master branch,
-however the database has to be updated manually which can occasionally cause some images not to load. Please don't
-report this as an issue.
+A demo of the theme can be found here: https://phil.si/
 
 ## Installing
 
-The theme is currently a work in progress, but is probably around 90% complete and there are only a few simple pages
-left to style.
-
-If you would like to check out the theme in it's current state, please clone this repository with the included sub
-modules into your [Piwigo](http://piwigo.org/) themes directory.
+### Releases
 
 ## Bundled libraries
 
