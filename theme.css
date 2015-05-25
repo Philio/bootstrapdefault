@@ -188,6 +188,14 @@ fieldset[disabled] .html-radios-inline label {
   float: none;
   margin-right: 0px;
 }
+.content-grid .col-inner .caption h3.title {
+  position: relative;
+}
+.content-grid .col-inner .caption h3.title img {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 .content-grid .col-inner .caption .description {
   display: none;
 }

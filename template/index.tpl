@@ -7,7 +7,12 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <div class="navbar-brand">{$TITLE}</div>
+            <div class="navbar-brand">
+                {$TITLE}
+{if isset($chronology.TITLE)}
+                {$LEVEL_SEPARATOR}{$chronology.TITLE}
+{/if}
+            </div>
         </div>
         <div class="navbar-right">
             <ul class="nav navbar-nav">
@@ -113,6 +118,27 @@
 <a name=""content"></a>
 <div class="container">
 {if !empty($PLUGIN_INDEX_CONTENT_BEGIN)}{$PLUGIN_INDEX_CONTENT_BEGIN}{/if}
+
+<!--
+{if isset($chronology_views)}
+<div class="calendarViews">{'View'|@translate}:
+    <a id="calendarViewSwitchLink" href="#">
+        {foreach from=$chronology_views item=view}{if $view.SELECTED}{$view.CONTENT}{/if}{/foreach}
+    </a>
+    <div id="calendarViewSwitchBox" class="switchBox">
+        {foreach from=$chronology_views item=view name=loop}{if !$smarty.foreach.loop.first}<br>{/if}
+            <span{if !$view.SELECTED} style="visibility:hidden"{/if}>&#x2714; </span><a href="{$view.VALUE}">{$view.CONTENT}</a>
+        {/foreach}
+    </div>
+    {footer_script}(SwitchBox=window.SwitchBox||[]).push("#calendarViewSwitchLink", "#calendarViewSwitchBox");{/footer_script}
+</div>
+{/if}
+
+{if isset($FILE_CHRONOLOGY_VIEW)}
+    {include file=$FILE_CHRONOLOGY_VIEW}
+{/if}
+-->
+
 {if !empty($CONTENT_DESCRIPTION)}
     <h4>
         {$CONTENT_DESCRIPTION}
@@ -178,35 +204,6 @@
     </p>
 </div>
 {/if}
-
-{* Calendar code, needs adding
-    <div class="titrePage{if isset($chronology.TITLE)} calendarTitleBar{/if}">
-        {if isset($chronology_views)}
-            <div class="calendarViews">{'View'|@translate}:
-                <a id="calendarViewSwitchLink" href="#">
-                    {foreach from=$chronology_views item=view}{if $view.SELECTED}{$view.CONTENT}{/if}{/foreach}
-                </a>
-                <div id="calendarViewSwitchBox" class="switchBox">
-                    {foreach from=$chronology_views item=view name=loop}{if !$smarty.foreach.loop.first}<br>{/if}
-                        <span{if !$view.SELECTED} style="visibility:hidden"{/if}>&#x2714; </span><a href="{$view.VALUE}">{$view.CONTENT}</a>
-                    {/foreach}
-                </div>
-                {footer_script}(SwitchBox=window.SwitchBox||[]).push("#calendarViewSwitchLink", "#calendarViewSwitchBox");{/footer_script}
-            </div>
-        {/if}
-
-        {if isset($chronology.TITLE)}
-            <h2 class="calendarTitle">{$chronology.TITLE}</h2>
-        {/if}
-
-    </div>
-*}
-
-{* Don't know what this does!
-{if isset($FILE_CHRONOLOGY_VIEW)}
-    {include file=$FILE_CHRONOLOGY_VIEW}
-{/if}
-*}
 
 <div class="container">
 {if !empty($PLUGIN_INDEX_CONTENT_END)}{$PLUGIN_INDEX_CONTENT_END}{/if}

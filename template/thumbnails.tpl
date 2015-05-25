@@ -36,7 +36,7 @@
         </a>
 {if $SHOW_THUMBNAIL_CAPTION }
         <div class="caption">
-            <h3>
+            <h3 class="title">
                 <a href="{$thumbnail.URL}" class="ellipsis">{$thumbnail.NAME}</a>
 {if !empty($thumbnail.icon_ts)}
                 <img title="{$thumbnail.icon_ts.TITLE}" src="{$ROOT_URL}{$themeconf.icon_dir}/recent.png" alt="(!)">
