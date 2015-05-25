@@ -20,8 +20,8 @@
             </div>
         </a>
         <div class="caption">
-            <h3>
-                <a href="{$cat.URL}" class="ellipsis">{$cat.NAME}</a>
+            <h3 class="title">
+                <a href="{$cat.URL}" class="ellipsis{if !empty($cat.icon_ts)} recent{/if}">{$cat.NAME}</a>
 {if !empty($cat.icon_ts)}
                 <img title="{$cat.icon_ts.TITLE}" src="{$ROOT_URL}{$themeconf.icon_dir}/recent{if $cat.icon_ts.IS_CHILD_DATE}_by_child{/if}.png" alt="(!)">
 {/if}
