@@ -1,5 +1,5 @@
-Bootstrap Default for Piwigo
-============================
+Bootstrap Default theme for Piwigo
+==================================
 
 A modern and responsive theme for [Piwigo](http://piwigo.org/) built with standard [Bootstrap](http://getbootstrap.com/) components and using the default [Bootstrap](http://getbootstrap.com/) theme.
 Intended for easy customisation using [Bootstrap](http://getbootstrap.com/) styles or as a parent theme for creating responsive themes for [Piwigo](http://piwigo.org/).
@@ -14,6 +14,7 @@ Intended for easy customisation using [Bootstrap](http://getbootstrap.com/) styl
 * Share buttons for Twitter, Facebook and Google+
 * Gravatar support for comment avatars
 * Masonry style tag view
+* Works with all supported languages
 
 ## Live demo
 
@@ -21,7 +22,13 @@ A demo of the theme can be found here: https://phil.si/
 
 ## Installing
 
-### Releases
+Download the latest release from the [Piwigo website](http://piwigo.org/ext/extension_view.php?eid=796).
+
+## Get the source
+
+Clone the [Github repository](https://github.com/Philio/bootstrapdefault):
+
+    git clone git@github.com:Philio/bootstrapdefault.git
 
 ## Bundled libraries
 
