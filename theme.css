@@ -191,9 +191,12 @@ fieldset[disabled] .html-radios-inline label {
 .content-grid .col-inner .caption h3.title {
   position: relative;
 }
+.content-grid .col-inner .caption h3.title a.recent {
+  padding-right: 16px;
+}
 .content-grid .col-inner .caption h3.title img {
   position: absolute;
-  top: 4px;
+  top: 6px;
   right: 0;
 }
 .content-grid .col-inner .caption .description {
