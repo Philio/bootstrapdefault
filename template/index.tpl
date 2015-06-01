@@ -160,8 +160,10 @@
 
 {if !empty($THUMBNAILS)}
     <!-- Start of thumbnails -->
+        <div id="thumbnails">
 {$THUMBNAILS}
 {footer_script}{literal}$(document).ready(function(){$('#content img').load(function(){$('#content .col-inner').equalHeights()})});{/literal}{/footer_script}
+        </div>
     <!-- End of thumbnails -->
 {/if}
     </div>
