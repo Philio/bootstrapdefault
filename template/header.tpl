@@ -83,7 +83,7 @@
 {if !isset($slideshow)}
 <div class="jumbotron">
     <div class="container">
-        {$PAGE_BANNER}
+        <div id="theHeader">{$PAGE_BANNER}</div>
     </div>
 </div>
 {/if}
