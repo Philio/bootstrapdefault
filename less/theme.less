@@ -331,13 +331,6 @@ body {
   .navbar-collapse {
     padding-right: 0;
   }
-}
-
-@media (min-width: @screen-md-min) {
-  // Display forms on drop down menus when on desktop
-  .navbar-form-desktop {
-    display: block;
-  }
 
   // Make dropdown menu scrollable with scrollbar
   .dropdown-menu-scrollable {
@@ -354,5 +347,12 @@ body {
   .dropdown-menu-scrollable::-webkit-scrollbar-thumb {
     background-color: @gray-light;
     outline: 1px solid @gray-light;
+  }
+}
+
+@media (min-width: @screen-md-min) {
+  // Display forms on drop down menus when on desktop
+  .navbar-form-desktop {
+    display: block;
   }
 }

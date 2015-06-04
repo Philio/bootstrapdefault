@@ -415,11 +415,6 @@ fieldset[disabled] .html-radios-inline label {
   .navbar-collapse {
     padding-right: 0;
   }
-}
-@media (min-width: 992px) {
-  .navbar-form-desktop {
-    display: block;
-  }
   .dropdown-menu-scrollable {
     height: auto;
     max-height: 300px;
@@ -434,5 +429,10 @@ fieldset[disabled] .html-radios-inline label {
   .dropdown-menu-scrollable::-webkit-scrollbar-thumb {
     background-color: #777777;
     outline: 1px solid #777777;
+  }
+}
+@media (min-width: 992px) {
+  .navbar-form-desktop {
+    display: block;
   }
 }
