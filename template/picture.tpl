@@ -244,7 +244,7 @@
 {/if}
 {/foreach}
 {strip}{combine_script id='core.scripts' load='async' path='themes/default/js/scripts.js'}
-{combine_script id='rating' load='async' require='core.scripts' require='jquery' path="themes/`$themeconf.name`/js/rating.js"}
+{combine_script id='rating' load='async' require='core.scripts' require='jquery' path="themes/bootstrapdefault/js/rating.js"}
 {footer_script require='jquery'}
     var _pwgRatingAutoQueue = _pwgRatingAutoQueue||[];
     _pwgRatingAutoQueue.push( {ldelim}rootUrl: '{$ROOT_URL}', image_id: {$current.id},
