@@ -117,7 +117,7 @@
 
 {include file='infos_errors.tpl'}
 
-<a name=""content"></a>
+<a name="content"></a>
 <div class="container">
 {if !empty($PLUGIN_INDEX_CONTENT_BEGIN)}{$PLUGIN_INDEX_CONTENT_BEGIN}{/if}
 
