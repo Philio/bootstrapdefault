@@ -7,6 +7,8 @@ Theme URI: http://piwigo.org/ext/extension_view.php?eid=796
 Author: Phil Bayfield (philb)
 Author URI: https://philio.me/
 */
+require_once(PHPWG_THEMES_PATH . 'bootstrapdefault/include/config.php');
+
 $themeconf = array(
     'name' => 'bootstrapdefault',
     'parent' => 'default',
@@ -21,4 +23,12 @@ $themeconf = array(
 global $pwg_loaded_plugins, $page;
 if (isset($pwg_loaded_plugins['language_switch'])) {
     $page['errors'][] = l10n('Language Switch plugin is enabled but is not compatible with the Bootstrap Default theme. Please disable it and download the <a href="http://piwigo.org/ext/extension_view.php?eid=797" target="_new">Bootstrap Default Language Switch</a> instead.');
+}
+
+add_event_handler('loc_begin_page_header', 'set_theme_config');
+function set_theme_config()
+{
+    $config = new \BootstrapDefault\Config();
+    global $template;
+    $template->assign('theme_config', $config);
 }

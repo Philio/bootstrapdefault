@@ -277,22 +277,30 @@
 </div>
 
 {include file="http_scheme.tpl"}
+{if $theme_config->social_enabled}
 <div class="container">
     <section id="share">
+{if $theme_config->social_twitter}
         <a href="http://twitter.com/share?text={$current.TITLE}&amp;url={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
             <i class="fa fa-twitter"></i>
         </a>
+{/if}
+{if $theme_config->social_facebook}
         <a href="https://www.facebook.com/sharer/sharer.php?u={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
             <i class="fa fa-facebook"></i>
         </a>
+{/if}
+{if $theme_config->social_google_plus}
         <a href="https://plus.google.com/share?url={$http_scheme}://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
             <i class="fa fa-google-plus"></i>
         </a>
+{/if}
     </section>
 </div>
+{/if}
 
 {if isset($comment_add) || $COMMENT_COUNT > 0}
 <a name="comments"></a>

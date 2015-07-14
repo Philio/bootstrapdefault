@@ -4,20 +4,33 @@ if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
 
 // Includes
 include_once(PHPWG_ROOT_PATH . 'admin/include/tabsheet.class.php');
+require_once(PHPWG_THEMES_PATH . 'bootstrapdefault/include/config.php');
 
 // Constants
 define('THEME_ID', basename(dirname(dirname(__FILE__))));
 define('ADMIN_PATH',   get_root_url() . 'admin.php?page=theme&theme=' . THEME_ID);
+define('TAB_SETTINGS', 'settings');
+define('TAB_CHANGELOG', 'changelog');
+define('TAB_ABOUT', 'about');
+
+$config = new \BootstrapDefault\Config();
+if (isset($_POST['boostrapdefault_settings'])) {
+    $config->fromPost($_POST);
+    $config->save();
+}
 
 // Get current tab
-$page['tab'] = isset($_GET['tab']) ? $_GET['tab'] : $page['tab'] = 'home';
+$page['tab'] = isset($_GET['tab']) ? $_GET['tab'] : $page['tab'] = TAB_SETTINGS;
+if (!in_array($page['tab'], array(TAB_SETTINGS, TAB_CHANGELOG, TAB_ABOUT))) {
+    $page['tab'] = TAB_SETTINGS;
+}
 
 // TabSheet
 $tabsheet = new tabsheet();
 $tabsheet->set_id('bsd');
-$tabsheet->add('settings', l10n('Settings'), ADMIN_PATH . '&tab=settings');
-$tabsheet->add('changelog', l10n('Change Log'), ADMIN_PATH . '&tab=changelog');
-$tabsheet->add('about', l10n('About'), ADMIN_PATH . '&tab=about');
+$tabsheet->add(TAB_SETTINGS, l10n('Settings'), ADMIN_PATH . '&tab=' . TAB_SETTINGS);
+$tabsheet->add(TAB_CHANGELOG, l10n('Change Log'), ADMIN_PATH . '&tab=' . TAB_CHANGELOG);
+$tabsheet->add(TAB_ABOUT, l10n('About'), ADMIN_PATH . '&tab=' . TAB_ABOUT);
 $tabsheet->select($page['tab']);
 $tabsheet->assign();
 
@@ -27,9 +40,10 @@ global $template;
 // Add our template to the global template
 $template->set_filenames(
     array(
-        'theme_admin_content' => dirname(__FILE__) . '/admin.tpl'
+        'theme_admin_content' => dirname(__FILE__) . '/template/' . $page['tab'] . '.tpl'
     )
 );
 
 // Assign the template contents to ADMIN_CONTENT
+$template->assign('theme_config', $config);
 $template->assign_var_from_handle('ADMIN_CONTENT', 'theme_admin_content');
