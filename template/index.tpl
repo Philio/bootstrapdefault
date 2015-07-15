@@ -91,18 +91,22 @@
                 </li>
 {/if}
 {if isset($U_MODE_POSTED)}
+                <!--
                 <li>
                     {strip}<a href="{$U_MODE_POSTED}" title="{'display a calendar by posted date'|@translate}" rel="nofollow">
                         <span class="glyphicon glyphicon-calendar"></span><span class="glyphicon-text">{'Calendar'|@translate}</span>
                     </a>{/strip}
                 </li>
+                -->
 {/if}
 {if isset($U_MODE_CREATED)}
+                <!--
                 <li>
                     {strip}<a href="{$U_MODE_CREATED}" title="{'display a calendar by creation date'|@translate}" rel="nofollow">
                         <span class="glyphicon glyphicon-calendar"></span><span class="glyphicon-text">{'Calendar'|@translate}</span>
                     </a>{/strip}
                 </li>
+                -->
 {/if}
 {if !empty($PLUGIN_INDEX_BUTTONS)}{foreach from=$PLUGIN_INDEX_BUTTONS item=button}<li>{$button}</li>{/foreach}{/if}
 {if !empty($PLUGIN_INDEX_ACTIONS)}{$PLUGIN_INDEX_ACTIONS}{/if}

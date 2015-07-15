@@ -52,7 +52,7 @@ class Config {
         $loaded = json_decode($conf[self::CONF_PARAM], true);
 
         // Check for current version
-        if (isset($loaded[self::CONF_VERSION]) && $loaded[self::KEY_VERSION] == self::CONF_VERSION) {
+        if (isset($loaded[self::KEY_VERSION]) && $loaded[self::KEY_VERSION] == self::CONF_VERSION) {
             $this->_config = $loaded;
             return;
         }

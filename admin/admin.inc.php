@@ -13,16 +13,19 @@ define('TAB_SETTINGS', 'settings');
 define('TAB_CHANGELOG', 'changelog');
 define('TAB_ABOUT', 'about');
 
-$config = new \BootstrapDefault\Config();
-if (isset($_POST['boostrapdefault_settings'])) {
-    $config->fromPost($_POST);
-    $config->save();
-}
-
 // Get current tab
 $page['tab'] = isset($_GET['tab']) ? $_GET['tab'] : $page['tab'] = TAB_SETTINGS;
 if (!in_array($page['tab'], array(TAB_SETTINGS, TAB_CHANGELOG, TAB_ABOUT))) {
     $page['tab'] = TAB_SETTINGS;
+}
+
+// Load/save settings
+if ($page['tab'] == TAB_SETTINGS) {
+    $themeconfig = new \BootstrapDefault\Config();
+    if (isset($_POST['boostrapdefault_settings'])) {
+        $themeconfig->fromPost($_POST);
+        $themeconfig->save();
+    }
 }
 
 // TabSheet
@@ -45,5 +48,5 @@ $template->set_filenames(
 );
 
 // Assign the template contents to ADMIN_CONTENT
-$template->assign('theme_config', $config);
+$template->assign('theme_config', $themeconfig);
 $template->assign_var_from_handle('ADMIN_CONTENT', 'theme_admin_content');
