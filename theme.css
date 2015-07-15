@@ -342,6 +342,9 @@ fieldset[disabled] .html-radios-inline label {
   padding-right: 20px;
   text-decoration: none;
 }
+#disqus_thread {
+  margin-top: 20px;
+}
 #commentList .comment {
   clear: both;
 }
