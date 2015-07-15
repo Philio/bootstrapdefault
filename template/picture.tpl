@@ -308,6 +308,20 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
             <h3>{'Comments'|@translate}</h3>
+{$shortname = $theme_config->comments_disqus_shortname}
+{if $theme_config->comments_type == 'disqus' and !empty($shortname)}
+                <div id="disqus_thread"></div>
+{footer_script}{strip}
+var disqus_shortname = '{/strip}{$shortname}{strip}';
+
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+{/strip}
+{/footer_script}
+{else}
             <div class="tabbable">
                 <ul class="nav nav-pills">
 {if $COMMENT_COUNT > 0}
@@ -355,6 +369,7 @@
 {/if}
                 </div>
             </div>
+{/if}
         </div>
     </div>
 </div>

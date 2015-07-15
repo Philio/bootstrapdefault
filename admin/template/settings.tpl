@@ -6,7 +6,7 @@
     <input type="hidden" name="boostrapdefault_settings" value="true" />
     <div id="configContent">
         <fieldset class="mainConf">
-            <legend>Social buttons</legend>
+            <legend>Social integration</legend>
             <ul>
                 <li>
                     <label class="font-checkbox">
@@ -39,6 +39,27 @@
             </ul>
         </fieldset>
     </div>
+    <div id="configContent">
+        <fieldset class="mainConf">
+            <legend>Comments</legend>
+            <ul>
+                <li>
+                    <label>
+                        <input type="radio" name="comments_type" value="piwigo"{if $theme_config->comments_type == 'piwigo'} checked="checked"{/if} />
+                        Piwigo
+                    </label>
+                    <label>
+                        <input id="comments_radio_disqus" type="radio" name="comments_type" value="disqus"{if $theme_config->comments_type == 'disqus'} checked="checked"{/if} />
+                        Disqus
+                    </label>
+                </li>
+                <li id="comments_type_disqus">
+                    <label for="comments_disqus_shortname">Disqus shortname</label><br />
+                    <input id="comments_disqus_shortname" name="comments_disqus_shortname" type="text" value="{$theme_config->comments_disqus_shortname}" size="50" />
+                </li>
+            </ul>
+        </fieldset>
+    </div>
     <p class="formButtons">
         <input type="submit" name="submit" value="Save settings">
     </p>
@@ -46,7 +67,8 @@
 {footer_script require='jquery'}{strip}
     (function(){
         var targets = {
-            'input[name="social_enabled"]' : ['#social_twitter', '#social_facebook', '#social_google_plus']
+            'input[name="social_enabled"]': ['#social_twitter', '#social_facebook', '#social_google_plus'],
+            '#comments_radio_disqus': ['#comments_type_disqus'],
         };
 
         for (selector in targets) {

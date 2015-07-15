@@ -7,18 +7,25 @@ class Config {
     const CONF_VERSION = 1;
 
     const TYPE_BOOL = 'bool';
+    const TYPE_STRING = 'string';
 
     const KEY_VERSION = 'conf_version';
+
     const KEY_SOCIAL_ENABLED = 'social_enabled';
     const KEY_SOCIAL_TWITTER = 'social_twitter';
     const KEY_SOCIAL_FACEBOOK = 'social_facebook';
     const KEY_SOCIAL_GOOGLE_PLUS = 'social_google_plus';
+
+    const KEY_COMMENTS_TYPE = 'comments_type';
+    const KEY_COMMENTS_DISQUS_SHORTNAME = 'comments_disqus_shortname';
 
     private $_defaults = array(
         self::KEY_SOCIAL_ENABLED => true,
         self::KEY_SOCIAL_TWITTER => true,
         self::KEY_SOCIAL_FACEBOOK => true,
         self::KEY_SOCIAL_GOOGLE_PLUS => true,
+        self::KEY_COMMENTS_TYPE => 'piwigo',
+        self::KEY_COMMENTS_DISQUS_SHORTNAME => null,
     );
 
     private $_types = array(
@@ -26,6 +33,8 @@ class Config {
         self::KEY_SOCIAL_TWITTER => self::TYPE_BOOL,
         self::KEY_SOCIAL_FACEBOOK => self::TYPE_BOOL,
         self::KEY_SOCIAL_GOOGLE_PLUS => self::TYPE_BOOL,
+        self::KEY_COMMENTS_TYPE => self::TYPE_STRING,
+        self::KEY_COMMENTS_DISQUS_SHORTNAME => self::TYPE_STRING,
     );
 
     private $_config = array();
@@ -73,6 +82,9 @@ class Config {
     public function fromPost(array $post) {
         foreach ($this->_defaults as $key => $value) {
             switch ($this->_types[$key]) {
+                case self::TYPE_STRING:
+                    $this->_config[$key] = isset($post[$key]) ? $post[$key] : null;
+                    break;
                 case self::TYPE_BOOL:
                     $this->_config[$key] = isset($post[$key]);
                     break;
