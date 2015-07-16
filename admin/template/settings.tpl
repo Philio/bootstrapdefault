@@ -46,15 +46,15 @@
                 <li>
                     <label>
                         <input type="radio" name="comments_type" value="piwigo"{if $theme_config->comments_type == 'piwigo'} checked="checked"{/if} />
-                        Piwigo
+                        {'Piwigo'|@translate}
                     </label>
                     <label>
                         <input id="comments_radio_disqus" type="radio" name="comments_type" value="disqus"{if $theme_config->comments_type == 'disqus'} checked="checked"{/if} />
-                        Disqus
+                        {'Disqus'|@translate}
                     </label>
                 </li>
                 <li id="comments_type_disqus">
-                    <label for="comments_disqus_shortname">Disqus shortname</label><br />
+                    <label for="comments_disqus_shortname">{'Disqus shortname'|@translate}</label><br />
                     <input id="comments_disqus_shortname" name="comments_disqus_shortname" type="text" value="{$theme_config->comments_disqus_shortname}" size="50" />
                 </li>
             </ul>
