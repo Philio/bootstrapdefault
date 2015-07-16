@@ -13,10 +13,8 @@ require_once(PHPWG_THEMES_PATH . 'bootstrapdefault/include/config.php');
 $themeconf = array(
     'name' => 'bootstrapdefault',
     'parent' => 'default',
-    'colorscheme' => 'clear',
     'load_parent_css' => false,
     'load_parent_local_head' => false,
-    'local_head' => 'local_head.tpl',
     'img_dir' => 'themes/bootstrapdefault/img',
     'url' => 'https://philio.me/'
 );
