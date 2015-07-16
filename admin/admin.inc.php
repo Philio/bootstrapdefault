@@ -19,9 +19,10 @@ if (!in_array($page['tab'], array(TAB_SETTINGS, TAB_CHANGELOG, TAB_ABOUT))) {
     $page['tab'] = TAB_SETTINGS;
 }
 
-// Load/save settings
+$themeconfig = new \BootstrapDefault\Config();
+
+// Save settings
 if ($page['tab'] == TAB_SETTINGS) {
-    $themeconfig = new \BootstrapDefault\Config();
     if (isset($_POST['boostrapdefault_settings'])) {
         $themeconfig->fromPost($_POST);
         $themeconfig->save();
