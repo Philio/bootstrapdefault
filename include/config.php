@@ -19,7 +19,7 @@ class Config {
     const KEY_COMMENTS_TYPE = 'comments_type';
     const KEY_COMMENTS_DISQUS_SHORTNAME = 'comments_disqus_shortname';
 
-    private $_defaults = array(
+    private $defaults = array(
         self::KEY_SOCIAL_ENABLED => true,
         self::KEY_SOCIAL_TWITTER => true,
         self::KEY_SOCIAL_FACEBOOK => true,
@@ -28,7 +28,7 @@ class Config {
         self::KEY_COMMENTS_DISQUS_SHORTNAME => null,
     );
 
-    private $_types = array(
+    private $types = array(
         self::KEY_SOCIAL_ENABLED => self::TYPE_BOOL,
         self::KEY_SOCIAL_TWITTER => self::TYPE_BOOL,
         self::KEY_SOCIAL_FACEBOOK => self::TYPE_BOOL,
@@ -37,14 +37,14 @@ class Config {
         self::KEY_COMMENTS_DISQUS_SHORTNAME => self::TYPE_STRING,
     );
 
-    private $_config = array();
+    private $config = array();
 
     public function __construct() {
         global $conf;
 
         // Create initial config if necessary
         if (!isset($conf[self::CONF_PARAM])) {
-            $this->_createDefaultConfig();
+            $this->createDefaultConfig();
             return;
         }
 
@@ -53,58 +53,58 @@ class Config {
 
         // Check for current version
         if (isset($loaded[self::KEY_VERSION]) && $loaded[self::KEY_VERSION] == self::CONF_VERSION) {
-            $this->_config = $loaded;
+            $this->config = $loaded;
             return;
         }
 
         // Invalid or old config, recreate
-        $this->_createDefaultConfig();
+        $this->createDefaultConfig();
         if (is_array($loaded)) {
-            $this->_populateConfig($loaded);
+            $this->populateConfig($loaded);
         }
         $this->save();
     }
 
     public function __set($key, $value) {
-        if (array_key_exists($key, $this->_defaults)) {
-            $this->_config[$key] = $value;
+        if (array_key_exists($key, $this->defaults)) {
+            $this->config[$key] = $value;
         }
     }
 
     public function __get($key) {
-        if (array_key_exists($key, $this->_defaults)) {
-            return $this->_config[$key];
+        if (array_key_exists($key, $this->defaults)) {
+            return $this->config[$key];
         } else {
             return null;
         }
     }
 
     public function fromPost(array $post) {
-        foreach ($this->_defaults as $key => $value) {
-            switch ($this->_types[$key]) {
+        foreach ($this->defaults as $key => $value) {
+            switch ($this->types[$key]) {
                 case self::TYPE_STRING:
-                    $this->_config[$key] = isset($post[$key]) ? $post[$key] : null;
+                    $this->config[$key] = isset($post[$key]) ? $post[$key] : null;
                     break;
                 case self::TYPE_BOOL:
-                    $this->_config[$key] = isset($post[$key]);
+                    $this->config[$key] = isset($post[$key]);
                     break;
             }
         }
     }
 
     public function save() {
-        conf_update_param(self::CONF_PARAM, json_encode($this->_config));
+        conf_update_param(self::CONF_PARAM, json_encode($this->config));
     }
 
-    private function _createDefaultConfig() {
-        $this->_config = $this->_defaults;
-        $this->_config[self::KEY_VERSION] = self::CONF_VERSION;
+    private function createDefaultConfig() {
+        $this->config = $this->defaults;
+        $this->config[self::KEY_VERSION] = self::CONF_VERSION;
     }
 
-    private function _populateConfig(array $config) {
-        foreach ($this->_defaults as $key => $value) {
+    private function populateConfig(array $config) {
+        foreach ($this->defaults as $key => $value) {
             if (isset($config[$key])) {
-                $this->_config[$key] = $config[$key];
+                $this->config[$key] = $config[$key];
             }
         }
     }
