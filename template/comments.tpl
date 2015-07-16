@@ -8,6 +8,12 @@
 
 {include file='infos_errors.tpl'}
 
+{$shortname = $theme_config->comments_disqus_shortname}
+{if $theme_config->comments_type == 'disqus' and !empty($shortname)}
+<div class="container">
+    <h4>{'Nothing to see here!'|@translate}</h4>
+</div>
+{else}
 <div class="container">
     <form action="{$F_ACTION}" method="get" class="form-horizontal">
         <div class="panel panel-primary">
@@ -89,5 +95,4 @@
 {include file='navigation_bar.tpl' fragment='comments'|@get_extent:'navbar'}
 </div>
 {/if}
-
-
+{/if}
