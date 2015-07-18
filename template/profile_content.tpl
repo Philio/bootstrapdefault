@@ -100,7 +100,7 @@
             </div>
         </div>
 
-        <input class="btn btn-default" type="submit" name="validate" value="{'Submit'|@translate}">
+        <input class="btn btn-default btn-primary" type="submit" name="validate" value="{'Submit'|@translate}">
         <input class="btn btn-default" type="reset" name="reset" value="{'Reset'|@translate}">
         <input class="btn btn-default" type="submit" name="reset_to_default" value="{'Reset to default values'|@translate}">
 {/if}

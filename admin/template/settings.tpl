@@ -6,6 +6,17 @@
     <input type="hidden" name="boostrapdefault_settings" value="true" />
     <div id="configContent">
         <fieldset class="mainConf">
+            <legend>{'Bootstrap theme'|@translate}</legend>
+            <ul>
+                <li>
+                    <select name="bootstrap_theme">
+                        <option value="default">Default</option>
+                        <option value="none">None</option>
+                    </select>
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset class="mainConf">
             <legend>Social integration</legend>
             <ul>
                 <li>

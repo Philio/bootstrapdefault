@@ -14,7 +14,8 @@ Intended for easy customisation using [Bootstrap](http://getbootstrap.com/) styl
 * Share buttons for Twitter, Facebook and Google+
 * Gravatar support for comment avatars
 * Masonry style tag view
-* Works with all supported languages
+* Configuration page in admin to customise features such as Bootstrap theme, social integration and comments
+* Works with all supported languages (admin page is currently English only)
 
 ## Live demo
 
@@ -32,7 +33,7 @@ Clone the [Github repository](https://github.com/Philio/bootstrapdefault):
 
 ## Bundled libraries
 
-* [Bootstrap](http://getbootstrap.com/) 3.3.4 - Included as sub module
+* [Bootstrap](http://getbootstrap.com/) 3.3.5 - Included as sub module
 * [Selectize.js](http://brianreavis.github.io/selectize.js/) 0.12.0 - Included as sub module. Note: The bundled version
 with Piwigo 2.7.x is ignored in favour of the latest build with Bootstrap styling.
 

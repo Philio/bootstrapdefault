@@ -42,7 +42,7 @@
                         <input type="text" id="search_allwords" name="search_allwords" class="form-control" />
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group radio">
                     <label class="radio-inline">
                         <input type="radio" name="mode" value="AND" checked="checked">{'Search for all terms'|@translate}
                     </label>
@@ -51,7 +51,7 @@
                     </label>
                 </div>
                 <label>{'Apply on properties'|translate}</label>
-                <div class="form-group">
+                <div class="form-group checkbox">
                     <label class="checkbox-inline">
                         <input type="checkbox" name="fields[]" value="name" checked="checked"> {'Photo title'|translate}
                     </label>
@@ -97,7 +97,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group radio">
                     <label class="radio-inline">
                         <input type="radio" name="tag_mode" value="AND" checked="checked"> {'All tags'|@translate}
                     </label>
@@ -114,7 +114,7 @@
             </div>
             <div class="panel-body">
                 <label>{'Kind of date'|@translate}</label>
-                <div class="form-group">
+                <div class="form-group radio">
                     <label class="radio-inline">
                         <input type="radio" name="date_type" value="date_creation" checked="checked"> {'Creation date'|@translate}
                     </label>
@@ -166,14 +166,14 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group checkbox">
                     <label class="checkbox-inline">
                         <input type="checkbox" name="subcats-included" value="1" checked="checked"> {'Search in sub-albums'|@translate}
                     </label>
                 </div>
             </div>
         </div>
-        <input type="submit" name="submit" value="{'Submit'|@translate}" class="btn btn-default">
+        <input type="submit" name="submit" value="{'Submit'|@translate}" class="btn btn-default btn-primary">
         <input type="reset" value="{'Reset'|@translate}" class="btn btn-default">
     </form>
 </div>

@@ -19,7 +19,7 @@
                     <br />
                     {/if}
                     <input type="hidden" name="redirect" value="{$smarty.server.REQUEST_URI|@urlencode}">
-                    <input class="btn" type="submit" name="login" value="{'Login'|@translate}">
+                    <input class="btn btn-primary" type="submit" name="login" value="{'Login'|@translate}">
                     <!--
                     <span class="categoryActions">
                     {if isset($U_REGISTER)}
