@@ -4,7 +4,7 @@ namespace BootstrapDefault;
 class Config {
 
     const CONF_PARAM = 'bootstrapdefault';
-    const CONF_VERSION = 1;
+    const CONF_VERSION = 2;
 
     const TYPE_BOOL = 'bool';
     const TYPE_STRING = 'string';
@@ -19,6 +19,8 @@ class Config {
     const KEY_COMMENTS_TYPE = 'comments_type';
     const KEY_COMMENTS_DISQUS_SHORTNAME = 'comments_disqus_shortname';
 
+    const KEY_TAG_CLOUD_TYPE = 'tag_cloud_type';
+
     private $defaults = array(
         self::KEY_SOCIAL_ENABLED => true,
         self::KEY_SOCIAL_TWITTER => true,
@@ -26,6 +28,7 @@ class Config {
         self::KEY_SOCIAL_GOOGLE_PLUS => true,
         self::KEY_COMMENTS_TYPE => 'piwigo',
         self::KEY_COMMENTS_DISQUS_SHORTNAME => null,
+        self::KEY_TAG_CLOUD_TYPE => 'basic',
     );
 
     private $types = array(
@@ -35,6 +38,7 @@ class Config {
         self::KEY_SOCIAL_GOOGLE_PLUS => self::TYPE_BOOL,
         self::KEY_COMMENTS_TYPE => self::TYPE_STRING,
         self::KEY_COMMENTS_DISQUS_SHORTNAME => self::TYPE_STRING,
+        self::KEY_TAG_CLOUD_TYPE => self::TYPE_STRING,
     );
 
     private $config = array();

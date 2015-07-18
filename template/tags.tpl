@@ -28,11 +28,43 @@
 
 {if $display_mode == 'cloud' and isset($tags)}
 <div class="container">
+{if $theme_config->tag_cloud_type == 'basic'}
     <div id="tagCloud">
 {foreach from=$tags item=tag}
         <span><a href="{$tag.URL}" class="tagLevel{$tag.level}" title="{$tag.counter|@translate_dec:'%d photo':'%d photos'}">{$tag.name}</a></span>
 {/foreach}
     </div>
+{else}
+{combine_script id='jquery.awesomeCloud' load='footer' path="themes/bootstrapdefault/js/jquery.awesomeCloud.js"}
+{footer_script require='jquery.awesomeCloud'}{strip}
+    $(document).ready(function(){
+        $("#tagCloudCanvas").awesomeCloud({
+            "size" : {
+                "grid": 12,
+                "factor": 0,
+                "normalize": false
+            },
+            "options": {
+                "color": "gradient",
+                "rotationRatio": 0.2,
+            },
+            "color": {
+                "start": $('#tagCloudGradientStart').css('color'),
+                "end": $('#tagCloudGradientEnd').css('color')
+            },
+            "font": "'Helvetica Neue',Helvetica,Arial,sans-serif",
+            "shape": "circle"
+        });
+    });
+{/strip}{/footer_script}
+    <div id="tagCloudCanvas">
+{foreach from=$tags item=tag}
+        <span data-weight="{$tag.counter}"><a href="{$tag.URL}">{$tag.name}</a></span>
+{/foreach}
+    </div>
+    <div id="tagCloudGradientStart"></div>
+    <div id="tagCloudGradientEnd"></div>
+{/if}
 </div>
 {/if}
 

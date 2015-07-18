@@ -1,3 +1,4 @@
+{combine_css path="themes/bootstrapdefault/admin/css/admin.css"}
 {combine_script id='common' load='footer' path='admin/themes/default/js/common.js'}
 <div class="titrePage">
     <h2>{'Bootstrap Default'|@translate} {$TABSHEET_TITLE}</h2>
@@ -10,14 +11,14 @@
             <ul>
                 <li>
                     <select name="bootstrap_theme">
-                        <option value="default">Default</option>
                         <option value="none">None</option>
+                        <option value="default">Default</option>
                     </select>
                 </li>
             </ul>
         </fieldset>
         <fieldset class="mainConf">
-            <legend>Social integration</legend>
+            <legend>{'Social integration'|@translate}</legend>
             <ul>
                 <li>
                     <label class="font-checkbox">
@@ -52,14 +53,14 @@
     </div>
     <div id="configContent">
         <fieldset class="mainConf">
-            <legend>Comments</legend>
+            <legend>{'Comments'|@translate}</legend>
             <ul>
                 <li>
-                    <label>
+                    <label class="radio">
                         <input type="radio" name="comments_type" value="piwigo"{if $theme_config->comments_type == 'piwigo'} checked="checked"{/if} />
                         {'Piwigo'|@translate}
                     </label>
-                    <label>
+                    <label class="radio">
                         <input id="comments_radio_disqus" type="radio" name="comments_type" value="disqus"{if $theme_config->comments_type == 'disqus'} checked="checked"{/if} />
                         {'Disqus'|@translate}
                     </label>
@@ -67,6 +68,23 @@
                 <li id="comments_type_disqus">
                     <label for="comments_disqus_shortname">{'Disqus shortname'|@translate}</label><br />
                     <input id="comments_disqus_shortname" name="comments_disqus_shortname" type="text" value="{$theme_config->comments_disqus_shortname}" size="50" />
+                </li>
+            </ul>
+        </fieldset>
+    </div>
+    <div id="configContent">
+        <fieldset class="mainConf">
+            <legend>{'Tag cloud'|@translate}</legend>
+            <ul>
+                <li>
+                    <label class="radio">
+                        <input type="radio" name="tag_cloud_type" value="basic"{if $theme_config->tag_cloud_type == 'basic'} checked="checked"{/if} />
+                        {'Basic'|@translate}
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="tag_cloud_type" value="html5"{if $theme_config->tag_cloud_type == 'html5'} checked="checked"{/if} />
+                        {'HTML 5 canvas'|@translate}
+                    </label>
                 </li>
             </ul>
         </fieldset>
