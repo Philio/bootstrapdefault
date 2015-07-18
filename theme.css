@@ -411,7 +411,7 @@ fieldset[disabled] .html-radios-inline label {
 }
 #tagLetters {
   padding-left: 2px;
-  padding-right: 2px;
+  padding-right: 7px;
 }
 #tagLetters *,
 #tagLetters *:before,

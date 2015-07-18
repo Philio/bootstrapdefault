@@ -79,21 +79,21 @@
                 </div>
                 <div class="form-group">
                     <label for="expand" class="col-sm-2 control-label">{'Expand all albums'|@translate}</label>
-                    <div class="col-sm-10 html-radios-inline">
+                    <div class="col-sm-10 html-radios-inline radio">
 {html_radios name='expand' options=$radio_options selected=$EXPAND}
                     </div>
                 </div>
 {if $ACTIVATE_COMMENTS}
                 <div class="form-group">
                     <label for="show_nb_comments" class="col-sm-2 control-label">{'Show number of comments'|@translate}</label>
-                    <div class="col-sm-10 html-radios-inline">
+                    <div class="col-sm-10 html-radios-inline radio">
 {html_radios name='show_nb_comments' options=$radio_options selected=$NB_COMMENTS}
                     </div>
                 </div>
 {/if}
                 <div class="form-group">
                     <label for="show_nb_hits" class="col-sm-2 control-label">{'Show number of hits'|@translate}</label>
-                    <div class="col-sm-10 html-radios-inline">
+                    <div class="col-sm-10 html-radios-inline radio">
 {html_radios name='show_nb_hits' options=$radio_options selected=$NB_HITS}
                     </div>
                 </div>
