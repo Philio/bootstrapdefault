@@ -555,15 +555,6 @@
 
             // Apply some tweaks to font size as by default the smallest are too small
             fontSize += 10;
-            if (fontSize < 20) {
-                fontSize *= 1.5;
-            } else if (fontSize < 30) {
-                fontSize *= 1.25;
-            } else if (fontSize < 40) {
-                fontSize *= 1.125;
-            } else if (fontSize < 50) {
-                fontSize *= 1.0625;
-            }
 
             this.ctx.font = fontSize.toString(10) + "px " + this.settings.font;
             if (rotate) {
