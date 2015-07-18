@@ -49,8 +49,8 @@
                 "rotationRatio": 0.2,
             },
             "color": {
-                "start": "#ccc",
-                "end": "#337ab7"
+                "start": $('#tagCloudGradientStart').css('color'),
+                "end": $('#tagCloudGradientEnd').css('color')
             },
             "font": "'Helvetica Neue',Helvetica,Arial,sans-serif",
             "shape": "circle"
@@ -62,6 +62,8 @@
         <span data-weight="{$tag.counter}"><a href="{$tag.URL}">{$tag.name}</a></span>
 {/foreach}
     </div>
+    <div id="tagCloudGradientStart"></div>
+    <div id="tagCloudGradientEnd"></div>
 {/if}
 </div>
 {/if}

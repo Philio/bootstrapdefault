@@ -401,6 +401,14 @@ fieldset[disabled] .html-radios-inline label {
 #tagCloudCanvas span {
   display: none;
 }
+#tagCloudGradientStart {
+  display: none;
+  color: #ccc;
+}
+#tagCloudGradientEnd {
+  display: none;
+  color: #337ab7;
+}
 #tagLetters {
   padding-left: 2px;
   padding-right: 2px;
