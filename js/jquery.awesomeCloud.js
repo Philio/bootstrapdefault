@@ -554,9 +554,8 @@
             }
 
             // Apply some tweaks to font size as by default the smallest are too small
-            if (fontSize < 10) {
-                fontSize *= 2;
-            } else if (fontSize < 20) {
+            fontSize += 10;
+            if (fontSize < 20) {
                 fontSize *= 1.5;
             } else if (fontSize < 30) {
                 fontSize *= 1.25;
