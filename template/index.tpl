@@ -64,7 +64,7 @@
 {if isset($U_SEARCH_RULES)}
 {combine_script id='core.scripts' load='async' path='themes/default/js/scripts.js'}
                 <li>
-                    <a href="{$U_SEARCH_RULES}" onclick="popuphelp(this.href); return false;" title="{'Search rules'|@translate}" rel="nofollow">
+                    <a href="{$U_SEARCH_RULES}" onclick="bd_popup(this.href); return false;" title="{'Search rules'|@translate}" rel="nofollow">
                         <span class="glyphicon glyphicon-search"></span><span class="glyphicon-text">(?)</span>
                     </a>
                 </li>

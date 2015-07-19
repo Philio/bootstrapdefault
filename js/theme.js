@@ -69,3 +69,7 @@ $(document).ready(function() {
     }
 
 });
+
+function bd_popup(url) {
+    window.open(url, 'bd_popup', 'alwaysRaised=yes,dependent=yes,toolbar=no,height=420,width=500,menubar=no,resizable=yes,scrollbars=yes,status=no');
+}

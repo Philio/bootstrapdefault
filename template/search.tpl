@@ -19,7 +19,7 @@
         <div class="navbar-right">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="{$U_HELP}" onclick="popuphelp(this.href); return false;" title="{'Help'|@translate}">
+                    <a href="{$U_HELP}" onclick="bd_popup(this.href); return false;" title="{'Help'|@translate}">
                         <span class="glyphicon glyphicon-question-sign"></span><span class="glyphicon-text">{'Help'|@translate}</span>
                     </a>
                 </li>
