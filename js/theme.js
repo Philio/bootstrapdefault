@@ -4,6 +4,9 @@ $(document).ready(function() {
 
     // Grid view button click
     $('#btn-grid').click(function() {
+        if ($(this).hasClass('active')) {
+            return;
+        }
         $.cookie('view', 'grid');
         $('#btn-grid').addClass('active');
         $('#btn-list').removeClass('active');
@@ -26,6 +29,9 @@ $(document).ready(function() {
 
     // List view button click
     $('#btn-list').click(function() {
+        if ($(this).hasClass('active')) {
+            return;
+        }
         $.cookie('view', 'list');
         $('#btn-list').addClass('active');
         $('#btn-grid').removeClass('active');

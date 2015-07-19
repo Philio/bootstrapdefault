@@ -49,18 +49,18 @@
     </a>
 {/if}{/strip}
 {if isset($slideshow.U_START_PLAY)}
-	<a href="{$slideshow.U_START_PLAY}" title="{'Play slideshow'|@translate}">
-		<span class="glyphicon glyphicon-play"></span><span class="glyphicon-text">{'Play slideshow'|@translate}</span>
+	<a href="{$slideshow.U_START_PLAY}" title="{'Play of slideshow'|@translate}">
+		<span class="glyphicon glyphicon-play"></span><span class="glyphicon-text">{'Play of slideshow'|@translate}</span>
 	</a>
 {/if}
 {if isset($slideshow.U_STOP_PLAY)}
-	<a href="{$slideshow.U_STOP_PLAY}" title="{'Pause slideshow'|@translate}">
-		<span class="glyphicon glyphicon-pause"></span><span class="glyphicon-text">{'Pause slideshow'|@translate}</span>
+	<a href="{$slideshow.U_STOP_PLAY}" title="{'Pause of slideshow'|@translate}">
+		<span class="glyphicon glyphicon-pause"></span><span class="glyphicon-text">{'Pause of slideshow'|@translate}</span>
 	</a>
 {/if}
 {if isset($U_SLIDESHOW_STOP) }
-    <a href="{$U_SLIDESHOW_STOP}" title="{'Stop slideshow'|@translate}">
-        <span class="glyphicon glyphicon-stop"></span><span class="glyphicon-text">{'Stop slideshow'|@translate}</span>
+    <a href="{$U_SLIDESHOW_STOP}" title="{'stop the slideshow'|@translate}">
+        <span class="glyphicon glyphicon-stop"></span><span class="glyphicon-text">{'stop the slideshow'|@translate}</span>
     </a>
 {/if}
 {strip}{if isset($next)}
