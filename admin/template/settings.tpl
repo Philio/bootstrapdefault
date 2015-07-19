@@ -11,8 +11,8 @@
             <ul>
                 <li>
                     <select name="bootstrap_theme">
-                        <option value="none">None</option>
-                        <option value="default">Default</option>
+                        <option value="none"{if $theme_config->bootstrap_theme == 'none'} selected="selected"{/if}>None</option>
+                        <option value="default"{if $theme_config->bootstrap_theme == 'default'} selected="selected"{/if}>Default</option>
                     </select>
                 </li>
             </ul>

@@ -97,3 +97,10 @@
 #languageSwitch {
   display: none;
 }
+ul.thumbnailCategories,
+ul.thumbnails {
+  -webkit-padding-start: 0px;
+}
+#content div.loader {
+  display: none;
+}

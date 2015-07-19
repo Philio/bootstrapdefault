@@ -11,6 +11,8 @@ class Config {
 
     const KEY_VERSION = 'conf_version';
 
+    const KEY_BOOTSTRAP_THEME = 'bootstrap_theme';
+
     const KEY_SOCIAL_ENABLED = 'social_enabled';
     const KEY_SOCIAL_TWITTER = 'social_twitter';
     const KEY_SOCIAL_FACEBOOK = 'social_facebook';
@@ -22,6 +24,7 @@ class Config {
     const KEY_TAG_CLOUD_TYPE = 'tag_cloud_type';
 
     private $defaults = array(
+        self::KEY_BOOTSTRAP_THEME => 'default',
         self::KEY_SOCIAL_ENABLED => true,
         self::KEY_SOCIAL_TWITTER => true,
         self::KEY_SOCIAL_FACEBOOK => true,
@@ -32,6 +35,7 @@ class Config {
     );
 
     private $types = array(
+        self::KEY_BOOTSTRAP_THEME => self::TYPE_STRING,
         self::KEY_SOCIAL_ENABLED => self::TYPE_BOOL,
         self::KEY_SOCIAL_TWITTER => self::TYPE_BOOL,
         self::KEY_SOCIAL_FACEBOOK => self::TYPE_BOOL,

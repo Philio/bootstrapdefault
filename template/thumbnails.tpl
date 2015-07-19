@@ -28,7 +28,7 @@
     <div class="col-inner">
 		<a class="col-thumbnail" href="{$thumbnail.URL}">
             <div class="placeholder-{$width}">
-			    <img {if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.img_dir}/transparent.png"
+			    <img {if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}themes/bootstrapdefault/img/transparent.png"
                      data-src="{$derivative->get_url()}"{/if}
                      alt="{$thumbnail.TN_ALT}"
                      title="{$thumbnail.TN_TITLE}">

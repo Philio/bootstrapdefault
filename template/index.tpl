@@ -165,12 +165,10 @@
 {/if}
 
 {if !empty($THUMBNAILS)}
-    <!-- Start of thumbnails -->
-        <div id="thumbnails">
-{$THUMBNAILS}
+        <!-- Start of thumbnails -->
+        <div id="thumbnails">{$THUMBNAILS}</div>
 {footer_script}{literal}$(document).ready(function(){$('#content img').load(function(){$('#content .col-inner').equalHeights()})});{/literal}{/footer_script}
-        </div>
-    <!-- End of thumbnails -->
+        <!-- End of thumbnails -->
 {/if}
     </div>
 </div>

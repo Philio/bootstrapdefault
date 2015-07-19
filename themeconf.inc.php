@@ -15,7 +15,6 @@ $themeconf = array(
     'parent' => 'default',
     'load_parent_css' => false,
     'load_parent_local_head' => false,
-    'img_dir' => 'themes/bootstrapdefault/img',
     'url' => 'https://philio.me/'
 );
 

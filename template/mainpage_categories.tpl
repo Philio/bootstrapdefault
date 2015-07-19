@@ -13,7 +13,7 @@
     <div class="col-inner">
         <a class="col-thumbnail" href="{$cat.URL}">
             <div class="placeholder" style="background: url({$ROOT_URL}{$themeconf.icon_dir}/img_small.png) no-repeat center">
-                <img {strip}{if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.img_dir}/transparent.png"
+                <img {strip}{if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}themes/bootstrapdefault/img/transparent.png"
                     data-src="{$derivative->get_url()}"{/if}
                     alt="{$cat.TN_ALT}"
                     title="{$cat.NAME|@replace:'"':' '|@strip_tags:false} - {'display this album'|@translate}">{/strip}
