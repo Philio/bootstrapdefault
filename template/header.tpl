@@ -37,7 +37,10 @@
 {/foreach}
 
 {if $theme_config->bootstrap_theme == 'default'}
-{combine_css path="themes/bootstrapdefault/bootstrap/dist/css/bootstrap-theme.min.css"}
+{combine_css path="themes/bootstrapdefault/bootstrap/dist/css/bootstrap-theme.min.css" order=0}
+{/if}
+{if $theme_config->custom_css && file_exists("local/bootstrapdefault/custom.css")}
+{combine_css path="local/bootstrapdefault/custom.css" order=10}
 {/if}
 {combine_css path="themes/bootstrapdefault/fixplugins.css" order=1000000}
 {get_combined_css}

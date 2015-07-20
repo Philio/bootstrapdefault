@@ -50,8 +50,6 @@
                 </li>
             </ul>
         </fieldset>
-    </div>
-    <div id="configContent">
         <fieldset class="mainConf">
             <legend>{'Comments'|@translate}</legend>
             <ul>
@@ -71,8 +69,6 @@
                 </li>
             </ul>
         </fieldset>
-    </div>
-    <div id="configContent">
         <fieldset class="mainConf">
             <legend>{'Tag cloud'|@translate}</legend>
             <ul>
@@ -87,6 +83,10 @@
                     </label>
                 </li>
             </ul>
+        </fieldset>
+        <fieldset class="mainConf">
+            <legend>{'Custom CSS'|@translate}</legend>
+            <textarea name="custom_css" cols="80" rows="10">{if $theme_config->custom_css}{$theme_config->custom_css}{/if}</textarea>
         </fieldset>
     </div>
     <p class="formButtons">

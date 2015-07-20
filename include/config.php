@@ -4,7 +4,7 @@ namespace BootstrapDefault;
 class Config {
 
     const CONF_PARAM = 'bootstrapdefault';
-    const CONF_VERSION = 2;
+    const CONF_VERSION = 3;
 
     const TYPE_BOOL = 'bool';
     const TYPE_STRING = 'string';
@@ -23,6 +23,8 @@ class Config {
 
     const KEY_TAG_CLOUD_TYPE = 'tag_cloud_type';
 
+    const KEY_CUSTOM_CSS = 'custom_css';
+
     private $defaults = array(
         self::KEY_BOOTSTRAP_THEME => 'default',
         self::KEY_SOCIAL_ENABLED => true,
@@ -32,6 +34,7 @@ class Config {
         self::KEY_COMMENTS_TYPE => 'piwigo',
         self::KEY_COMMENTS_DISQUS_SHORTNAME => null,
         self::KEY_TAG_CLOUD_TYPE => 'basic',
+        self::KEY_CUSTOM_CSS => null,
     );
 
     private $types = array(
@@ -43,6 +46,7 @@ class Config {
         self::KEY_COMMENTS_TYPE => self::TYPE_STRING,
         self::KEY_COMMENTS_DISQUS_SHORTNAME => self::TYPE_STRING,
         self::KEY_TAG_CLOUD_TYPE => self::TYPE_STRING,
+        self::KEY_CUSTOM_CSS => self::TYPE_STRING,
     );
 
     private $config = array();
@@ -97,6 +101,9 @@ class Config {
                     $this->config[$key] = isset($post[$key]);
                     break;
             }
+            if ($key == self::KEY_CUSTOM_CSS) {
+                $this->saveCustomCss($post[$key]);
+            }
         }
     }
 
@@ -114,6 +121,19 @@ class Config {
             if (isset($config[$key])) {
                 $this->config[$key] = $config[$key];
             }
+        }
+    }
+
+    private function saveCustomCss($css) {
+        $file =  PHPWG_ROOT_PATH . PWG_LOCAL_DIR . 'bootstrapdefault/custom.css';
+        $dir = dirname($file);
+        if (!file_exists($dir)) {
+            mkdir($dir, 0755, true);
+        }
+        if (empty($css)) {
+            unlink($file);
+        } else {
+            file_put_contents($file, $css);
         }
     }
 
