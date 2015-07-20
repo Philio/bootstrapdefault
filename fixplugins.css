@@ -98,7 +98,8 @@
   display: none;
 }
 ul.thumbnailCategories,
-ul.thumbnails {
+ul.thumbnails,
+ul#thumbnails {
   -webkit-padding-start: 0px;
 }
 #content div.loader {
