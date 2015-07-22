@@ -8,6 +8,7 @@ class Config {
 
     const TYPE_BOOL = 'bool';
     const TYPE_STRING = 'string';
+    const TYPE_FILE = 'file';
 
     const KEY_VERSION = 'conf_version';
 
@@ -46,13 +47,18 @@ class Config {
         self::KEY_COMMENTS_TYPE => self::TYPE_STRING,
         self::KEY_COMMENTS_DISQUS_SHORTNAME => self::TYPE_STRING,
         self::KEY_TAG_CLOUD_TYPE => self::TYPE_STRING,
-        self::KEY_CUSTOM_CSS => self::TYPE_STRING,
+        self::KEY_CUSTOM_CSS => self::TYPE_FILE,
     );
+
+    private $files = array();
 
     private $config = array();
 
     public function __construct() {
         global $conf;
+
+        // Initialise the files array
+        $this->initFiles();
 
         // Create initial config if necessary
         if (!isset($conf[self::CONF_PARAM])) {
@@ -77,33 +83,43 @@ class Config {
         $this->save();
     }
 
+    private function initFiles() {
+        $this->files[self::KEY_CUSTOM_CSS] = PHPWG_ROOT_PATH . PWG_LOCAL_DIR . 'bootstrapdefault/custom.css';
+    }
+
     public function __set($key, $value) {
         if (array_key_exists($key, $this->defaults)) {
-            $this->config[$key] = $value;
+            switch ($this->types[$key]) {
+                case self::TYPE_STRING:
+                    $this->config[$key] = !empty($value) ? $value : null;
+                    break;
+                case self::TYPE_BOOL:
+                    $this->config[$key] = $value ? true : false;
+                    break;
+                case self::TYPE_FILE:
+                    $this->saveFile($key, $value);
+                    break;
+            }
         }
     }
 
     public function __get($key) {
         if (array_key_exists($key, $this->defaults)) {
-            return $this->config[$key];
+            switch ($this->types[$key]) {
+                case self::TYPE_STRING:
+                case self::TYPE_BOOL:
+                    return $this->config[$key];
+                case self::TYPE_FILE:
+                    return $this->loadFile($key);
+            }
         } else {
             return null;
         }
     }
 
     public function fromPost(array $post) {
-        foreach ($this->defaults as $key => $value) {
-            switch ($this->types[$key]) {
-                case self::TYPE_STRING:
-                    $this->config[$key] = isset($post[$key]) ? $post[$key] : null;
-                    break;
-                case self::TYPE_BOOL:
-                    $this->config[$key] = isset($post[$key]);
-                    break;
-            }
-            if ($key == self::KEY_CUSTOM_CSS) {
-                $this->saveCustomCss($post[$key]);
-            }
+        foreach ($post as $key => $value) {
+            $this->__set($key, stripslashes($value));
         }
     }
 
@@ -124,16 +140,25 @@ class Config {
         }
     }
 
-    private function saveCustomCss($css) {
-        $file =  PHPWG_ROOT_PATH . PWG_LOCAL_DIR . 'bootstrapdefault/custom.css';
+    private function saveFile($key, $content) {
+        $file = $this->files[$key];
         $dir = dirname($file);
         if (!file_exists($dir)) {
             mkdir($dir, 0755, true);
         }
-        if (empty($css)) {
+        if (empty($content) && file_exists($file)) {
             unlink($file);
         } else {
-            file_put_contents($file, $css);
+            file_put_contents($file, $content);
+        }
+    }
+
+    private function loadFile($key) {
+        $file = $this->files[$key];
+        if (file_exists($file)) {
+            return file_get_contents($file);
+        } else {
+            return null;
         }
     }
 

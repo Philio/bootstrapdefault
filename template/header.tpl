@@ -21,12 +21,22 @@
     <title>{if $PAGE_TITLE!=l10n('Home') && $PAGE_TITLE!=$GALLERY_TITLE}{$PAGE_TITLE} | {/if}{$GALLERY_TITLE}</title>
     <link rel="shortcut icon" type="image/x-icon" href="{$ROOT_URL}{$themeconf.icon_dir}/favicon.ico">
     <link rel="start" title="{'Home'|@translate}" href="{$U_HOME}" >
-    <link rel="search" title="{'Search'|@translate}" href="{$ROOT_URL}search.php" >
-{if isset($first.U_IMG)   }    <link rel="first" title="{'First'|@translate}" href="{$first.U_IMG}" >{/if}
-{if isset($previous.U_IMG)}    <link rel="prev" title="{'Previous'|@translate}" href="{$previous.U_IMG}" >{/if}
-{if isset($next.U_IMG)    }    <link rel="next" title="{'Next'|@translate}" href="{$next.U_IMG}" >{/if}
-{if isset($last.U_IMG)    }    <link rel="last" title="{'Last'|@translate}" href="{$last.U_IMG}" >{/if}
-{if isset($U_UP)          }    <link rel="up" title="{'Thumbnails'|@translate}" href="{$U_UP}" >{/if}
+    <link rel="search" title="{'Search'|@translate}" href="{$ROOT_URL}search.php">
+{if isset($first.U_IMG)   }
+    <link rel="first" title="{'First'|@translate}" href="{$first.U_IMG}">
+{/if}
+{if isset($previous.U_IMG)}
+    <link rel="prev" title="{'Previous'|@translate}" href="{$previous.U_IMG}">
+{/if}
+{if isset($next.U_IMG)}
+    <link rel="next" title="{'Next'|@translate}" href="{$next.U_IMG}">
+{/if}
+{if isset($last.U_IMG)}
+    <link rel="last" title="{'Last'|@translate}" href="{$last.U_IMG}">
+{/if}
+{if isset($U_UP)}
+    <link rel="up" title="{'Thumbnails'|@translate}" href="{$U_UP}">
+{/if}
 
 {combine_css path="themes/bootstrapdefault/bootstrap/dist/css/bootstrap.min.css" order=-20}
 {foreach from=$themes item=theme}
@@ -39,15 +49,18 @@
 {if $theme_config->bootstrap_theme == 'default'}
 {combine_css path="themes/bootstrapdefault/bootstrap/dist/css/bootstrap-theme.min.css" order=0}
 {/if}
-{if $theme_config->custom_css && file_exists("local/bootstrapdefault/custom.css")}
+{if file_exists("local/bootstrapdefault/custom.css")}
 {combine_css path="local/bootstrapdefault/custom.css" order=10}
 {/if}
 {combine_css path="themes/bootstrapdefault/fixplugins.css" order=1000000}
 {get_combined_css}
 
-{if isset($U_PREFETCH)}    <link rel="prefetch" href="{$U_PREFETCH}">{/if}
-
-{if not empty($page_refresh)}   <meta http-equiv="refresh" content="{$page_refresh.TIME};url={$page_refresh.U_REFRESH}">{/if}
+{if isset($U_PREFETCH)}
+    <link rel="prefetch" href="{$U_PREFETCH}">
+{/if}
+{if not empty($page_refresh)}
+    <meta http-equiv="refresh" content="{$page_refresh.TIME};url={$page_refresh.U_REFRESH}">
+{/if}
 
 {combine_script id='jquery'}
 {combine_script id='jquery-ajaxmanager' require='jquery' path='themes/default/js/plugins/jquery.ajaxmanager.js'}

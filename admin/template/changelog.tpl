@@ -4,6 +4,14 @@
 </div>
 <div id="configContent">
     <fieldset class="mainConf">
+        <legend>1.0.0</legend>
+        <ul>
+            <li>{'Minor bugs fixed'|@translate}</li>
+            <li>{'Plugin support improvements'|@translate}</li>
+            <li>{'Added custom CSS support'|@translate}</li>
+        </ul>
+    </fieldset>
+    <fieldset class="mainConf">
         <legend>1.0.0-rc2</legend>
         <ul>
             <li>{'Added HTML5/canvas alternative tag cloud with corresponding admin setting'|@translate}</li>
