@@ -9,7 +9,7 @@
                     contact us on http://piwigo.org to find a solution on how
                     to show the origin of the script...
         *}
-        {'Powered by'|@translate}	<a href="{$PHPWG_URL}" class="Piwigo">Piwigo</a> | Bootstrap Default {'theme by'|@translate} <a href="https://philio.me/">Philio</a>
+        {'Powered by'|@translate}	<a href="{$PHPWG_URL}" class="Piwigo">Piwigo</a> | Bootstrap Default {'theme by'|@translate} <a href="https://philio.me/">Phil Bayfield</a>
         {$VERSION}
         {if isset($CONTACT_MAIL)}
             | <a href="mailto:{$CONTACT_MAIL}?subject={'A comment on your site'|@translate|@escape:url}">{'Contact webmaster'|@translate}</a>
