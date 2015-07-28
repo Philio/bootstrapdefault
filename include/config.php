@@ -4,7 +4,7 @@ namespace BootstrapDefault;
 class Config {
 
     const CONF_PARAM = 'bootstrapdefault';
-    const CONF_VERSION = 3;
+    const CONF_VERSION = 4;
 
     const TYPE_BOOL = 'bool';
     const TYPE_STRING = 'string';
@@ -118,8 +118,8 @@ class Config {
     }
 
     public function fromPost(array $post) {
-        foreach ($post as $key => $value) {
-            $this->__set($key, stripslashes($value));
+        foreach (array_keys($this->defaults) as $key) {
+            $this->__set($key, isset($post[$key]) ? stripslashes($post[$key]) : null);
         }
     }
 
@@ -133,7 +133,7 @@ class Config {
     }
 
     private function populateConfig(array $config) {
-        foreach ($this->defaults as $key => $value) {
+        foreach (array_keys($this->defaults) as $key) {
             if (isset($config[$key])) {
                 $this->config[$key] = $config[$key];
             }
