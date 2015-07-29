@@ -1,5 +1,5 @@
-Bootstrap Default theme for Piwigo
-==================================
+Bootstrap Default theme for Piwigo 1.0.1
+========================================
 
 A modern and responsive theme for [Piwigo](http://piwigo.org/) built with standard [Bootstrap](http://getbootstrap.com/) components and using the default [Bootstrap](http://getbootstrap.com/) theme.
 Intended for easy customisation using [Bootstrap](http://getbootstrap.com/) styles or as a parent theme for creating responsive themes for [Piwigo](http://piwigo.org/).
