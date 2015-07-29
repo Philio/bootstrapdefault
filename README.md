@@ -30,6 +30,8 @@ Download the latest release from the [Piwigo website](http://piwigo.org/ext/exte
 Clone the [Github repository](https://github.com/Philio/bootstrapdefault):
 
     git clone git@github.com:Philio/bootstrapdefault.git
+    
+*Add the `--recursive` option to include the submodules or run `git submodule update --init` after cloning.*
 
 ## Bundled libraries
 
