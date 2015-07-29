@@ -4,6 +4,12 @@
 </div>
 <div id="configContent">
     <fieldset class="mainConf">
+        <legend>1.0.1</legend>
+        <ul>
+            <li>{'Fixed '|@translate} <a href="https://github.com/Philio/bootstrapdefault/issues/12" target="_blank">#12</a> - {"Social settings can't be disabled in admin"|@translate}</li>
+        </ul>
+    </fieldset>
+    <fieldset class="mainConf">
         <legend>1.0.0</legend>
         <ul>
             <li>{'Minor bugs fixed'|@translate}</li>
