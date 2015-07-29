@@ -8,6 +8,7 @@
         <ul>
             <li>{'Fixed '|@translate} <a href="https://github.com/Philio/bootstrapdefault/issues/12" target="_blank">#12</a> - {"Social settings can't be disabled in admin"|@translate}</li>
             <li>{'Fixed '|@translate} <a href="https://github.com/Philio/bootstrapdefault/issues/9" target="_blank">#9</a> - {"Title link incorrect when Piwigo is not installed on root of domain"|@translate}</li>
+            <li>{'Fixed '|@translate} <a href="https://github.com/Philio/bootstrapdefault/issues/13" target="_blank">#13</a> - {"Plugins that prefilter image information should now work, e.g. Forecast, OpenStreetMap"|@translate}</li>
         </ul>
     </fieldset>
     <fieldset class="mainConf">
