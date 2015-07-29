@@ -126,42 +126,58 @@
         <dl>
             <h4>{'Information'|@translate}</h4>
 {if $display_info.author and isset($INFO_AUTHOR)}
-            <dt>{'Author'|@translate}</dt>
-            <dd>{$INFO_AUTHOR}</dd>
+            <div id="Author" class="imageInfo">
+                <dt>{'Author'|@translate}</dt>
+                <dd>{$INFO_AUTHOR}</dd>
+            </div>
 {/if}
 {if $display_info.created_on and isset($INFO_CREATION_DATE)}
-            <dt>{'Created on'|@translate}</dt>
-            <dd>{$INFO_CREATION_DATE}</dd>
+            <div id="datecreate" class="imageInfo">
+                <dt>{'Created on'|@translate}</dt>
+                <dd>{$INFO_CREATION_DATE}</dd>
+            </div>
 {/if}
 {if $display_info.posted_on}
-            <dt>{'Posted on'|@translate}</dt>
-            <dd>{$INFO_POSTED_DATE}</dd>
+            <div id="datepost" class="imageInfo">
+                <dt>{'Posted on'|@translate}</dt>
+                <dd>{$INFO_POSTED_DATE}</dd>
+            </div>
 {/if}
 {if $display_info.dimensions and isset($INFO_DIMENSIONS)}
-            <dt>{'Dimensions'|@translate}</dt>
-            <dd>{$INFO_DIMENSIONS}</dd>
+            <div id="Dimensions" class="imageInfo">
+                <dt>{'Dimensions'|@translate}</dt>
+                <dd>{$INFO_DIMENSIONS}</dd>
+            </div>
 {/if}
 {if $display_info.file}
-            <dt>{'File'|@translate}</dt>
-            <dd>{$INFO_FILE}</dd>
+            <div id="File" class="imageInfo">
+                <dt>{'File'|@translate}</dt>
+                <dd>{$INFO_FILE}</dd>
+            </div>
 {/if}
 {if $display_info.filesize and isset($INFO_FILESIZE)}
-            <dt>{'Filesize'|@translate}</dt>
-            <dd>{$INFO_FILESIZE}</dd>
+            <div id="Filesize" class="imageInfo">
+                <dt>{'Filesize'|@translate}</dt>
+                <dd>{$INFO_FILESIZE}</dd>
+            </div>
 {/if}
 {if $display_info.tags and isset($related_tags)}
-            <dt>{'Tags'|@translate}</dt>
-            <dd>
-                {foreach from=$related_tags item=tag name=tag_loop}{if !$smarty.foreach.tag_loop.first}, {/if}<a href="{$tag.URL}">{$tag.name}</a>{/foreach}
-            </dd>
+            <div id="Tags" class="imageInfo">
+                <dt>{'Tags'|@translate}</dt>
+                <dd>
+                    {foreach from=$related_tags item=tag name=tag_loop}{if !$smarty.foreach.tag_loop.first}, {/if}<a href="{$tag.URL}">{$tag.name}</a>{/foreach}
+                </dd>
+            </div>
 {/if}
 {if $display_info.categories and isset($related_categories)}
-            <dt>{'Albums'|@translate}</dt>
-            <dd>
+            <div id="Categories" class="imageInfo">
+                <dt>{'Albums'|@translate}</dt>
+                <dd>
 {foreach from=$related_categories item=cat name=cat_loop}
                 {if !$smarty.foreach.cat_loop.first}<br />{/if}{$cat}
 {/foreach}
-            </dd>
+                </dd>
+            </div>
 {/if}
 {if $display_info.privacy_level and isset($available_permission_levels)}
 {combine_script id='core.scripts' load='async' path='themes/default/js/scripts.js'}
@@ -182,20 +198,22 @@
     }
     (SwitchBox=window.SwitchBox||[]).push("#privacyLevelLink", "#privacyLevelBox");
 {/strip}{/footer_script}
-            <dt>{'Who can see this photo?'|@translate}</dt>
-            <dd>
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle ellipsis" type="button" id="dropdownPermissions" data-toggle="dropdown" aria-expanded="true">
-                        {$available_permission_levels[$current.level]}
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownPermissions">
+            <div id="Privacy" class="imageInfo">
+                <dt>{'Who can see this photo?'|@translate}</dt>
+                <dd>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle ellipsis" type="button" id="dropdownPermissions" data-toggle="dropdown" aria-expanded="true">
+                            {$available_permission_levels[$current.level]}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownPermissions">
 {foreach from=$available_permission_levels item=label key=level}
-                        <li id="permission-{$level}" role="presentation" class="permission-li {if $current.level == $level} active{/if}"><a role="menuitem" tabindex="-1" href="javascript:setPrivacyLevel({$current.id},{$level},'{$label}')">{$label}</a></li>
+                            <li id="permission-{$level}" role="presentation" class="permission-li {if $current.level == $level} active{/if}"><a role="menuitem" tabindex="-1" href="javascript:setPrivacyLevel({$current.id},{$level},'{$label}')">{$label}</a></li>
 {/foreach}
-                    </ul>
-                </div>
-            </dd>
+                        </ul>
+                    </div>
+                </dd>
+            </div>
 {/if}
 {if isset($metadata)}
 {foreach from=$metadata item=meta}
