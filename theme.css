@@ -251,6 +251,7 @@ fieldset[disabled] .html-radios-inline label {
   position: absolute;
   right: -250px;
   text-align: left;
+  z-index: 10000;
 }
 #sidebar .handle {
   margin-top: 30px;
