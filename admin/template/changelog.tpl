@@ -4,6 +4,13 @@
 </div>
 <div id="configContent">
     <fieldset class="mainConf">
+        <legend>1.0.2</legend>
+        <ul>
+            <li>{'Fixed '|@translate} <a href="https://github.com/Philio/bootstrapdefault/issues/14" target="_blank">#14</a> - {"Rating stars appear above side bar"|@translate}</li>
+            <li>{'Fixed '|@translate} <a href="https://github.com/Philio/bootstrapdefault/issues/16" target="_blank">#16</a> - {"Side bar not correctly hidden in Safari"|@translate}</li>
+        </ul>
+    </fieldset>
+    <fieldset class="mainConf">
         <legend>1.0.1</legend>
         <ul>
             <li>{'Fixed '|@translate} <a href="https://github.com/Philio/bootstrapdefault/issues/12" target="_blank">#12</a> - {"Social settings can't be disabled in admin"|@translate}</li>
