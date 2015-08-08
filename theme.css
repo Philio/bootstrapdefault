@@ -80,7 +80,8 @@
 .modal-footer:after {
   clear: both;
 }
-body {
+div#the_page {
+  position: relative;
   overflow-x: hidden;
 }
 #quickconnect .form-control {
