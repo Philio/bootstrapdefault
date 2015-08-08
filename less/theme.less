@@ -1,7 +1,8 @@
 @import (reference) "../bootstrap/less/bootstrap.less";
 @import (reference) "../selectize.js/src/less/selectize.bootstrap3.less";
 
-body {
+div#the_page {
+  position: relative;
   overflow-x: hidden;
 }
 
@@ -175,6 +176,7 @@ body {
   position: absolute;
   right: -250px;
   text-align: left;
+  z-index: 10000;
   .handle {
     margin-top: 30px;
     float: right;

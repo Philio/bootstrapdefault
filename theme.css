@@ -80,7 +80,8 @@
 .modal-footer:after {
   clear: both;
 }
-body {
+div#the_page {
+  position: relative;
   overflow-x: hidden;
 }
 #quickconnect .form-control {
@@ -250,6 +251,7 @@ fieldset[disabled] .html-radios-inline label {
   position: absolute;
   right: -250px;
   text-align: left;
+  z-index: 10000;
 }
 #sidebar .handle {
   margin-top: 30px;

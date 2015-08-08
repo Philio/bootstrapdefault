@@ -80,30 +80,31 @@
 </head>
 
 <body id="{$BODY_ID}">
-<!-- Bootstrap navbar, moved to the header as variables are missing in menubar.tpl, actual menus remain in menubar.tpl -->
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menubar-navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{$U_HOME}">{$GALLERY_TITLE}</a>
-        </div>
-        <div class="collapse navbar-collapse navbar-right" id="menubar-navbar-collapse">
+    <div id="the_page">
+        <!-- Bootstrap navbar, moved to the header as variables are missing in menubar.tpl, actual menus remain in menubar.tpl -->
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menubar-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{$U_HOME}">{$GALLERY_TITLE}</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right" id="menubar-navbar-collapse">
 {$MENUBAR}
-        </div>
-    </div>
-</nav>
+                </div>
+            </div>
+        </nav>
 
 {if !isset($slideshow)}
-<div class="jumbotron">
-    <div class="container">
-        <div id="theHeader">{$PAGE_BANNER}</div>
-    </div>
-</div>
+        <div class="jumbotron">
+            <div class="container">
+                <div id="theHeader">{$PAGE_BANNER}</div>
+            </div>
+        </div>
 {/if}
 
 {if not empty($header_msgs)}
