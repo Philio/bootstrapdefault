@@ -61,6 +61,11 @@
                     <label class="checkbox-inline">
                         <input type="checkbox" name="fields[]" value="file" checked="checked"> {'File name'|translate}
                     </label>
+{if isset($TAGS)}
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="search_in_tags" value="tags"> {'Tags'|translate}
+                    </label>
+{/if}
                 </div>
             </div>
         </div>

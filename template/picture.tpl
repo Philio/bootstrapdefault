@@ -60,10 +60,22 @@
                 </li>
 {/if}
 {if isset($current.U_DOWNLOAD)}
+{if empty($current.formats)}
                 <li>
                     <a href="{$current.U_DOWNLOAD}" title="{'Download this file'|@translate}" class="pwg-state-default pwg-button" rel="nofollow">
                         <span class="glyphicon glyphicon-download-alt"></span><span class="glyphicon-text">{'Download'|@translate}</span>
                     </a>
+{else}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-download-alt"></span><span class="glyphicon-text">{'Download'|@translate}</span><span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+  {foreach from=$current.formats item=format}
+                      <li><a href="{$format.download_url}" rel="nofollow">{$format.label}<span class="downloadformatDetails"> ({$format.filesize})</span></a></li>
+  {/foreach}
+                    </ul>
+{/if} {* has formats *}
                 </li>
 {/if}
 {if isset($PLUGIN_PICTURE_BUTTONS)}{foreach from=$PLUGIN_PICTURE_BUTTONS item=button}{$button}{/foreach}{/if}
