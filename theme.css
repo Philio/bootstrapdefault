@@ -90,7 +90,7 @@ div#the_page {
 .navbar-form-desktop {
   display: none;
 }
-.navbar:first-of-type {
+.navbar-main {
   margin-bottom: 0px;
 }
 .navbar .navbar-right {

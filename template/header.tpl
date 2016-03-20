@@ -81,8 +81,9 @@
 
 <body id="{$BODY_ID}">
     <div id="the_page">
+{if $BODY_ID != 'thePicturePage' or $theme_config->picture_page == 'normal'}
         <!-- Bootstrap navbar, moved to the header as variables are missing in menubar.tpl, actual menus remain in menubar.tpl -->
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-default navbar-main" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menubar-navbar-collapse">
@@ -98,8 +99,9 @@
                 </div>
             </div>
         </nav>
+{/if}
 
-{if !isset($slideshow)}
+{if !isset($slideshow) and ($BODY_ID != 'thePicturePage' or $theme_config->picture_page == 'normal')}
         <div class="jumbotron">
             <div class="container">
                 <div id="theHeader">{$PAGE_BANNER}</div>

@@ -4,7 +4,7 @@ namespace BootstrapDefault;
 class Config {
 
     const CONF_PARAM = 'bootstrapdefault';
-    const CONF_VERSION = 4;
+    const CONF_VERSION = 5;
 
     const TYPE_BOOL = 'bool';
     const TYPE_STRING = 'string';
@@ -13,6 +13,8 @@ class Config {
     const KEY_VERSION = 'conf_version';
 
     const KEY_BOOTSTRAP_THEME = 'bootstrap_theme';
+
+    const KEY_PICTURE_PAGE = 'picture_page';
 
     const KEY_SOCIAL_ENABLED = 'social_enabled';
     const KEY_SOCIAL_TWITTER = 'social_twitter';
@@ -28,6 +30,7 @@ class Config {
 
     private $defaults = array(
         self::KEY_BOOTSTRAP_THEME => 'default',
+        self::KEY_PICTURE_PAGE => 'normal',
         self::KEY_SOCIAL_ENABLED => true,
         self::KEY_SOCIAL_TWITTER => true,
         self::KEY_SOCIAL_FACEBOOK => true,
@@ -40,6 +43,7 @@ class Config {
 
     private $types = array(
         self::KEY_BOOTSTRAP_THEME => self::TYPE_STRING,
+        self::KEY_PICTURE_PAGE => self::TYPE_STRING,
         self::KEY_SOCIAL_ENABLED => self::TYPE_BOOL,
         self::KEY_SOCIAL_TWITTER => self::TYPE_BOOL,
         self::KEY_SOCIAL_FACEBOOK => self::TYPE_BOOL,

@@ -18,6 +18,23 @@
             </ul>
         </fieldset>
         <fieldset class="mainConf">
+            <legend>{'Picture page display'|@translate}</legend>
+            <ul>
+                <li>
+                    <label class="radio">
+                        <input type="radio" name="picture_page" value="normal"{if $theme_config->picture_page == 'normal'} checked="checked"{/if} />
+                        {'Normal'|@translate}
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="picture_page" value="more-space"{if $theme_config->picture_page == 'more-space'} checked="checked"{/if} />
+                        {'More space*'|@translate}
+                    </label>
+                </li>
+            </ul>
+            <br />
+            <span>* Hides the top menu and jumbotron containing the page title and banner</span>
+        </fieldset>
+        <fieldset class="mainConf">
             <legend>{'Social integration'|@translate}</legend>
             <ul>
                 <li>
