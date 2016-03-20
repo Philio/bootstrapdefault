@@ -4,6 +4,13 @@
 </div>
 <div id="configContent">
     <fieldset class="mainConf">
+        <legend>1.0.3</legend>
+        <ul>
+            <li>{'Merged '|@translate} <a href="https://github.com/Philio/bootstrapdefault/pull/24" target="_blank">#24</a> - {"Compatibility fixes for Piwigo 2.8"|@translate}</li>
+            <li>{'Fixed '|@translate} <a href="https://github.com/Philio/bootstrapdefault/issues/17" target="_blank">#17</a> - {"Added an option to hide the top menu and jumbotron on picture page"|@translate}</li>
+        </ul>
+    </fieldset>
+    <fieldset class="mainConf">
         <legend>1.0.2</legend>
         <ul>
             <li>{'Fixed '|@translate} <a href="https://github.com/Philio/bootstrapdefault/issues/14" target="_blank">#14</a> - {"Rating stars appear above side bar"|@translate}</li>
