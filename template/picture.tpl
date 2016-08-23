@@ -257,14 +257,16 @@
             <span class="count">{$INFO_VISITS}</span>
         </div>
 {/if}
+{if $display_info.rating_score and isset($rate_summary)}
         <div id="rating">
             <dl class="dl-horizontal">
-                <dt>{'Average rating'|@translate} <span id="ratingCount">{if $rate_summary.count}({$rate_summary.count|@translate_dec:'%d rate':'%d rates'}){/if}</span></dt>
+                <dt>{'Rating score'|@translate} <span id="ratingCount">({if $rate_summary.count}{$rate_summary.count|@translate_dec:'%d rate':'%d rates'}{else}{'no rate'|@translate}{/if})</span></dt>
                 <dd id="averageRate">
 {foreach from=$rating.marks item=mark name=rate_loop}
                     <span class="{if $rate_summary.count && $rate_summary.average > $mark - 0.5}rateButtonStarFull{else}rateButtonStarEmpty{/if}" data-value="{$mark}"></span>
 {/foreach}
                 </dd>
+{if isset($rating)}
                 <dt id="updateRate">{if isset($rating.USER_RATE)}{'Update your rating'|@translate}{else}{'Rate this photo'|@translate}{/if}</dt>
                 <dd>
                     <form action="{$rating.F_ACTION}" method="post" id="rateForm" style="margin:0;">
@@ -303,8 +305,10 @@
 {/strip}
                     </form>
                 </dd>
+{/if}
             </dl>
         </div>
+{/if}
     </section>
 </div>
 
