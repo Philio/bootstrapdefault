@@ -3,4 +3,4 @@
 	url = git@github.com:twbs/bootstrap.git
 [submodule "selectize.js"]
 	path = selectize.js
-	url = git@github.com:brianreavis/selectize.js.git
+	url = git@github.com:selectize/selectize.js.git
