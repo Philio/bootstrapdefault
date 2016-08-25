@@ -7,7 +7,7 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-primary">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-contextual">
                <span class="sr-only">Toggle navigation</span>
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
@@ -20,7 +20,7 @@
 {/if}
             </div>
         </div>
-        <div class="navbar-right navbar-collapse collapse" id="nav-primary">
+        <div class="navbar-right navbar-collapse collapse" id="navbar-contextual">
             <ul class="nav navbar-nav">
 {if !empty($image_orders)}
                 <li class="dropdown">

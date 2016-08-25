@@ -6,7 +6,7 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-secondary">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-contextual">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -14,7 +14,7 @@
             </button>
             <div class="navbar-brand">{$SECTION_TITLE}{$LEVEL_SEPARATOR}<a href>{$current.TITLE}</a> [{$PHOTO}]</div>
         </div>
-        <div class="navbar-right navbar-collapse collapse" id="nav-secondary">
+        <div class="navbar-right navbar-collapse collapse" id="navbar-contextual">
             <ul class="nav navbar-nav">
 {if isset($current.unique_derivatives) && count($current.unique_derivatives)>1}
 {footer_script require='jquery'}{strip}
