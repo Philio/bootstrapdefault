@@ -35,8 +35,8 @@ Clone the [Github repository](https://github.com/Philio/bootstrapdefault):
 
 ## Bundled libraries
 
-* [Bootstrap](http://getbootstrap.com/) 3.3.5 - Included as sub module
-* [Selectize.js](http://brianreavis.github.io/selectize.js/) 0.12.0 - Included as sub module. Note: The bundled version
+* [Bootstrap](http://getbootstrap.com/) 3.3.7 - Included as sub module
+* [Selectize.js](http://brianreavis.github.io/selectize.js/) 0.12.1 - Included as sub module. Note: The bundled version
 with Piwigo 2.7.x is ignored in favour of the latest build with Bootstrap styling.
 
 ## License
