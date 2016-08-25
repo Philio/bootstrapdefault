@@ -4,6 +4,14 @@
 </div>
 <div id="configContent">
     <fieldset class="mainConf">
+        <legend>1.0.4</legend>
+        <ul>
+            <li>{'Merged '|@translate} <a href="https://github.com/Philio/bootstrapdefault/pull/27" target="_blank">#27</a> - {"Fixes issues with rating disaply"|@translate}</li>
+            <li>{'Merged '|@translate} <a href="https://github.com/Philio/bootstrapdefault/pull/30" target="_blank">#30</a> - {"Fixes issues with contextual nav on mobile devices"|@translate}</li>
+            <li>{'Merged '|@translate} <a href="https://github.com/Philio/bootstrapdefault/pull/29" target="_blank">#29</a> - {"Adds support for the Additional Pages plugin"|@translate}</li>
+        </ul>
+    </fieldset>
+    <fieldset class="mainConf">
         <legend>1.0.3</legend>
         <ul>
             <li>{'Merged '|@translate} <a href="https://github.com/Philio/bootstrapdefault/pull/24" target="_blank">#24</a> - {"Compatibility fixes for Piwigo 2.8"|@translate}</li>
