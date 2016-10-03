@@ -4,6 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset={$CONTENT_ENCODING}">
     <meta name="generator" content="Piwigo (aka PWG), see piwigo.org">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 {if isset($meta_ref) }
 {if isset($INFO_AUTHOR)}
     <meta name="author" content="{$INFO_AUTHOR|@strip_tags:false|@replace:'"':' '}">
@@ -20,6 +22,8 @@
 
     <title>{if $PAGE_TITLE!=l10n('Home') && $PAGE_TITLE!=$GALLERY_TITLE}{$PAGE_TITLE} | {/if}{$GALLERY_TITLE}</title>
     <link rel="shortcut icon" type="image/x-icon" href="{$ROOT_URL}{$themeconf.icon_dir}/favicon.ico">
+    <link rel="icon" sizes="192x192" href="{$ROOT_URL}themes/bootstrapdefault/img/logo.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="{$ROOT_URL}themes/bootstrapdefault/img/logo.png">
     <link rel="start" title="{'Home'|@translate}" href="{$U_HOME}" >
     <link rel="search" title="{'Search'|@translate}" href="{$ROOT_URL}search.php">
 {if isset($first.U_IMG)   }
