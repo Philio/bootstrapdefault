@@ -460,3 +460,8 @@ fieldset[disabled] .html-radios-inline label {
     display: block;
   }
 }
+
+#collectionsDropdown {
+  padding: 10px;
+  background-color: #fff;
+}
