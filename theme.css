@@ -465,3 +465,8 @@ fieldset[disabled] .html-radios-inline label {
   padding: 10px;
   background-color: #fff;
 }
+
+.user-collections-icon {
+  width:16px;
+  height:16px;
+}
