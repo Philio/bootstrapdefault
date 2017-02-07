@@ -24,5 +24,6 @@
         <li class="divider"></li>
         <li><a href="{$block->data.U_LIST}">{'%d more...'|translate:$block->data.MORE}</a></li>
         {/if}
+        {/if}
 	</ul>
 </li>
