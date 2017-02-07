@@ -4,6 +4,12 @@
 </div>
 <div id="configContent">
     <fieldset class="mainConf">
+        <legend>1.0.6</legend>
+        <ul>
+            <li>{"Fixes a minor error in 1.0.5 related to the user collections plugin"|@translate}</li>
+        </ul>
+    </fieldset>
+    <fieldset class="mainConf">
         <legend>1.0.5</legend>
         <ul>
             <li>{'Fixed '|@translate} <a href="https://github.com/Philio/bootstrapdefault/issues/44" target="_blank">#27</a> - {"Removes PHP warning when specials menu is hidden"|@translate}</li>
