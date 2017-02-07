@@ -4,6 +4,14 @@
 </div>
 <div id="configContent">
     <fieldset class="mainConf">
+        <legend>1.0.5</legend>
+        <ul>
+            <li>{'Fixed '|@translate} <a href="https://github.com/Philio/bootstrapdefault/issues/44" target="_blank">#27</a> - {"Removes PHP warning when specials menu is hidden"|@translate}</li>
+            <li>{'Merged '|@translate} <a href="https://github.com/Philio/bootstrapdefault/pull/30" target="_blank">#41</a> - {"Adds support for the stuffs"|@translate}</li>
+            <li>{'Merged '|@translate} <a href="https://github.com/Philio/bootstrapdefault/pull/29" target="_blank">#43</a> - {"Adds support for the user collections"|@translate}</li>
+        </ul>
+    </fieldset>
+    <fieldset class="mainConf">
         <legend>1.0.4</legend>
         <ul>
             <li>{'Merged '|@translate} <a href="https://github.com/Philio/bootstrapdefault/pull/27" target="_blank">#27</a> - {"Fixes issues with rating disaply"|@translate}</li>
