@@ -38,7 +38,9 @@ class ThemeController {
         unset($mbMenu->data['comments']);
 
         $mbSpecials = $menu->get_block('mbSpecials');
-        unset($mbSpecials->data['calendar']);
+        if (!is_null($mbSpecials)) {
+            unset($mbSpecials->data['calendar']);
+        }
     }
 
 }
