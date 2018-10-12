@@ -4,6 +4,10 @@ Bootstrap Default theme for Piwigo 1.0.6
 A modern and responsive theme for [Piwigo](http://piwigo.org/) built with standard [Bootstrap](http://getbootstrap.com/) components and using the default [Bootstrap](http://getbootstrap.com/) theme.
 Intended for easy customisation using [Bootstrap](http://getbootstrap.com/) styles or as a parent theme for creating responsive themes for [Piwigo](http://piwigo.org/).
 
+## DEPRECATED
+
+This theme is no longer maintained as I'm no longer actively using Piwigo for photo hosting. The theme has served it's purpose and inspired the creation of [Bootstrap Darkroom](https://github.com/tkuther/piwigo-bootstrap-darkroom) which is great theme, actively maintained and has numerous additional features, so I recommend using this instead.
+
 ## Features
 
 * Fully responsive and fully featured theme based on Bootstrap's default theme
