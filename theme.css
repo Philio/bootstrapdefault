@@ -470,3 +470,8 @@ fieldset[disabled] .html-radios-inline label {
   width:16px;
   height:16px;
 }
+
+/* Language Switch */
+[class*="langflag-text-"] {
+  background-position: 0 50px !important;
+}
