@@ -470,3 +470,14 @@ fieldset[disabled] .html-radios-inline label {
   width:16px;
   height:16px;
 }
+
+/* BatchDownloader */
+.downloadSizeDetails {
+  font-style:italic;
+  font-size:80%;
+}
+#batchDownloadBox .switchBoxTitle {
+  text-align:center;
+  border-bottom:1px solid #eee;
+  padding-bottom:5px;
+}
